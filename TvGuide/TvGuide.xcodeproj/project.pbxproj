@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		84CC94DB1A58258200296CFE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC94DA1A58258200296CFE /* main.m */; };
 		84CC94DE1A58258200296CFE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC94DD1A58258200296CFE /* AppDelegate.m */; };
-		84CC94E11A58258200296CFE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC94E01A58258200296CFE /* ViewController.m */; };
+		84CC94E11A58258200296CFE /* GetChannelScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC94E01A58258200296CFE /* GetChannelScheduleController.m */; };
 		84CC94E41A58258200296CFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CC94E21A58258200296CFE /* Main.storyboard */; };
 		84CC94E61A58258200296CFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CC94E51A58258200296CFE /* Images.xcassets */; };
 		84CC94E91A58258200296CFE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CC94E71A58258200296CFE /* LaunchScreen.xib */; };
 		84CC94F51A58258300296CFE /* TvGuideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC94F41A58258300296CFE /* TvGuideTests.m */; };
+		84CC95001A582C3900296CFE /* RemoteDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC94FF1A582C3900296CFE /* RemoteDataManager.m */; };
+		84CC95031A58AA7000296CFE /* ChannelScheduleEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC95021A58AA7000296CFE /* ChannelScheduleEntry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +34,18 @@
 		84CC94DA1A58258200296CFE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84CC94DC1A58258200296CFE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84CC94DD1A58258200296CFE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84CC94DF1A58258200296CFE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		84CC94E01A58258200296CFE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		84CC94DF1A58258200296CFE /* GetChannelScheduleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetChannelScheduleController.h; sourceTree = "<group>"; };
+		84CC94E01A58258200296CFE /* GetChannelScheduleController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetChannelScheduleController.m; sourceTree = "<group>"; };
 		84CC94E31A58258200296CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84CC94E51A58258200296CFE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84CC94E81A58258200296CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		84CC94EE1A58258300296CFE /* TvGuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TvGuideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CC94F31A58258300296CFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84CC94F41A58258300296CFE /* TvGuideTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TvGuideTests.m; sourceTree = "<group>"; };
+		84CC94FE1A582C3900296CFE /* RemoteDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteDataManager.h; sourceTree = "<group>"; };
+		84CC94FF1A582C3900296CFE /* RemoteDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteDataManager.m; sourceTree = "<group>"; };
+		84CC95011A58AA7000296CFE /* ChannelScheduleEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelScheduleEntry.h; sourceTree = "<group>"; };
+		84CC95021A58AA7000296CFE /* ChannelScheduleEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelScheduleEntry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +89,13 @@
 			children = (
 				84CC94DC1A58258200296CFE /* AppDelegate.h */,
 				84CC94DD1A58258200296CFE /* AppDelegate.m */,
-				84CC94DF1A58258200296CFE /* ViewController.h */,
-				84CC94E01A58258200296CFE /* ViewController.m */,
+				84CC94DF1A58258200296CFE /* GetChannelScheduleController.h */,
+				84CC94E01A58258200296CFE /* GetChannelScheduleController.m */,
 				84CC94E21A58258200296CFE /* Main.storyboard */,
 				84CC94E51A58258200296CFE /* Images.xcassets */,
 				84CC94E71A58258200296CFE /* LaunchScreen.xib */,
 				84CC94D81A58258200296CFE /* Supporting Files */,
+				84CC95041A58C5AF00296CFE /* Remote Data  */,
 			);
 			path = TvGuide;
 			sourceTree = "<group>";
@@ -117,6 +124,17 @@
 				84CC94F31A58258300296CFE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84CC95041A58C5AF00296CFE /* Remote Data  */ = {
+			isa = PBXGroup;
+			children = (
+				84CC94FE1A582C3900296CFE /* RemoteDataManager.h */,
+				84CC94FF1A582C3900296CFE /* RemoteDataManager.m */,
+				84CC95011A58AA7000296CFE /* ChannelScheduleEntry.h */,
+				84CC95021A58AA7000296CFE /* ChannelScheduleEntry.m */,
+			);
+			name = "Remote Data ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +237,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84CC94E11A58258200296CFE /* ViewController.m in Sources */,
+				84CC94E11A58258200296CFE /* GetChannelScheduleController.m in Sources */,
 				84CC94DE1A58258200296CFE /* AppDelegate.m in Sources */,
 				84CC94DB1A58258200296CFE /* main.m in Sources */,
+				84CC95001A582C3900296CFE /* RemoteDataManager.m in Sources */,
+				84CC95031A58AA7000296CFE /* ChannelScheduleEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
