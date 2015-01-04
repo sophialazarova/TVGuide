@@ -16,6 +16,8 @@
 		84CC94F51A58258300296CFE /* TvGuideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC94F41A58258300296CFE /* TvGuideTests.m */; };
 		84CC95001A582C3900296CFE /* RemoteDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC94FF1A582C3900296CFE /* RemoteDataManager.m */; };
 		84CC95031A58AA7000296CFE /* ChannelScheduleEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC95021A58AA7000296CFE /* ChannelScheduleEntry.m */; };
+		84CC95071A58DE7400296CFE /* ChannelScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC95061A58DE7400296CFE /* ChannelScheduleTableViewController.m */; };
+		84CC95101A59455700296CFE /* ChannelScheduleItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC950F1A59455700296CFE /* ChannelScheduleItemTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		84CC94FF1A582C3900296CFE /* RemoteDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteDataManager.m; sourceTree = "<group>"; };
 		84CC95011A58AA7000296CFE /* ChannelScheduleEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelScheduleEntry.h; sourceTree = "<group>"; };
 		84CC95021A58AA7000296CFE /* ChannelScheduleEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelScheduleEntry.m; sourceTree = "<group>"; };
+		84CC95051A58DE7400296CFE /* ChannelScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelScheduleTableViewController.h; sourceTree = "<group>"; };
+		84CC95061A58DE7400296CFE /* ChannelScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelScheduleTableViewController.m; sourceTree = "<group>"; };
+		84CC950E1A59455700296CFE /* ChannelScheduleItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelScheduleItemTableViewCell.h; sourceTree = "<group>"; };
+		84CC950F1A59455700296CFE /* ChannelScheduleItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelScheduleItemTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,10 @@
 				84CC94E71A58258200296CFE /* LaunchScreen.xib */,
 				84CC94D81A58258200296CFE /* Supporting Files */,
 				84CC95041A58C5AF00296CFE /* Remote Data  */,
+				84CC95051A58DE7400296CFE /* ChannelScheduleTableViewController.h */,
+				84CC95061A58DE7400296CFE /* ChannelScheduleTableViewController.m */,
+				84CC950E1A59455700296CFE /* ChannelScheduleItemTableViewCell.h */,
+				84CC950F1A59455700296CFE /* ChannelScheduleItemTableViewCell.m */,
 			);
 			path = TvGuide;
 			sourceTree = "<group>";
@@ -237,10 +247,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84CC95071A58DE7400296CFE /* ChannelScheduleTableViewController.m in Sources */,
 				84CC94E11A58258200296CFE /* GetChannelScheduleController.m in Sources */,
 				84CC94DE1A58258200296CFE /* AppDelegate.m in Sources */,
 				84CC94DB1A58258200296CFE /* main.m in Sources */,
 				84CC95001A582C3900296CFE /* RemoteDataManager.m in Sources */,
+				84CC95101A59455700296CFE /* ChannelScheduleItemTableViewCell.m in Sources */,
 				84CC95031A58AA7000296CFE /* ChannelScheduleEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

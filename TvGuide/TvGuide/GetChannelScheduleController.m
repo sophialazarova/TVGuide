@@ -8,6 +8,7 @@
 
 #import "GetChannelScheduleController.h"
 #import "RemoteDataManager.h"
+#import "ChannelScheduleTableViewController.h"
 
 @interface GetChannelScheduleController ()
 
@@ -22,8 +23,12 @@
     
     remoteManager = [[RemoteDataManager alloc] init];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSMutableArray * result = [remoteManager getScheduleForChannel:11 WithDate:@"2015-01-04"];
-        int a = 5;
+        NSArray * result = [remoteManager getScheduleForChannel:11 WithDate:@"2015-01-04"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            ChannelScheduleTableViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"channelSchedule"];
+            next.schedule = result;
+            [[self navigationController] pushViewController:next animated:YES];
+        });
     });
     
 }
