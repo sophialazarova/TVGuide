@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UINavigationController *contr = [self.navigationController.viewControllers objectAtIndex:1];
-    contr.navigationItem.title = @"BNT";
+    contr.navigationItem.title = self.header;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

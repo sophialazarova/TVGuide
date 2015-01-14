@@ -16,9 +16,60 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Канал" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vbt-ac-LEf">
+                                <rect key="frame" x="30" y="124" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QxC-fP-JC4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lJO-FG-JM5">
+                                <rect key="frame" x="0.0" y="337" width="600" height="250"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5m-Hb-8uM">
+                                <rect key="frame" x="278" y="220" width="45" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zbJ-fB-dIk"/>
+                                </constraints>
+                                <state key="normal" title="Търси">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchForSchedule:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ey-Hs-uEJ"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVM-6M-9tm">
+                                <rect key="frame" x="88" y="124" width="482" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="kff-rM-kC8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zVM-6M-9tm" secondAttribute="trailing" constant="30" id="2M5-jI-4r9"/>
+                            <constraint firstItem="zVM-6M-9tm" firstAttribute="leading" secondItem="Vbt-ac-LEf" secondAttribute="trailing" constant="8" id="61x-lO-Maf"/>
+                            <constraint firstItem="Vbt-ac-LEf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="GmM-de-nND"/>
+                            <constraint firstAttribute="centerX" secondItem="b5m-Hb-8uM" secondAttribute="centerX" id="J0r-ap-dC8"/>
+                            <constraint firstItem="lJO-FG-JM5" firstAttribute="top" secondItem="b5m-Hb-8uM" secondAttribute="bottom" constant="10" id="Q8O-cx-0Le"/>
+                            <constraint firstAttribute="trailing" secondItem="lJO-FG-JM5" secondAttribute="trailing" id="Z3c-gi-gKG"/>
+                            <constraint firstItem="lJO-FG-JM5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bwb-Li-V7j"/>
+                            <constraint firstAttribute="bottom" secondItem="lJO-FG-JM5" secondAttribute="bottom" id="ffp-Ng-aTV"/>
+                            <constraint firstItem="b5m-Hb-8uM" firstAttribute="top" secondItem="zVM-6M-9tm" secondAttribute="bottom" constant="66" id="hw5-br-1gx"/>
+                            <constraint firstItem="zVM-6M-9tm" firstAttribute="top" secondItem="Vbt-ac-LEf" secondAttribute="top" id="mp0-UR-K7C"/>
+                            <constraint firstItem="Vbt-ac-LEf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="sBb-0q-bOH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OUB-OH-c7E"/>
+                    <connections>
+                        <outlet property="channel" destination="zVM-6M-9tm" id="gsc-sj-w1B"/>
+                        <outlet property="channelPicker" destination="lJO-FG-JM5" id="RVc-mD-TqX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

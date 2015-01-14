@@ -12,11 +12,11 @@
 
 @implementation RemoteDataManager
 
--(NSMutableArray*)getScheduleForChannel:(NSInteger)channel WithDate:(NSString *)date{
+-(NSMutableArray*)getScheduleForChannel:(NSString*)channel WithDate:(NSString *)date{
     NSURL *url = [[NSURL alloc] initWithString:
                   [NSString stringWithFormat:
-                   @"http://tvguide-2.apphb.com/api/tvguide/GetScheduleForChannel?channel=%li&date=%@",
-                   (long)channel,date]];
+                   @"http://tvguide-2.apphb.com/api/tvguide/GetScheduleForChannel?channel=%@&date=%@",
+                   channel,date]];
     NSMutableArray *scheduleItems = [[NSMutableArray alloc] init];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];

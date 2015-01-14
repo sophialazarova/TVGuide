@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GetChannelScheduleController : UIViewController
+@interface GetChannelScheduleController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *channel;
+@property (weak, nonatomic) IBOutlet UIPickerView *channelPicker;
+- (IBAction)searchForSchedule:(UIButton *)sender;
 
 @end
 
