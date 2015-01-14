@@ -9,6 +9,7 @@
 #import "GetChannelScheduleController.h"
 #import "RemoteDataManager.h"
 #import "ChannelScheduleTableViewController.h"
+#import "LoadingChannelHelper.h"
 
 @interface GetChannelScheduleController ()
 
@@ -27,6 +28,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             ChannelScheduleTableViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"channelSchedule"];
             next.schedule = result;
+            next.header = [NSString stringWithFormat:@"%@\n%@",@"BNT",@"01-04-2015"];
             [[self navigationController] pushViewController:next animated:YES];
         });
     });

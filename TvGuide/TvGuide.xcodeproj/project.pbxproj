@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84A9C8DF1A65B34C005DBB16 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A9C8DE1A65B34C005DBB16 /* CoreData.framework */; };
+		84A9C8E21A65B398005DBB16 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A9C8E11A65B398005DBB16 /* CoreDataManager.m */; };
+		84A9C8E51A65C1D9005DBB16 /* Channels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84A9C8E31A65C1D9005DBB16 /* Channels.xcdatamodeld */; };
+		84A9C8EE1A65C579005DBB16 /* ListOfChannels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84A9C8ED1A65C578005DBB16 /* ListOfChannels.plist */; };
+		84A9C8F11A65C757005DBB16 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A9C8F01A65C757005DBB16 /* Channel.m */; };
+		84A9C8F41A65DD19005DBB16 /* LoadingChannelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A9C8F31A65DD19005DBB16 /* LoadingChannelHelper.m */; };
 		84CC94DB1A58258200296CFE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC94DA1A58258200296CFE /* main.m */; };
 		84CC94DE1A58258200296CFE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC94DD1A58258200296CFE /* AppDelegate.m */; };
 		84CC94E11A58258200296CFE /* GetChannelScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC94E01A58258200296CFE /* GetChannelScheduleController.m */; };
@@ -31,6 +37,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84A9C8DE1A65B34C005DBB16 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		84A9C8E01A65B398005DBB16 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		84A9C8E11A65B398005DBB16 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		84A9C8E41A65C1D9005DBB16 /* Channels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Channels.xcdatamodel; sourceTree = "<group>"; };
+		84A9C8ED1A65C578005DBB16 /* ListOfChannels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ListOfChannels.plist; sourceTree = "<group>"; };
+		84A9C8EF1A65C757005DBB16 /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
+		84A9C8F01A65C757005DBB16 /* Channel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
+		84A9C8F21A65DD19005DBB16 /* LoadingChannelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingChannelHelper.h; sourceTree = "<group>"; };
+		84A9C8F31A65DD19005DBB16 /* LoadingChannelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingChannelHelper.m; sourceTree = "<group>"; };
 		84CC94D51A58258200296CFE /* TvGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CC94D91A58258200296CFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84CC94DA1A58258200296CFE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -59,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A9C8DF1A65B34C005DBB16 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,9 +88,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84A9C8E91A65C2A5005DBB16 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				84A9C8F21A65DD19005DBB16 /* LoadingChannelHelper.h */,
+				84A9C8F31A65DD19005DBB16 /* LoadingChannelHelper.m */,
+				84A9C8EF1A65C757005DBB16 /* Channel.h */,
+				84A9C8F01A65C757005DBB16 /* Channel.m */,
+				84A9C8ED1A65C578005DBB16 /* ListOfChannels.plist */,
+				84A9C8E11A65B398005DBB16 /* CoreDataManager.m */,
+				84A9C8E01A65B398005DBB16 /* CoreDataManager.h */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		84CC94CC1A58258100296CFE = {
 			isa = PBXGroup;
 			children = (
+				84A9C8DE1A65B34C005DBB16 /* CoreData.framework */,
 				84CC94D71A58258200296CFE /* TvGuide */,
 				84CC94F11A58258300296CFE /* TvGuideTests */,
 				84CC94D61A58258200296CFE /* Products */,
@@ -93,19 +124,16 @@
 		84CC94D71A58258200296CFE /* TvGuide */ = {
 			isa = PBXGroup;
 			children = (
+				84A9C8E91A65C2A5005DBB16 /* Core Data */,
+				84CC95111A59952C00296CFE /* Controllers */,
 				84CC94DC1A58258200296CFE /* AppDelegate.h */,
 				84CC94DD1A58258200296CFE /* AppDelegate.m */,
-				84CC94DF1A58258200296CFE /* GetChannelScheduleController.h */,
-				84CC94E01A58258200296CFE /* GetChannelScheduleController.m */,
 				84CC94E21A58258200296CFE /* Main.storyboard */,
 				84CC94E51A58258200296CFE /* Images.xcassets */,
 				84CC94E71A58258200296CFE /* LaunchScreen.xib */,
 				84CC94D81A58258200296CFE /* Supporting Files */,
 				84CC95041A58C5AF00296CFE /* Remote Data  */,
-				84CC95051A58DE7400296CFE /* ChannelScheduleTableViewController.h */,
-				84CC95061A58DE7400296CFE /* ChannelScheduleTableViewController.m */,
-				84CC950E1A59455700296CFE /* ChannelScheduleItemTableViewCell.h */,
-				84CC950F1A59455700296CFE /* ChannelScheduleItemTableViewCell.m */,
+				84A9C8E31A65C1D9005DBB16 /* Channels.xcdatamodeld */,
 			);
 			path = TvGuide;
 			sourceTree = "<group>";
@@ -145,6 +173,19 @@
 				84CC95021A58AA7000296CFE /* ChannelScheduleEntry.m */,
 			);
 			name = "Remote Data ";
+			sourceTree = "<group>";
+		};
+		84CC95111A59952C00296CFE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84CC950E1A59455700296CFE /* ChannelScheduleItemTableViewCell.h */,
+				84CC950F1A59455700296CFE /* ChannelScheduleItemTableViewCell.m */,
+				84CC95051A58DE7400296CFE /* ChannelScheduleTableViewController.h */,
+				84CC95061A58DE7400296CFE /* ChannelScheduleTableViewController.m */,
+				84CC94DF1A58258200296CFE /* GetChannelScheduleController.h */,
+				84CC94E01A58258200296CFE /* GetChannelScheduleController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +271,7 @@
 				84CC94E41A58258200296CFE /* Main.storyboard in Resources */,
 				84CC94E91A58258200296CFE /* LaunchScreen.xib in Resources */,
 				84CC94E61A58258200296CFE /* Images.xcassets in Resources */,
+				84A9C8EE1A65C579005DBB16 /* ListOfChannels.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +291,12 @@
 			files = (
 				84CC95071A58DE7400296CFE /* ChannelScheduleTableViewController.m in Sources */,
 				84CC94E11A58258200296CFE /* GetChannelScheduleController.m in Sources */,
+				84A9C8E51A65C1D9005DBB16 /* Channels.xcdatamodeld in Sources */,
+				84A9C8F11A65C757005DBB16 /* Channel.m in Sources */,
+				84A9C8E21A65B398005DBB16 /* CoreDataManager.m in Sources */,
 				84CC94DE1A58258200296CFE /* AppDelegate.m in Sources */,
 				84CC94DB1A58258200296CFE /* main.m in Sources */,
+				84A9C8F41A65DD19005DBB16 /* LoadingChannelHelper.m in Sources */,
 				84CC95001A582C3900296CFE /* RemoteDataManager.m in Sources */,
 				84CC95101A59455700296CFE /* ChannelScheduleItemTableViewCell.m in Sources */,
 				84CC95031A58AA7000296CFE /* ChannelScheduleEntry.m in Sources */,
@@ -446,6 +492,7 @@
 				84CC94FA1A58258300296CFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84CC94FB1A58258300296CFE /* Build configuration list for PBXNativeTarget "TvGuideTests" */ = {
 			isa = XCConfigurationList;
@@ -454,8 +501,22 @@
 				84CC94FD1A58258300296CFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84A9C8E31A65C1D9005DBB16 /* Channels.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84A9C8E41A65C1D9005DBB16 /* Channels.xcdatamodel */,
+			);
+			currentVersion = 84A9C8E41A65C1D9005DBB16 /* Channels.xcdatamodel */;
+			path = Channels.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 84CC94CD1A58258100296CFE /* Project object */;
 }

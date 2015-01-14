@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "CoreDataManager.h"
+#import "LoadingChannelHelper.h"
+#import "Channel.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    CoreDataManager *manager = [CoreDataManager getManager];
+    LoadingChannelHelper *channelsHelper = [[LoadingChannelHelper alloc] init];
+    [manager setupCoreData];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Channel"];
+    NSArray *fetchedObjects = [manager.context executeFetchRequest:request error:nil];
+    if([fetchedObjects count] == 0){
+        [channelsHelper loadChannels];
+    }
+
     return YES;
 }
 

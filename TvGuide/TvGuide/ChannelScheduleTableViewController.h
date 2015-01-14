@@ -11,5 +11,6 @@
 @interface ChannelScheduleTableViewController : UITableViewController
 
 @property(strong,nonatomic) NSArray *schedule;
+@property(strong, nonatomic) NSString *header;
 
 @end

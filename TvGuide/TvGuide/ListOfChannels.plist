@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+<dict>
+<key>code</key>
+<string>11</string>
+<key>name</key>
+<string>БНТ</string>
+</dict>
+<dict>
+<key>code</key>
+<string>15</string>
+<key>name</key>
+<string>bTV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>70</string>
+<key>name</key>
+<string>Nova TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>115</string>
+<key>name</key>
+<string>Bulgaria on Air</string>
+</dict>
+<dict>
+<key>code</key>
+<string>5</string>
+<key>name</key>
+<string>AXN</string>
+</dict>
+<dict>
+<key>code</key>
+<string>3</string>
+<key>name</key>
+<string>Animal Planet</string>
+</dict>
+<dict>
+<key>code</key>
+<string>2</string>
+<key>name</key>
+<string>Alfa</string>
+</dict>
+<dict>
+<key>code</key>
+<string>4</string>
+<key>name</key>
+<string>ARD 1</string>
+</dict>
+<dict>
+<key>code</key>
+<string>8</string>
+<key>name</key>
+<string>Balkanika</string>
+</dict>
+<dict>
+<key>code</key>
+<string>9</string>
+<key>name</key>
+<string>BBT</string>
+</dict>
+<dict>
+<key>code</key>
+<string>10</string>
+<key>name</key>
+<string>BGTV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>12</string>
+<key>name</key>
+<string>BNT2</string>
+</dict>
+<dict>
+<key>code</key>
+<string>13</string>
+<key>name</key>
+<string>BNT World</string>
+</dict>
+<dict>
+<key>code</key>
+<string>14</string>
+<key>name</key>
+<string>Boomerang</string>
+</dict>
+<dict>
+<key>code</key>
+<string>16</string>
+<key>name</key>
+<string>bTV Action</string>
+</dict>
+<dict>
+<key>code</key>
+<string>17</string>
+<key>name</key>
+<string>bTV Cinema</string>
+</dict>
+<dict>
+<key>code</key>
+<string>18</string>
+<key>name</key>
+<string>bTV Comedy</string>
+</dict>
+<dict>
+<key>code</key>
+<string>19</string>
+<key>name</key>
+<string>bTV Lady</string>
+</dict>
+<dict>
+<key>code</key>
+<string>20</string>
+<key>name</key>
+<string>Cartoon Network</string>
+</dict>
+<dict>
+<key>code</key>
+<string>21</string>
+<key>name</key>
+<string>Cinemax</string>
+</dict>
+<dict>
+<key>code</key>
+<string>22</string>
+<key>name</key>
+<string>Cinemax 2</string>
+</dict>
+<dict>
+<key>code</key>
+<string>23</string>
+<key>name</key>
+<string>CNN</string>
+</dict>
+<dict>
+<key>code</key>
+<string>24</string>
+<key>name</key>
+<string>Community TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>26</string>
+<key>name</key>
+<string>Diema Family</string>
+</dict>
+<dict>
+<key>code</key>
+<string>27</string>
+<key>name</key>
+<string>Diema</string>
+</dict>
+<dict>
+<key>code</key>
+<string>29</string>
+<key>name</key>
+<string>Discovery Channel</string>
+</dict>
+<dict>
+<key>code</key>
+<string>30</string>
+<key>name</key>
+<string>Discovery World</string>
+</dict>
+<dict>
+<key>code</key>
+<string>31</string>
+<key>name</key>
+<string>Discovery Science</string>
+</dict>
+<dict>
+<key>code</key>
+<string>32</string>
+<key>name</key>
+<string>Disney Channel</string>
+</dict>
+<dict>
+<key>code</key>
+<string>33</string>
+<key>name</key>
+<string>DSF</string>
+</dict>
+<dict>
+<key>code</key>
+<string>34</string>
+<key>name</key>
+<string>Da Vinci Learning</string>
+</dict>
+<dict>
+<key>code</key>
+<string>35</string>
+<key>name</key>
+<string>e-kids</string>
+</dict>
+<dict>
+<key>code</key>
+<string>37</string>
+<key>name</key>
+<string>Euroco</string>
+</dict>
+<dict>
+<key>code</key>
+<string>38</string>
+<key>name</key>
+<string>EuroNews</string>
+</dict>
+<dict>
+<key>code</key>
+<string>40</string>
+<key>name</key>
+<string>Eurosport</string>
+</dict>
+<dict>
+<key>code</key>
+<string>41</string>
+<key>name</key>
+<string>Eurosport 2</string>
+</dict>
+<dict>
+<key>code</key>
+<string>42</string>
+<key>name</key>
+<string>Viasat Explorer</string>
+</dict>
+<dict>
+<key>code</key>
+<string>43</string>
+<key>name</key>
+<string>Extreme Sports</string>
+</dict>
+<dict>
+<key>code</key>
+<string>44</string>
+<key>name</key>
+<string>Fen TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>45</string>
+<key>name</key>
+<string>Fiesta TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>46</string>
+<key>name</key>
+<string>Fine Living</string>
+</dict>
+<dict>
+<key>code</key>
+<string>47</string>
+<key>name</key>
+<string>Fox Life</string>
+</dict>
+<dict>
+<key>code</key>
+<string>48</string>
+<key>name</key>
+<string>Fox Crime</string>
+</dict>
+<dict>
+<key>code</key>
+<string>49</string>
+<key>name</key>
+<string>Diva Universal</string>
+</dict>
+<dict>
+<key>code</key>
+<string>50</string>
+<key>name</key>
+<string>HBO</string>
+</dict>
+<dict>
+<key>code</key>
+<string>51</string>
+<key>name</key>
+<string>HBO Comedy</string>
+</dict>
+<dict>
+<key>code</key>
+<string>52</string>
+<key>name</key>
+<string>Viasat History</string>
+</dict>
+<dict>
+<key>code</key>
+<string>53</string>
+<key>name</key>
+<string>History Channel</string>
+</dict>
+<dict>
+<key>code</key>
+<string>55</string>
+<key>name</key>
+<string>JimJam</string>
+</dict>
+<dict>
+<key>code</key>
+<string>56</string>
+<key>name</key>
+<string>Kabel 1</string>
+</dict>
+<dict>
+<key>code</key>
+<string>57</string>
+<key>name</key>
+<string>Kanal 3</string>
+</dict>
+<dict>
+<key>code</key>
+<string>58</string>
+<key>name</key>
+<string>MCM</string>
+</dict>
+<dict>
+<key>code</key>
+<string>59</string>
+<key>name</key>
+<string>MGM</string>
+</dict>
+<dict>
+<key>code</key>
+<string>60</string>
+<key>name</key>
+<string>Motors TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>62</string>
+<key>name</key>
+<string>MTV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>63</string>
+<key>name</key>
+<string>MTV Live HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>64</string>
+<key>name</key>
+<string>MTV Rocks</string>
+</dict>
+<dict>
+<key>code</key>
+<string>65</string>
+<key>name</key>
+<string>Viasat Nature</string>
+</dict>
+<dict>
+<key>code</key>
+<string>67</string>
+<key>name</key>
+<string>National Geographic</string>
+</dict>
+<dict>
+<key>code</key>
+<string>68</string>
+<key>name</key>
+<string>National Geographic Wild</string>
+</dict>
+<dict>
+<key>code</key>
+<string>69</string>
+<key>name</key>
+<string>Nova Sport</string>
+</dict>
+<dict>
+<key>code</key>
+<string>73</string>
+<key>name</key>
+<string>ORT</string>
+</dict>
+<dict>
+<key>code</key>
+<string>74</string>
+<key>name</key>
+<string>Planeta</string>
+</dict>
+<dict>
+<key>code</key>
+<string>75</string>
+<key>name</key>
+<string>Planeta Folk</string>
+</dict>
+<dict>
+<key>code</key>
+<string>76</string>
+<key>name</key>
+<string>Planeta HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>78</string>
+<key>name</key>
+<string>PRO 7</string>
+</dict>
+<dict>
+<key>code</key>
+<string>80</string>
+<key>name</key>
+<string>Ring.BG</string>
+</dict>
+<dict>
+<key>code</key>
+<string>1</string>
+<key>name</key>
+<string>RTL Deutsch</string>
+</dict>
+<dict>
+<key>code</key>
+<string>82</string>
+<key>name</key>
+<string>RTL</string>
+</dict>
+<dict>
+<key>code</key>
+<string>83</string>
+<key>name</key>
+<string>RTL2</string>
+</dict>
+<dict>
+<key>code</key>
+<string>84</string>
+<key>name</key>
+<string>RTR</string>
+</dict>
+<dict>
+<key>code</key>
+<string>85</string>
+<key>name</key>
+<string>RTVi</string>
+</dict>
+<dict>
+<key>code</key>
+<string>86</string>
+<key>name</key>
+<string>SAT 1</string>
+</dict>
+<dict>
+<key>code</key>
+<string>87</string>
+<key>name</key>
+<string>Skat</string>
+</dict>
+<dict>
+<key>code</key>
+<string>88</string>
+<key>name</key>
+<string>Sky Sports</string>
+</dict>
+<dict>
+<key>code</key>
+<string>90</string>
+<key>name</key>
+<string>Super 7</string>
+</dict>
+<dict>
+<key>code</key>
+<string>91</string>
+<key>name</key>
+<string>SuperRTL</string>
+</dict>
+<dict>
+<key>code</key>
+<string>93</string>
+<key>name</key>
+<string>Telekabel</string>
+</dict>
+<dict>
+<key>code</key>
+<string>94</string>
+<key>name</key>
+<string>The Voice</string>
+</dict>
+<dict>
+<key>code</key>
+<string>95</string>
+<key>name</key>
+<string>TLC</string>
+</dict>
+<dict>
+<key>code</key>
+<string>96</string>
+<key>name</key>
+<string>Travel TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>97</string>
+<key>name</key>
+<string>Travel Channel HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>114</string>
+<key>name</key>
+<string>Travel Channel SD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>99</string>
+<key>name</key>
+<string>TV1000</string>
+</dict>
+<dict>
+<key>code</key>
+<string>102</string>
+<key>name</key>
+<string>Utilisima</string>
+</dict>
+<dict>
+<key>code</key>
+<string>103</string>
+<key>name</key>
+<string>VH 1</string>
+</dict>
+<dict>
+<key>code</key>
+<string>104</string>
+<key>name</key>
+<string>Vivacom Arena</string>
+</dict>
+<dict>
+<key>code</key>
+<string>105</string>
+<key>name</key>
+<string>VOX</string>
+</dict>
+<dict>
+<key>code</key>
+<string>106</string>
+<key>name</key>
+<string>VTV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>107</string>
+<key>name</key>
+<string>Fox Channel</string>
+</dict>
+<dict>
+<key>code</key>
+<string>112</string>
+<key>name</key>
+<string>MTV Dance</string>
+</dict>
+<dict>
+<key>code</key>
+<string>110</string>
+<key>name</key>
+<string>Fashion TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>111</string>
+<key>name</key>
+<string>Eurosport 2 No Bundesliga</string>
+</dict>
+<dict>
+<key>code</key>
+<string>113</string>
+<key>name</key>
+<string>MTV Hits</string>
+</dict>
+<dict>
+<key>code</key>
+<string>116</string>
+<key>name</key>
+<string>CBS Drama</string>
+</dict>
+<dict>
+<key>code</key>
+<string>117</string>
+<key>name</key>
+<string>CBS Reality</string>
+</dict>
+<dict>
+<key>code</key>
+<string>121</string>
+<key>name</key>
+<string>ТВ Европа</string>
+</dict>
+<dict>
+<key>code</key>
+<string>122</string>
+<key>name</key>
+<string>Охота и рыбалка</string>
+</dict>
+<dict>
+<key>code</key>
+<string>123</string>
+<key>name</key>
+<string>Kino Nova</string>
+</dict>
+<dict>
+<key>code</key>
+<string>124</string>
+<key>name</key>
+<string>Discovery Showcase HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>125</string>
+<key>name</key>
+<string>English Club TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>126</string>
+<key>name</key>
+<string>Food Network HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>127</string>
+<key>name</key>
+<string>NickHD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>128</string>
+<key>name</key>
+<string>Eurosport HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>129</string>
+<key>name</key>
+<string>HBO HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>130</string>
+<key>name</key>
+<string>Box TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>131</string>
+<key>name</key>
+<string>Disney Jr</string>
+</dict>
+<dict>
+<key>code</key>
+<string>132</string>
+<key>name</key>
+<string>Nickelodeon</string>
+</dict>
+<dict>
+<key>code</key>
+<string>133</string>
+<key>name</key>
+<string>Nick Jr.</string>
+</dict>
+<dict>
+<key>code</key>
+<string>134</string>
+<key>name</key>
+<string>VH1 Classic</string>
+</dict>
+<dict>
+<key>code</key>
+<string>136</string>
+<key>name</key>
+<string>CCTV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>137</string>
+<key>name</key>
+<string>Investigation Discovery</string>
+</dict>
+<dict>
+<key>code</key>
+<string>138</string>
+<key>name</key>
+<string>Trace Sports</string>
+</dict>
+<dict>
+<key>code</key>
+<string>139</string>
+<key>name</key>
+<string>Outdoor Channel</string>
+</dict>
+<dict>
+<key>code</key>
+<string>140</string>
+<key>name</key>
+<string>History HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>142</string>
+<key>name</key>
+<string>National Geographic HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>143</string>
+<key>name</key>
+<string>bTV HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>144</string>
+<key>name</key>
+<string>Your Family Entertainment</string>
+</dict>
+<dict>
+<key>code</key>
+<string>146</string>
+<key>name</key>
+<string>AXN Black</string>
+</dict>
+<dict>
+<key>code</key>
+<string>147</string>
+<key>name</key>
+<string>AXN White</string>
+</dict>
+<dict>
+<key>code</key>
+<string>145</string>
+<key>name</key>
+<string>Duck TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>148</string>
+<key>name</key>
+<string>Crime and Investigation</string>
+</dict>
+<dict>
+<key>code</key>
+<string>152</string>
+<key>name</key>
+<string>RTVi Russia</string>
+</dict>
+<dict>
+<key>code</key>
+<string>153</string>
+<key>name</key>
+<string>Skat+</string>
+</dict>
+<dict>
+<key>code</key>
+<string>155</string>
+<key>name</key>
+<string>Comedy Central Extra</string>
+</dict>
+<dict>
+<key>code</key>
+<string>156</string>
+<key>name</key>
+<string>Brazzers TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>158</string>
+<key>name</key>
+<string>Film Plus</string>
+</dict>
+<dict>
+<key>code</key>
+<string>159</string>
+<key>name</key>
+<string>BNT HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>160</string>
+<key>name</key>
+<string>FilmBox Action</string>
+</dict>
+<dict>
+<key>code</key>
+<string>162</string>
+<key>name</key>
+<string>Agro TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>163</string>
+<key>name</key>
+<string>DocuBox</string>
+</dict>
+<dict>
+<key>code</key>
+<string>164</string>
+<key>name</key>
+<string>FightBox</string>
+</dict>
+<dict>
+<key>code</key>
+<string>165</string>
+<key>name</key>
+<string>FilmBox HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>166</string>
+<key>name</key>
+<string>Fuel TV</string>
+</dict>
+<dict>
+<key>code</key>
+<string>168</string>
+<key>name</key>
+<string>Viasat Nature/History HD</string>
+</dict>
+<dict>
+<key>code</key>
+<string>169</string>
+<key>name</key>
+<string>TV1</string>
+</dict>
+<dict>                                                                                                                                                                                                                                                                                                                                                                                           <key>code</key>                                                                                                                                                                                                                                                                                                                  <string>170</string>                                                                                                                                                                                                                                                                                                              <key>name</key>                                                                                                                                                                                                                                                                                                                                                                               <string>Mezzo</string>
+</dict>
+</array>
+</plist>
