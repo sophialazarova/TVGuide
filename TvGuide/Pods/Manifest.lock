@@ -1,0 +1,13 @@
+PODS:
+  - DCIntrospect-ARC (0.0.8)
+  - Masonry (0.6.0)
+
+DEPENDENCIES:
+  - DCIntrospect-ARC (~> 0.0.4)
+  - Masonry (= 0.6.0)
+
+SPEC CHECKSUMS:
+  DCIntrospect-ARC: 89963e8f905ef26eac2884d58eb7021d30b02db0
+  Masonry: 0bc111d6902e3a55ff8423bcbdf7155261806547
+
+COCOAPODS: 0.35.0

@@ -10,6 +10,8 @@
 #import "CoreDataManager.h"
 #import "LoadingChannelHelper.h"
 #import "Channel.h"
+#import "DCIntrospect.h"
+#import "MenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +29,18 @@
     if([fetchedObjects count] == 0){
         [channelsHelper loadChannels];
     }
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    MenuViewController *root = [[MenuViewController alloc] init];
+    UINavigationController *navbar = [[UINavigationController alloc] initWithRootViewController:root];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    self.window.rootViewController = navbar;
+    [self.window addSubview:navbar.view];
+    [self.window makeKeyAndVisible];
+    
+#if TARGET_IPHONE_SIMULATOR
+    [[DCIntrospect sharedIntrospector] start];
+#endif
 
     return YES;
 }

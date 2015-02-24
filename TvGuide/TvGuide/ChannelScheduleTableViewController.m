@@ -18,13 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UINavigationController *contr = [self.navigationController.viewControllers objectAtIndex:1];
-    contr.navigationItem.title = self.header;
+  /*  UINavigationController *contr = [self.navigationController.viewControllers objectAtIndex:1];
+    contr.navigationItem.title = self.header;*/
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        [self.tableView registerClass:[ChannelScheduleItemTableViewCell class] forCellReuseIdentifier:@"channelScheduleItem"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +46,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  ChannelScheduleItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"channelScheduleItem" forIndexPath:indexPath];
+  ChannelScheduleItemTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"channelScheduleItem" forIndexPath:indexPath];
     if(cell == nil){
         cell = [[ChannelScheduleItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"channelScheduleItem"];
     }

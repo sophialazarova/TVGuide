@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ChannelScheduleItemTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *time;
-@property (weak, nonatomic) IBOutlet UILabel *title;
+
+@property (strong, nonatomic) UILabel *time;
+@property (strong, nonatomic) UILabel *title;
 
 @end

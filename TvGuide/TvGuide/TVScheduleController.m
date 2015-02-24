@@ -6,24 +6,26 @@
 //  Copyright (c) 2015 sph. All rights reserved.
 //
 
-#import "GetChannelScheduleController.h"
+#import "TVScheduleController.h"
 #import "RemoteDataManager.h"
 #import "ChannelScheduleTableViewController.h"
 #import "LoadingChannelHelper.h"
 #import <CoreData/CoreData.h>
 #import "CoreDataManager.h"
 #import "Channel.h"
+#import "TVScheduleView.h"
 
-@interface GetChannelScheduleController ()
+@interface TVScheduleController ()
 
 @end
 
-@implementation GetChannelScheduleController{
+@implementation TVScheduleController{
     RemoteDataManager *remoteManager;
     CoreDataManager *coredataManager;
     NSArray *channelsList;
     NSString *searchedChannelCode;
     NSString *now;
+    TVScheduleView *view;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -35,8 +37,15 @@
     
     remoteManager = [[RemoteDataManager alloc] init];
     coredataManager = [CoreDataManager getManager];
-    [self attachPickerToTextField:self.channel :self.channelPicker];
+    [view.channel setDelegate:self];
+    [self attachPickerToTextField:view.channel :view.channelPicker];
     now = [self getCurrentDate];
+    [view addAction:@selector(searchForSchedule) caller:self];
+}
+
+-(void)loadView{
+    view = [[TVScheduleView alloc] init];
+    self.view = view;
 }
 
 -(NSString*) getCurrentDate{
@@ -80,7 +89,7 @@
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    self.channel.text = [channelsList objectAtIndex:row];
+    view.channel.text = [channelsList objectAtIndex:row];
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -88,12 +97,11 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self.channel resignFirstResponder];
+    [view.channel resignFirstResponder];
 }
 
-
-- (IBAction)searchForSchedule:(UIButton *)sender {
-    NSString* channelName = self.channel.text;
+- (void)searchForSchedule{
+    NSString* channelName = view.channel.text;
     NSFetchRequest *requestForCode = [[NSFetchRequest alloc] initWithEntityName:@"Channel"];
     NSPredicate *filter = [NSPredicate predicateWithFormat:@"name == %@", channelName];
     [requestForCode setPredicate:filter];
@@ -105,7 +113,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
      NSArray * result = [remoteManager getScheduleForChannel:searchedChannelCode WithDate:now];
      dispatch_async(dispatch_get_main_queue(), ^{
-     ChannelScheduleTableViewController *next = [self.storyboard instantiateViewControllerWithIdentifier:@"channelSchedule"];
+     ChannelScheduleTableViewController *next = [[ChannelScheduleTableViewController alloc] init];
      next.schedule = result;
      next.header = [NSString stringWithFormat:@"%@\n%@",current.name,now];
      [[self navigationController] pushViewController:next animated:YES];
