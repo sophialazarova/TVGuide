@@ -9,6 +9,7 @@
 #import "ChannelScheduleTableViewController.h"
 #import "ChannelScheduleItemTableViewCell.h"
 #import "ChannelScheduleEntry.h"
+#import "UIColor+VeplayCommon.h"
 
 @interface ChannelScheduleTableViewController ()
 
@@ -26,6 +27,11 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
         [self.tableView registerClass:[ChannelScheduleItemTableViewCell class] forCellReuseIdentifier:@"channelScheduleItem"];
+    
+    self.tableView.estimatedRowHeight = 90.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +60,9 @@
     ChannelScheduleEntry *entry = [self.schedule objectAtIndex:indexPath.row];
     cell.title.text = entry.title;
     cell.time.text = entry.time;
+    
+    [cell setNeedsDisplay];
+    [cell layoutIfNeeded];
     
     return cell;
 }

@@ -37,9 +37,9 @@
     
     remoteManager = [[RemoteDataManager alloc] init];
     coredataManager = [CoreDataManager getManager];
-    [view.channel setDelegate:self];
+    view.channelPicker.delegate = self;
+    view.channelPicker.showsSelectionIndicator = YES;
     [self attachPickerToTextField:view.channel :view.channelPicker];
-    now = [self getCurrentDate];
     [view addAction:@selector(searchForSchedule) caller:self];
 }
 
@@ -53,11 +53,6 @@
     [outputFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *dateTime = [NSString stringWithFormat:@"%@",[outputFormatter stringFromDate:[NSDate date]]];
     return dateTime;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(NSArray*) getChannelsList{
@@ -119,6 +114,11 @@
      [[self navigationController] pushViewController:next animated:YES];
      });
 });
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end
