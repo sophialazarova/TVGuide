@@ -8,11 +8,10 @@
 
 #import "MenuViewController.h"
 #import "MenuView.h"
-#import "MoviesViewController.h"
 #import "TVScheduleController.h"
-#import "TVSeriesViewController.h"
-#import "SportsViewController.h"
 #import "ChannelScheduleTableViewController.h"
+#import "CategorizedScheduleViewController.h"
+#import "CategorizedScheduleType.h"
 
 @interface MenuViewController ()
 
@@ -22,20 +21,10 @@
     MenuView *view;
 }
 
--(instancetype)init{
-    self = [super init];
-    if(self){
-       
-    }
-    
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Menu";
     [self setupButtonsActions];
-
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,32 +48,26 @@
     self.view = view;
 }
 
-/// REFACTOR BELOW SECTION (Pushing next controller) /////
-
--(void) pushController:(UIViewController*) controller{
-    [self.navigationController pushViewController:controller animated:YES];
-}
-
 -(void) pushTvScheduleController{
     TVScheduleController *tvController = [[TVScheduleController alloc] init];
        [self.navigationController pushViewController:tvController animated:YES];
 }
 
 -(void) pushMoviesController{
-    MoviesViewController *moviesController = [[MoviesViewController alloc] init];
-    [self.navigationController pushViewController:moviesController animated:YES];
+    [self pushControllerWithType:CategorizedScheduleTypeMovies];
 }
 
 -(void) pushSportsController{
-    SportsViewController *sportsController = [[SportsViewController alloc] init];
-    [self.navigationController pushViewController:sportsController animated:YES];
+    [self pushControllerWithType:CategorizedScheduleTypeSports];
 }
 
 -(void) pushTVSeriesController{
-    TVSeriesViewController *seriesController = [[TVSeriesViewController alloc] init];
-    [self.navigationController pushViewController:seriesController animated:YES];
+   [self pushControllerWithType:CategorizedScheduleTypeTVSeries];
 }
 
-/// REFACTOR ABOVE SECTION (Pushing next controller) /////
+-(void) pushControllerWithType:(CategorizedScheduleType) type{
+    CategorizedScheduleViewController *controller = [[CategorizedScheduleViewController alloc] initWithScheduleType:type];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 @end

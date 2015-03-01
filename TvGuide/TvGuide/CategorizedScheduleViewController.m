@@ -1,30 +1,38 @@
 //
-//  TVSeriesViewController.m
+//  CategorizedScheduleViewController.m
 //  TvGuide
 //
-//  Created by Admin on 2/21/15.
+//  Created by Admin on 3/1/15.
 //  Copyright (c) 2015 sph. All rights reserved.
 //
 
-#import "TVSeriesViewController.h"
+#import "CategorizedScheduleViewController.h"
 #import "CategorizedSchedulesView.h"
-#import "RemoteDataManager.h"
 #import "CategorizedSchedulesTableViewController.h"
+#import "RemoteDataManager.h"
 
-@interface TVSeriesViewController ()
+@interface CategorizedScheduleViewController ()
 
 @end
 
-@implementation TVSeriesViewController{
-    CategorizedSchedulesView *seriesView;
+@implementation CategorizedScheduleViewController{
     RemoteDataManager *remoteManager;
+    CategorizedSchedulesView *categorizedView;
+}
+
+-(instancetype)initWithScheduleType:(CategorizedScheduleType)type{
+    self = [super init];
+    if(self){
+        self.scheduleType = type;
+    }
+    
+    return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     remoteManager = [[RemoteDataManager alloc] init];
-    [seriesView addAction:@selector(searchForSchedule) caller:self];
+    [categorizedView addAction:@selector(searchForSchedule) caller:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,10 +41,9 @@
 }
 
 -(void)loadView{
-    seriesView = [[CategorizedSchedulesView alloc] init];
-    self.view = seriesView;
+    categorizedView = [[CategorizedSchedulesView alloc] init];
+    self.view = categorizedView;
 }
-
 
 -(NSString*) transformDate:(NSDate*) date{
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
@@ -46,20 +53,18 @@
 }
 
 - (void)searchForSchedule{
-
-    NSString *date = [self transformDate:[seriesView.datePicker date]];
     
-    
+    NSString *date = [self transformDate:[categorizedView.datePicker date]];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSArray * result = [remoteManager getSeriesScheduleForDate:date];
+        NSArray * result = [remoteManager getCategorizedSchedule:self.scheduleType date:date];
         dispatch_async(dispatch_get_main_queue(), ^{
             CategorizedSchedulesTableViewController *next = [[CategorizedSchedulesTableViewController alloc] init];
             next.data = result;
-           // next.header = [NSString stringWithFormat:@"%@\n%@",current.name,date];
             [[self navigationController] pushViewController:next animated:YES];
         });
     });
 }
+
 
 @end

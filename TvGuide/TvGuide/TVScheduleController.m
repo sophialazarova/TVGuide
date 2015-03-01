@@ -114,7 +114,7 @@
      dispatch_async(dispatch_get_main_queue(), ^{
      ChannelScheduleTableViewController *next = [[ChannelScheduleTableViewController alloc] init];
      next.schedule = result;
-     next.header = [NSString stringWithFormat:@"%@\n%@",current.name,date];
+     next.header = [NSString stringWithFormat:@"%@",current.name];
      [[self navigationController] pushViewController:next animated:YES];
      });
 });

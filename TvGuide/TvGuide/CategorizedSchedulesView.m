@@ -55,5 +55,20 @@
     [self.getScheduleButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:20]];
     [self.getScheduleButton setContentEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     self.datePicker.datePickerMode = UIDatePickerModeDate;
+    [self limitDatePicker];
+    
 }
+
+-(void) limitDatePicker{
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *currentDate = [NSDate date];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:-1];
+    NSDate *minDate = [gregorian dateByAddingComponents:comps toDate:currentDate  options:0];
+    [comps setDay:5];
+    NSDate *maxDate = [gregorian dateByAddingComponents:comps toDate:currentDate  options:0];
+    self.datePicker.minimumDate = minDate;
+    self.datePicker.maximumDate = maxDate;
+}
+
 @end

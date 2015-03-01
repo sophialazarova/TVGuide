@@ -16,9 +16,7 @@
 		84A3B0821A94992D00203D96 /* sports.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A3B07E1A94992D00203D96 /* sports.png */; };
 		84A3B0881A97300600203D96 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3B0871A97300600203D96 /* MenuView.m */; };
 		84A3B08B1A97301600203D96 /* IconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3B08A1A97301600203D96 /* IconView.m */; };
-		84A3B08E1A98BF9600203D96 /* TVSeriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3B08D1A98BF9600203D96 /* TVSeriesViewController.m */; };
-		84A3B0911A98BFAE00203D96 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3B0901A98BFAE00203D96 /* MoviesViewController.m */; };
-		84A3B0941A98BFC000203D96 /* SportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3B0931A98BFC000203D96 /* SportsViewController.m */; };
+		84A5B05F1AA3977900BA96F8 /* CategorizedScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B05E1AA3977900BA96F8 /* CategorizedScheduleViewController.m */; };
 		84A993281A98F6F000E6690B /* TVScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A993271A98F6EF00E6690B /* TVScheduleView.m */; };
 		84A9932B1AA0DCAA00E6690B /* TvShowEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A9932A1AA0DCAA00E6690B /* TvShowEntryModel.m */; };
 		84A9932E1AA0DF3500E6690B /* ChannelSpecializedEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A9932D1AA0DF3500E6690B /* ChannelSpecializedEntryModel.m */; };
@@ -70,12 +68,9 @@
 		84A3B0871A97300600203D96 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		84A3B0891A97301600203D96 /* IconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconView.h; sourceTree = "<group>"; };
 		84A3B08A1A97301600203D96 /* IconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconView.m; sourceTree = "<group>"; };
-		84A3B08C1A98BF9600203D96 /* TVSeriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVSeriesViewController.h; sourceTree = "<group>"; };
-		84A3B08D1A98BF9600203D96 /* TVSeriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVSeriesViewController.m; sourceTree = "<group>"; };
-		84A3B08F1A98BFAE00203D96 /* MoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
-		84A3B0901A98BFAE00203D96 /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
-		84A3B0921A98BFC000203D96 /* SportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsViewController.h; sourceTree = "<group>"; };
-		84A3B0931A98BFC000203D96 /* SportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsViewController.m; sourceTree = "<group>"; };
+		84A5B05A1AA393DD00BA96F8 /* CategorizedScheduleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategorizedScheduleType.h; sourceTree = "<group>"; };
+		84A5B05D1AA3977900BA96F8 /* CategorizedScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategorizedScheduleViewController.h; sourceTree = "<group>"; };
+		84A5B05E1AA3977900BA96F8 /* CategorizedScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategorizedScheduleViewController.m; sourceTree = "<group>"; };
 		84A993261A98F6EF00E6690B /* TVScheduleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVScheduleView.h; sourceTree = "<group>"; };
 		84A993271A98F6EF00E6690B /* TVScheduleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVScheduleView.m; sourceTree = "<group>"; };
 		84A993291AA0DCAA00E6690B /* TvShowEntryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TvShowEntryModel.h; sourceTree = "<group>"; };
@@ -217,6 +212,7 @@
 				84CC94D81A58258200296CFE /* Supporting Files */,
 				84CC95041A58C5AF00296CFE /* Remote Data  */,
 				84A9C8E31A65C1D9005DBB16 /* Channels.xcdatamodeld */,
+				84A5B05A1AA393DD00BA96F8 /* CategorizedScheduleType.h */,
 			);
 			path = TvGuide;
 			sourceTree = "<group>";
@@ -269,16 +265,12 @@
 				84CC95061A58DE7400296CFE /* ChannelScheduleTableViewController.m */,
 				84CC94DF1A58258200296CFE /* TVScheduleController.h */,
 				84CC94E01A58258200296CFE /* TVScheduleController.m */,
-				84A3B08C1A98BF9600203D96 /* TVSeriesViewController.h */,
-				84A3B08D1A98BF9600203D96 /* TVSeriesViewController.m */,
-				84A3B08F1A98BFAE00203D96 /* MoviesViewController.h */,
-				84A3B0901A98BFAE00203D96 /* MoviesViewController.m */,
-				84A3B0921A98BFC000203D96 /* SportsViewController.h */,
-				84A3B0931A98BFC000203D96 /* SportsViewController.m */,
 				84A3B0771A9494B800203D96 /* MenuViewController.h */,
 				84A3B0781A9494B800203D96 /* MenuViewController.m */,
 				8407754E1AA27A0100B82874 /* CategorizedSchedulesTableViewController.h */,
 				8407754F1AA27A0100B82874 /* CategorizedSchedulesTableViewController.m */,
+				84A5B05D1AA3977900BA96F8 /* CategorizedScheduleViewController.h */,
+				84A5B05E1AA3977900BA96F8 /* CategorizedScheduleViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -441,7 +433,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84CC95071A58DE7400296CFE /* ChannelScheduleTableViewController.m in Sources */,
-				84A3B0911A98BFAE00203D96 /* MoviesViewController.m in Sources */,
 				84A993311AA2643100E6690B /* CategorizedSchedulesView.m in Sources */,
 				84A3B0881A97300600203D96 /* MenuView.m in Sources */,
 				84CC94E11A58258200296CFE /* TVScheduleController.m in Sources */,
@@ -449,8 +440,8 @@
 				84A9C8F11A65C757005DBB16 /* Channel.m in Sources */,
 				84A9C8E21A65B398005DBB16 /* CoreDataManager.m in Sources */,
 				84CC94DE1A58258200296CFE /* AppDelegate.m in Sources */,
-				84A3B08E1A98BF9600203D96 /* TVSeriesViewController.m in Sources */,
 				84A9932B1AA0DCAA00E6690B /* TvShowEntryModel.m in Sources */,
+				84A5B05F1AA3977900BA96F8 /* CategorizedScheduleViewController.m in Sources */,
 				84CC94DB1A58258200296CFE /* main.m in Sources */,
 				840775501AA27A0100B82874 /* CategorizedSchedulesTableViewController.m in Sources */,
 				84A3B08B1A97301600203D96 /* IconView.m in Sources */,
@@ -459,7 +450,6 @@
 				84CC95001A582C3900296CFE /* RemoteDataManager.m in Sources */,
 				84CC95101A59455700296CFE /* ChannelScheduleItemTableViewCell.m in Sources */,
 				84A3B0791A9494B800203D96 /* MenuViewController.m in Sources */,
-				84A3B0941A98BFC000203D96 /* SportsViewController.m in Sources */,
 				84CC95031A58AA7000296CFE /* ChannelScheduleEntry.m in Sources */,
 				84A9932E1AA0DF3500E6690B /* ChannelSpecializedEntryModel.m in Sources */,
 				84A3B0761A9486DD00203D96 /* UIColor+VeplayCommon.m in Sources */,

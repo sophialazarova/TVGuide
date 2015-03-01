@@ -10,6 +10,7 @@
 #import "ChannelScheduleEntry.h"
 #import "ChannelSpecializedEntryModel.h"
 #import "TVShowEntryModel.h"
+#import "CategorizedScheduleType.h"
 
 @implementation RemoteDataManager
 
@@ -31,11 +32,46 @@
     return scheduleItems;
 }
 
--(NSMutableArray*)getSeriesScheduleForDate:(NSString *)date{
+-(NSMutableArray*) getCategorizedSchedule:(CategorizedScheduleType) scheduleType date:(NSString*) date{
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    if(scheduleType == CategorizedScheduleTypeMovies){
+        NSString *url = @"http://tvguide-2.apphb.com/api/tvguide/GetMoviesSchedule";
+        result = [self getCategorizedScheduleForDate:date url:url];
+
+    }
+    else if (scheduleType == CategorizedScheduleTypeSports){
+        NSString *url = @"http://tvguide-2.apphb.com/api/tvguide/GetSportsSchedule";
+        result = [self getCategorizedScheduleForDate:date url:url];
+
+    }
+    else{
+        NSString *url = @"http://tvguide-2.apphb.com/api/tvguide/GetTVSeriesSchedule";
+        result = [self getCategorizedScheduleForDate:date url:url];
+    }
+    
+    return result;
+}
+
+/*-(NSMutableArray*)getSeriesScheduleForDate:(NSString *)date{
+    NSString *url = @"http://tvguide-2.apphb.com/api/tvguide/GetTVSeriesSchedule";
+    return [self getCategorizedScheduleForDate:date url:url];
+}
+
+-(NSMutableArray*)getMoviesScheduleForDate:(NSString *)date{
+    NSString *url = @"http://tvguide-2.apphb.com/api/tvguide/GetMoviesSchedule";
+    return [self getCategorizedScheduleForDate:date url:url];
+}
+
+-(NSMutableArray*)getSportsScheduleForDate:(NSString *)date{
+    NSString *url = @"http://tvguide-2.apphb.com/api/tvguide/GetSportsSchedule";
+    return [self getCategorizedScheduleForDate:date url:url];
+}*/
+
+-(NSMutableArray*) getCategorizedScheduleForDate:(NSString*) date url:(NSString*) initialUrl{
     NSURL *url = [[NSURL alloc] initWithString:
                   [NSString stringWithFormat:
-                   @"http://tvguide-2.apphb.com/api/tvguide/GetTVSeriesSchedule?date=%@",
-                   date]];
+                   @"%@?date=%@",initialUrl,date]];
+    
     NSMutableArray *series = [[NSMutableArray alloc] init];
     NSError *error = nil;
     NSData *data = [self getDataRequestForUrl:url error:error];
@@ -48,6 +84,8 @@
     
     return series;
 }
+
+
 
 -(NSData*) getDataRequestForUrl:(NSURL*) url error:(NSError*) error{
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -102,6 +140,5 @@
     
     return result;
 }
-
 
 @end

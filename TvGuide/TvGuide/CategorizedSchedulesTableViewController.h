@@ -11,5 +11,6 @@
 @interface CategorizedSchedulesTableViewController : UITableViewController
 
 @property(strong,nonatomic) NSArray *data;
+@property(strong,nonatomic) NSString *header;
 
 @end

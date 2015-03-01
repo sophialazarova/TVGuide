@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CategorizedScheduleType.h"
 
 @interface RemoteDataManager : NSObject
 
 -(NSMutableArray*) getScheduleForChannel:(NSString*) channel WithDate: (NSString*) date;
--(NSMutableArray*) getSeriesScheduleForDate:(NSString*) date;
+-(NSMutableArray*) getCategorizedSchedule:(CategorizedScheduleType) scheduleType date:(NSString*) date;
+//-(NSMutableArray*) getSeriesScheduleForDate:(NSString*) date;
+//-(NSMutableArray*) getMoviesScheduleForDate:(NSString*) date;
+//-(NSMutableArray*) getSportsScheduleForDate:(NSString*) date;
 
 @end
