@@ -1,0 +1,18 @@
+//
+//  CategorizedSchedulesView.h
+//  TvGuide
+//
+//  Created by Admin on 3/1/15.
+//  Copyright (c) 2015 sph. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CategorizedSchedulesView : UIView
+
+@property(strong, nonatomic) UIButton *getScheduleButton;
+@property(strong,nonatomic) UIDatePicker *datePicker;
+
+-(void) addAction:(SEL) selector caller:(id) caller;
+
+@end

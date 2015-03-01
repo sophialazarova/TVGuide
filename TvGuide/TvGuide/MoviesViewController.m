@@ -7,7 +7,7 @@
 //
 
 #import "MoviesViewController.h"
-#import "MoviesView.h"
+#import "CategorizedSchedulesView.h"
 
 @interface MoviesViewController ()
 
@@ -26,18 +26,8 @@
 }
 
 -(void)loadView{
-    MoviesView *moviesView = [[MoviesView alloc] init];
+    CategorizedSchedulesView *moviesView = [[CategorizedSchedulesView alloc] init];
     self.view = moviesView;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

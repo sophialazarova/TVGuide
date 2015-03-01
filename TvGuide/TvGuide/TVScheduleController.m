@@ -48,10 +48,10 @@
     self.view = view;
 }
 
--(NSString*) getCurrentDate{
+-(NSString*) transformDate:(NSDate*) date{
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *dateTime = [NSString stringWithFormat:@"%@",[outputFormatter stringFromDate:[NSDate date]]];
+    NSString *dateTime = [NSString stringWithFormat:@"%@",[outputFormatter stringFromDate:date]];
     return dateTime;
 }
 
@@ -74,6 +74,8 @@
     textField.inputView = picker;
     
 }
+
+#pragma mark - PickerView methods
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     return [channelsList count];
@@ -104,13 +106,15 @@
     NSArray* searchedChannelEntry = [coredataManager.context executeFetchRequest:requestForCode error:&error];
     Channel *current = [searchedChannelEntry objectAtIndex:0];
     searchedChannelCode = current.code;
+
+    NSString *date = [self transformDate:[view.datePicker date]];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-     NSArray * result = [remoteManager getScheduleForChannel:searchedChannelCode WithDate:now];
+     NSArray * result = [remoteManager getScheduleForChannel:searchedChannelCode WithDate:date];
      dispatch_async(dispatch_get_main_queue(), ^{
      ChannelScheduleTableViewController *next = [[ChannelScheduleTableViewController alloc] init];
      next.schedule = result;
-     next.header = [NSString stringWithFormat:@"%@\n%@",current.name,now];
+     next.header = [NSString stringWithFormat:@"%@\n%@",current.name,date];
      [[self navigationController] pushViewController:next animated:YES];
      });
 });

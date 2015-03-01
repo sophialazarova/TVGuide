@@ -11,6 +11,6 @@
 @interface RemoteDataManager : NSObject
 
 -(NSMutableArray*) getScheduleForChannel:(NSString*) channel WithDate: (NSString*) date;
--(void) getSeriesScheduleForDate:(NSString*) date;
+-(NSMutableArray*) getSeriesScheduleForDate:(NSString*) date;
 
 @end

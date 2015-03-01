@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) UITextField *channel;
 @property (strong, nonatomic) UIPickerView *channelPicker;
+@property (strong,nonatomic) UIDatePicker *datePicker;
 @property (strong,nonatomic) UIButton *getScheduleButton;
 
 -(void) addAction:(SEL) selector caller:(id) caller;
