@@ -54,19 +54,20 @@
 }
 
 -(void) pushMoviesController{
-    [self pushControllerWithType:CategorizedScheduleTypeMovies];
+    [self pushControllerWithType:CategorizedScheduleTypeMovies title:@"Movies"];
 }
 
 -(void) pushSportsController{
-    [self pushControllerWithType:CategorizedScheduleTypeSports];
+    [self pushControllerWithType:CategorizedScheduleTypeSports title:@"Sport"];
 }
 
 -(void) pushTVSeriesController{
-   [self pushControllerWithType:CategorizedScheduleTypeTVSeries];
+   [self pushControllerWithType:CategorizedScheduleTypeTVSeries title:@"TV Series"];
 }
 
--(void) pushControllerWithType:(CategorizedScheduleType) type{
+-(void) pushControllerWithType:(CategorizedScheduleType) type title:(NSString*) title{
     CategorizedScheduleViewController *controller = [[CategorizedScheduleViewController alloc] initWithScheduleType:type];
+    controller.header = title;
     [self.navigationController pushViewController:controller animated:YES];
 }
 

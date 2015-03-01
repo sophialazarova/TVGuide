@@ -12,6 +12,7 @@
 @interface CategorizedScheduleViewController : UIViewController
 
 @property(assign,nonatomic) CategorizedScheduleType scheduleType;
+@property(strong,nonatomic) NSString* header;
 
 -(instancetype) initWithScheduleType:(CategorizedScheduleType) type;
 

@@ -45,7 +45,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     ChannelSpecializedEntryModel *current = [self.data objectAtIndex:section];
-    NSInteger *count = current.channelEntries.count;
     return current.channelEntries.count;
 }
 

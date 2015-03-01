@@ -31,6 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = self.header;
     remoteManager = [[RemoteDataManager alloc] init];
     [categorizedView addAction:@selector(searchForSchedule) caller:self];
 }

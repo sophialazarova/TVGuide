@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ChannelScheduleEntry : NSObject
+@interface ChannelScheduleEntryModel : NSObject
 
 @property(strong,nonatomic) NSString *title;
 @property(strong,nonatomic) NSString *time;

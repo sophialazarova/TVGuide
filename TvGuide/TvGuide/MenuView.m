@@ -38,7 +38,7 @@
     [self addSubview:self.moviesIcon];
     
     UIImage *sportsImg = [UIImage imageNamed:@"sports.png"];
-    self.sportsIcon = [[IconView alloc] initWithTitle:@"Sports" icon:sportsImg];
+    self.sportsIcon = [[IconView alloc] initWithTitle:@"Sport" icon:sportsImg];
     [self addSubview:self.sportsIcon];
 }
 

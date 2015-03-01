@@ -7,7 +7,7 @@
 //
 
 #import "RemoteDataManager.h"
-#import "ChannelScheduleEntry.h"
+#import "ChannelScheduleEntryModel.h"
 #import "ChannelSpecializedEntryModel.h"
 #import "TVShowEntryModel.h"
 #import "CategorizedScheduleType.h"
@@ -103,7 +103,7 @@
         NSDictionary *item = [responseData objectAtIndex:i];
         NSString *name = [item objectForKey:@"Name"];
         NSString *time = [item objectForKey:@"Time"];
-        ChannelScheduleEntry *currentEntry = [[ChannelScheduleEntry alloc] initWithTitle:name andTime:time];
+        ChannelScheduleEntryModel *currentEntry = [[ChannelScheduleEntryModel alloc] initWithTitle:name andTime:time];
         [scheduleItems addObject:currentEntry];
     }
     

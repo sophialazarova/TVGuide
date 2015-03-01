@@ -34,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"TV Schedule";
     remoteManager = [[RemoteDataManager alloc] init];
     coredataManager = [CoreDataManager getManager];
     view.channelPicker.delegate = self;

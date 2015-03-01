@@ -8,7 +8,7 @@
 
 #import "ChannelScheduleTableViewController.h"
 #import "ChannelScheduleItemTableViewCell.h"
-#import "ChannelScheduleEntry.h"
+#import "ChannelScheduleEntryModel.h"
 #import "UIColor+VeplayCommon.h"
 
 @interface ChannelScheduleTableViewController ()
@@ -51,7 +51,7 @@
         cell = [[ChannelScheduleItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"channelScheduleItem"];
     }
     
-    ChannelScheduleEntry *entry = [self.schedule objectAtIndex:indexPath.row];
+    ChannelScheduleEntryModel *entry = [self.schedule objectAtIndex:indexPath.row];
     cell.title.text = entry.title;
     cell.time.text = entry.time;
     

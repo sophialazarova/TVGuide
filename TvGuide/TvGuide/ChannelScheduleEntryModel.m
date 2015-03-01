@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 sph. All rights reserved.
 //
 
-#import "ChannelScheduleEntry.h"
+#import "ChannelScheduleEntryModel.h"
 
-@implementation ChannelScheduleEntry
+@implementation ChannelScheduleEntryModel
 
 -(id)initWithTitle:(NSString *)title andTime:(NSString *)time{
     self = [super init];

@@ -52,15 +52,8 @@
 
 -(void) customizeCell{
     self.time.textColor = [UIColor whiteColor];
-    self.time.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
-    
-    self.title.font = [UIFont fontWithName:@"Helvetica" size:18];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    self.time.font = [UIFont fontWithName:@"Helvetica-Bold" size:17];
+    self.title.font = [UIFont fontWithName:@"Helvetica" size:15];
 }
 
 @end
