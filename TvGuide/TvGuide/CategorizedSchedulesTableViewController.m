@@ -11,6 +11,7 @@
 #import "ChannelSpecializedEntryModel.h"
 #import "ChannelScheduleItemTableViewCell.h"
 #import "UIColor+VeplayCommon.h"
+#import "TvShowEntryModel.h"
 
 @interface CategorizedSchedulesTableViewController ()
 
@@ -62,18 +63,21 @@
     ChannelSpecializedEntryModel *currentTV = [self.data objectAtIndex:indexPath.section];
     NSArray *entries = currentTV.channelEntries;
     NSInteger rows = [self.tableView numberOfRowsInSection:indexPath.section];
-    NSInteger r = indexPath.row;
+    
+    //////FIX ME (THE if BELOW)////
+    
+    
     if(indexPath.row >= rows){
-        cell.time.text = [[entries objectAtIndex:indexPath.row - (indexPath.row-rows) - 1] time];
-        cell.title.text = [[entries objectAtIndex:indexPath.row - (indexPath.row-rows) - 1] title];
+        TvShowEntryModel *currentShow = [entries objectAtIndex:indexPath.row - (indexPath.row-rows) - 1];
+        cell.time.text = currentShow.time;
+        cell.title.text = currentShow.title;
     }
     else{
-        cell.time.text = [[entries objectAtIndex:indexPath.row] time];
-        cell.title.text = [[entries objectAtIndex:indexPath.row] title];
+        TvShowEntryModel *currentShow = [entries objectAtIndex:indexPath.row];
+        cell.time.text = currentShow.time;
+        cell.title.text = currentShow.title;
     }
-    NSInteger imd = indexPath.row - (indexPath.row-rows);
-    
-    
+
     [cell setNeedsDisplay];
     [cell layoutIfNeeded];
     
