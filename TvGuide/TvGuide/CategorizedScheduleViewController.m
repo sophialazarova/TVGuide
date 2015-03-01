@@ -57,15 +57,23 @@
     
     NSString *date = [self transformDate:[categorizedView.datePicker date]];
     
+    [categorizedView.activityIndicator startAnimating];
+    [self changeBackgroundUserInteractionTo:NO];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray * result = [remoteManager getCategorizedSchedule:self.scheduleType date:date];
         dispatch_async(dispatch_get_main_queue(), ^{
             CategorizedSchedulesTableViewController *next = [[CategorizedSchedulesTableViewController alloc] init];
             next.data = result;
             [[self navigationController] pushViewController:next animated:YES];
+            [categorizedView.activityIndicator stopAnimating];
+            [self changeBackgroundUserInteractionTo:YES];
         });
     });
 }
 
+-(void) changeBackgroundUserInteractionTo:(BOOL) isInteractionEnabled{
+    categorizedView.getScheduleButton.userInteractionEnabled = isInteractionEnabled;
+    categorizedView.datePicker.userInteractionEnabled = isInteractionEnabled;
+}
 
 @end

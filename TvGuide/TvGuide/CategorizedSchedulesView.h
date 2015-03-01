@@ -12,6 +12,7 @@
 
 @property(strong, nonatomic) UIButton *getScheduleButton;
 @property(strong,nonatomic) UIDatePicker *datePicker;
+@property (strong,nonatomic) UIActivityIndicatorView *activityIndicator;
 
 -(void) addAction:(SEL) selector caller:(id) caller;
 

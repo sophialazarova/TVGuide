@@ -108,16 +108,27 @@
     searchedChannelCode = current.code;
 
     NSString *date = [self transformDate:[view.datePicker date]];
-    
+    [view.activityIndicator startAnimating];
+    [self changeBackgroundUserInteractionTo:NO];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
      NSArray * result = [remoteManager getScheduleForChannel:searchedChannelCode WithDate:date];
      dispatch_async(dispatch_get_main_queue(), ^{
      ChannelScheduleTableViewController *next = [[ChannelScheduleTableViewController alloc] init];
      next.schedule = result;
      next.header = [NSString stringWithFormat:@"%@",current.name];
      [[self navigationController] pushViewController:next animated:YES];
+     [view.activityIndicator stopAnimating];
+     [self changeBackgroundUserInteractionTo:YES];
      });
+    
 });
+}
+
+-(void) changeBackgroundUserInteractionTo:(BOOL) isInteractionEnabled{
+    view.getScheduleButton.userInteractionEnabled = isInteractionEnabled;
+    view.datePicker.userInteractionEnabled = isInteractionEnabled;
+    view.channelPicker.userInteractionEnabled = isInteractionEnabled;
 }
 
 - (void)didReceiveMemoryWarning {
