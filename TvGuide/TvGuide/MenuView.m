@@ -129,7 +129,6 @@
     element.transform = CGAffineTransformMakeScale(0.1,0.1);
     element.alpha = 0.0f;
     [UIView commitAnimations];
-
 }
 
 -(void) animateConstrants{

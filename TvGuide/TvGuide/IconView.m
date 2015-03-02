@@ -69,5 +69,15 @@
 -(void)addAction:(SEL)selector caller:(id)caller{
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:caller action:selector];
     [self addGestureRecognizer:tapRecognizer];
+   // [self zoomOut:self];
 }
+
+/*-(void) zoomOut:(UIView*) element{
+    element.alpha = 1.0f;
+    [UIView beginAnimations:@"zoomOut" context:NULL];
+    [UIView setAnimationDuration:0.2];
+    element.alpha = 0.0f;
+    element.alpha = 1.0f;
+    [UIView commitAnimations];
+}*/
 @end

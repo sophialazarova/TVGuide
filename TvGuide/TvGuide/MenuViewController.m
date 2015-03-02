@@ -53,7 +53,7 @@
        [self.navigationController pushViewController:tvController animated:YES];
 }
 
--(void) pushMoviesController{
+    -(void) pushMoviesController{
     [self pushControllerWithType:CategorizedScheduleTypeMovies title:@"Movies"];
 }
 
@@ -70,5 +70,7 @@
     controller.header = title;
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+
 
 @end

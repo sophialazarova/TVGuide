@@ -42,11 +42,12 @@
 -(void) setupConstraints{
     [self.datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.mas_centerX);
+        make.top.mas_equalTo(30);
     }];
     
     [self.getScheduleButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.mas_centerX);
-        make.bottom.mas_equalTo(self.mas_bottom).with.offset(-20);
+        make.bottom.mas_equalTo(self.mas_bottom).with.offset(-40);
     }];
     
     [self.activityIndicator mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -66,7 +67,7 @@
     [self.getScheduleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.getScheduleButton setContentEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     self.datePicker.datePickerMode = UIDatePickerModeDate;
-    self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#000000" alpha:0.1];
+    self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#000000" alpha:0.2];
     [self limitDatePicker];
 }
 

@@ -39,8 +39,9 @@
     coredataManager = [CoreDataManager getManager];
     view.channelPicker.delegate = self;
     view.channelPicker.showsSelectionIndicator = YES;
-    [self attachPickerToTextField:view.channel :view.channelPicker];
     [view addAction:@selector(searchForSchedule) caller:self];
+    view.channelPicker.delegate = self;
+    view.channelPicker.dataSource = self;
 }
 
 -(void)loadView{
@@ -68,13 +69,6 @@
     return channels;
 }
 
-- (void)attachPickerToTextField: (UITextField*) textField :(UIPickerView*) picker{
-    picker.delegate = self;
-    picker.dataSource = self;
-    textField.inputView = picker;
-    
-}
-
 #pragma mark - PickerView methods
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
@@ -85,20 +79,13 @@
     return [channelsList objectAtIndex:row];
 }
 
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    view.channel.text = [channelsList objectAtIndex:row];
-}
-
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [view.channel resignFirstResponder];
-}
-
 - (void)searchForSchedule{
-    NSString* channelName = view.channel.text;
+    NSInteger selectedIndex = [view.channelPicker selectedRowInComponent:0];
+    NSString* channelName = [channelsList objectAtIndex:selectedIndex];
     NSFetchRequest *requestForCode = [[NSFetchRequest alloc] initWithEntityName:@"Channel"];
     NSPredicate *filter = [NSPredicate predicateWithFormat:@"name == %@", channelName];
     [requestForCode setPredicate:filter];

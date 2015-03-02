@@ -24,9 +24,6 @@
 }
 
 -(void) initializeSubviews{
-    self.channel = [[UITextField alloc] init];
-    [self addSubview:self.channel];
-    
     self.channelPicker = [[UIPickerView alloc] init];
     [self addSubview:self.channelPicker];
     
@@ -49,7 +46,7 @@
     [self.getScheduleButton setContentEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     [self.getScheduleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.datePicker.datePickerMode = UIDatePickerModeDate;
-    self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#000000" alpha:0.1];
+    self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#000000" alpha:0.2];
     [self limitDatePicker];
 }
 
@@ -57,19 +54,14 @@
     [self.channelPicker mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.mas_centerX);
     }];
-    
-    [self.channel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.mas_centerX);
-        make.top.mas_equalTo(self.channelPicker.mas_bottom).with.offset(10);
-    }];
-    
+
     [self.getScheduleButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.mas_centerX);
         make.bottom.mas_equalTo(self.mas_bottom).with.offset(-20);
     }];
     
     [self.datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.channel.mas_bottom).with.offset(20);
+        make.top.mas_equalTo(self.channelPicker.mas_bottom).with.offset(20);
         make.height.mas_equalTo(50);
     }];
     

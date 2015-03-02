@@ -16,6 +16,8 @@
 		84A3B0821A94992D00203D96 /* sports.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A3B07E1A94992D00203D96 /* sports.png */; };
 		84A3B0881A97300600203D96 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3B0871A97300600203D96 /* MenuView.m */; };
 		84A3B08B1A97301600203D96 /* IconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3B08A1A97301600203D96 /* IconView.m */; };
+		84A3E5091AA472B800BC202F /* MPGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3E5081AA472B800BC202F /* MPGTextField.m */; };
+		84A3E50C1AA493D100BC202F /* SchedulesTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3E50B1AA493D100BC202F /* SchedulesTabViewController.m */; };
 		84A5B05F1AA3977900BA96F8 /* CategorizedScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B05E1AA3977900BA96F8 /* CategorizedScheduleViewController.m */; };
 		84A993281A98F6F000E6690B /* TVScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A993271A98F6EF00E6690B /* TVScheduleView.m */; };
 		84A9932B1AA0DCAA00E6690B /* TvShowEntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A9932A1AA0DCAA00E6690B /* TvShowEntryModel.m */; };
@@ -67,6 +69,10 @@
 		84A3B0871A97300600203D96 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		84A3B0891A97301600203D96 /* IconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconView.h; sourceTree = "<group>"; };
 		84A3B08A1A97301600203D96 /* IconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconView.m; sourceTree = "<group>"; };
+		84A3E5071AA472B800BC202F /* MPGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGTextField.h; sourceTree = "<group>"; };
+		84A3E5081AA472B800BC202F /* MPGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGTextField.m; sourceTree = "<group>"; };
+		84A3E50A1AA493D100BC202F /* SchedulesTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchedulesTabViewController.h; sourceTree = "<group>"; };
+		84A3E50B1AA493D100BC202F /* SchedulesTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchedulesTabViewController.m; sourceTree = "<group>"; };
 		84A5B05A1AA393DD00BA96F8 /* CategorizedScheduleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategorizedScheduleType.h; sourceTree = "<group>"; };
 		84A5B05D1AA3977900BA96F8 /* CategorizedScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategorizedScheduleViewController.h; sourceTree = "<group>"; };
 		84A5B05E1AA3977900BA96F8 /* CategorizedScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategorizedScheduleViewController.m; sourceTree = "<group>"; };
@@ -176,6 +182,8 @@
 		84A3E5061AA3BB6200BC202F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				84A3E5071AA472B800BC202F /* MPGTextField.h */,
+				84A3E5081AA472B800BC202F /* MPGTextField.m */,
 				84A5B05A1AA393DD00BA96F8 /* CategorizedScheduleType.h */,
 				84A3B0741A9486DD00203D96 /* UIColor+VeplayCommon.h */,
 				84A3B0751A9486DD00203D96 /* UIColor+VeplayCommon.m */,
@@ -232,6 +240,8 @@
 				84CC94E71A58258200296CFE /* LaunchScreen.xib */,
 				84CC94D81A58258200296CFE /* Supporting Files */,
 				84A9C8E31A65C1D9005DBB16 /* Channels.xcdatamodeld */,
+				84A3E50A1AA493D100BC202F /* SchedulesTabViewController.h */,
+				84A3E50B1AA493D100BC202F /* SchedulesTabViewController.m */,
 			);
 			path = TvGuide;
 			sourceTree = "<group>";
@@ -455,6 +465,7 @@
 				84A9932B1AA0DCAA00E6690B /* TvShowEntryModel.m in Sources */,
 				84A5B05F1AA3977900BA96F8 /* CategorizedScheduleViewController.m in Sources */,
 				84CC94DB1A58258200296CFE /* main.m in Sources */,
+				84A3E50C1AA493D100BC202F /* SchedulesTabViewController.m in Sources */,
 				840775501AA27A0100B82874 /* CategorizedSchedulesTableViewController.m in Sources */,
 				84A3B08B1A97301600203D96 /* IconView.m in Sources */,
 				84A9C8F41A65DD19005DBB16 /* LoadingChannelHelper.m in Sources */,
@@ -464,6 +475,7 @@
 				84A3B0791A9494B800203D96 /* MenuViewController.m in Sources */,
 				84CC95031A58AA7000296CFE /* ChannelScheduleEntryModel.m in Sources */,
 				84A9932E1AA0DF3500E6690B /* ChannelSpecializedEntryModel.m in Sources */,
+				84A3E5091AA472B800BC202F /* MPGTextField.m in Sources */,
 				84A3B0761A9486DD00203D96 /* UIColor+VeplayCommon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPGTextField.h"
 
 @interface CategorizedSchedulesView : UIView
 
