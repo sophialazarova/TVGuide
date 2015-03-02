@@ -10,6 +10,7 @@
 #import "CategorizedSchedulesView.h"
 #import "CategorizedSchedulesTableViewController.h"
 #import "RemoteDataManager.h"
+#import "Utility.h"
 
 @interface CategorizedScheduleViewController ()
 
@@ -58,7 +59,7 @@
     NSString *date = [self transformDate:[categorizedView.datePicker date]];
     
     [categorizedView.activityIndicator startAnimating];
-    [self changeBackgroundUserInteractionTo:NO];
+    [Utility changeBackgroundUserInteractionTo:NO backgroundViews:[NSArray arrayWithObjects:categorizedView.datePicker, categorizedView.getScheduleButton, nil]];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray * result = [remoteManager getCategorizedSchedule:self.scheduleType date:date];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -66,14 +67,9 @@
             next.data = result;
             [[self navigationController] pushViewController:next animated:YES];
             [categorizedView.activityIndicator stopAnimating];
-            [self changeBackgroundUserInteractionTo:YES];
+               [Utility changeBackgroundUserInteractionTo:YES backgroundViews:[NSArray arrayWithObjects:categorizedView.datePicker, categorizedView.getScheduleButton, nil]];
         });
     });
-}
-
--(void) changeBackgroundUserInteractionTo:(BOOL) isInteractionEnabled{
-    categorizedView.getScheduleButton.userInteractionEnabled = isInteractionEnabled;
-    categorizedView.datePicker.userInteractionEnabled = isInteractionEnabled;
 }
 
 @end

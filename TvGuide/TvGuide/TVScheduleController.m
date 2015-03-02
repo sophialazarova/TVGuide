@@ -14,6 +14,7 @@
 #import "CoreDataManager.h"
 #import "Channel.h"
 #import "TVScheduleView.h"
+#import "Utility.h"
 
 @interface TVScheduleController ()
 
@@ -96,7 +97,7 @@
 
     NSString *date = [self transformDate:[view.datePicker date]];
     [view.activityIndicator startAnimating];
-    [self changeBackgroundUserInteractionTo:NO];
+    [Utility changeBackgroundUserInteractionTo:NO backgroundViews:[NSArray arrayWithObjects:view.channelPicker,view.datePicker, view.getScheduleButton, nil]];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
      NSArray * result = [remoteManager getScheduleForChannel:searchedChannelCode WithDate:date];
@@ -106,16 +107,10 @@
      next.header = [NSString stringWithFormat:@"%@",current.name];
      [[self navigationController] pushViewController:next animated:YES];
      [view.activityIndicator stopAnimating];
-     [self changeBackgroundUserInteractionTo:YES];
+     [Utility changeBackgroundUserInteractionTo:YES backgroundViews:[NSArray arrayWithObjects:view.channelPicker,view.datePicker, view.getScheduleButton, nil]];
      });
     
 });
-}
-
--(void) changeBackgroundUserInteractionTo:(BOOL) isInteractionEnabled{
-    view.getScheduleButton.userInteractionEnabled = isInteractionEnabled;
-    view.datePicker.userInteractionEnabled = isInteractionEnabled;
-    view.channelPicker.userInteractionEnabled = isInteractionEnabled;
 }
 
 - (void)didReceiveMemoryWarning {

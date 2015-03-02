@@ -9,6 +9,7 @@
 #import "CategorizedSchedulesView.h"
 #import "Masonry.h"
 #import "UIColor+VeplayCommon.h"
+#import "Utility.h"
 
 
 @implementation CategorizedSchedulesView
@@ -68,19 +69,7 @@
     [self.getScheduleButton setContentEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     self.datePicker.datePickerMode = UIDatePickerModeDate;
     self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#000000" alpha:0.2];
-    [self limitDatePicker];
-}
-
--(void) limitDatePicker{
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDate *currentDate = [NSDate date];
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:-1];
-    NSDate *minDate = [gregorian dateByAddingComponents:comps toDate:currentDate  options:0];
-    [comps setDay:5];
-    NSDate *maxDate = [gregorian dateByAddingComponents:comps toDate:currentDate  options:0];
-    self.datePicker.minimumDate = minDate;
-    self.datePicker.maximumDate = maxDate;
+    [Utility limitDatePicker:self.datePicker];
 }
 
 @end

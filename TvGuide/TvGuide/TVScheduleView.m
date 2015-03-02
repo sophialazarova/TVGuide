@@ -9,6 +9,7 @@
 #import "TVScheduleView.h"
 #import "Masonry.h"
 #import "UIColor+VeplayCommon.h"
+#import "Utility.h"
 
 @implementation TVScheduleView
 
@@ -47,7 +48,7 @@
     [self.getScheduleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.datePicker.datePickerMode = UIDatePickerModeDate;
     self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#000000" alpha:0.2];
-    [self limitDatePicker];
+    [Utility limitDatePicker:self.datePicker];
 }
 
 -(void) setupConstraints{
@@ -61,7 +62,7 @@
     }];
     
     [self.datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.channelPicker.mas_bottom).with.offset(20);
+        make.top.mas_equalTo(self.channelPicker.mas_bottom).with.offset(40);
         make.height.mas_equalTo(50);
     }];
     
@@ -75,18 +76,6 @@
 
 -(void)addAction:(SEL)selector caller:(id)caller{
     [self.getScheduleButton addTarget:caller action:selector forControlEvents:UIControlEventTouchUpInside];
-}
-
--(void) limitDatePicker{
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDate *currentDate = [NSDate date];
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:-1];
-    NSDate *minDate = [gregorian dateByAddingComponents:comps toDate:currentDate  options:0];
-    [comps setDay:5];
-    NSDate *maxDate = [gregorian dateByAddingComponents:comps toDate:currentDate  options:0];
-    self.datePicker.minimumDate = minDate;
-    self.datePicker.maximumDate = maxDate;
 }
 
 @end
