@@ -21,10 +21,11 @@
     CategorizedSchedulesView *categorizedView;
 }
 
--(instancetype)initWithScheduleType:(CategorizedScheduleType)type{
+-(instancetype)initWithScheduleType:(CategorizedScheduleType)type searchDate:(NSString*) searchDate{
     self = [super init];
     if(self){
         self.scheduleType = type;
+        self.searchDate = searchDate;
     }
     
     return self;
@@ -35,6 +36,7 @@
     self.navigationItem.title = self.header;
     remoteManager = [[RemoteDataManager alloc] init];
     [categorizedView addAction:@selector(searchForSchedule) caller:self];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,17 +49,10 @@
     self.view = categorizedView;
 }
 
--(NSString*) transformDate:(NSDate*) date{
-    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *dateTime = [NSString stringWithFormat:@"%@",[outputFormatter stringFromDate:date]];
-    return dateTime;
-}
-
 - (void)searchForSchedule{
     
-    NSString *date = [self transformDate:[categorizedView.datePicker date]];
-    
+   // NSString *date = [self transformDate:[categorizedView.datePicker date]];
+    NSString *date = [Utility transformDate:self.searchDate];
     [categorizedView.activityIndicator startAnimating];
     [Utility changeBackgroundUserInteractionTo:NO backgroundViews:[NSArray arrayWithObjects:categorizedView.datePicker, categorizedView.getScheduleButton, nil]];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

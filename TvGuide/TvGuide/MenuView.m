@@ -26,19 +26,19 @@
 
 -(void) initializeComponents{
     UIImage *seriesImg = [UIImage imageNamed:@"series.png"];
-    self.seriesIcon = [[IconView alloc] initWithTitle:@"TV Series" icon:seriesImg];
+    self.seriesIcon = [[IconView alloc] initWithTitle:@"Сериали" icon:seriesImg];
     [self addSubview:self.seriesIcon];
     
     UIImage *TVImg = [UIImage imageNamed:@"tv.png"];
-    self.TVIcon = [[IconView alloc] initWithTitle:@"Tv Schedule" icon:TVImg];
+    self.TVIcon = [[IconView alloc] initWithTitle:@"ТВ програма" icon:TVImg];
     [self addSubview:self.TVIcon];
     
     UIImage *moviesImg = [UIImage imageNamed:@"movies.png"];
-    self.moviesIcon= [[IconView alloc] initWithTitle:@"Movies" icon:moviesImg];
+    self.moviesIcon= [[IconView alloc] initWithTitle:@"Филми" icon:moviesImg];
     [self addSubview:self.moviesIcon];
     
     UIImage *sportsImg = [UIImage imageNamed:@"sports.png"];
-    self.sportsIcon = [[IconView alloc] initWithTitle:@"Sport" icon:sportsImg];
+    self.sportsIcon = [[IconView alloc] initWithTitle:@"Спорт" icon:sportsImg];
     [self addSubview:self.sportsIcon];
 }
 

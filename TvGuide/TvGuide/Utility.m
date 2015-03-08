@@ -29,5 +29,12 @@
     datePicker.maximumDate = maxDate;
 }
 
++(NSString*) transformDate:(NSDate*) date{
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateTime = [NSString stringWithFormat:@"%@",[outputFormatter stringFromDate:date]];
+    return dateTime;
+}
+
 
 @end

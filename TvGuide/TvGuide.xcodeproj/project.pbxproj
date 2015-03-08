@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		840775501AA27A0100B82874 /* CategorizedSchedulesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407754F1AA27A0100B82874 /* CategorizedSchedulesTableViewController.m */; };
+		841784D11AAC8CF000B0A56C /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 841784D01AAC8CF000B0A56C /* circle.png */; };
+		846EB0B21AAC803900C8FC5B /* checkmark-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 846EB0B11AAC803900C8FC5B /* checkmark-small.png */; };
 		8477CA4E1AA4F61E00BB93D2 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477CA4D1AA4F61E00BB93D2 /* Utility.m */; };
 		84A3B0761A9486DD00203D96 /* UIColor+VeplayCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3B0751A9486DD00203D96 /* UIColor+VeplayCommon.m */; };
 		84A3B0791A9494B800203D96 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3B0781A9494B800203D96 /* MenuViewController.m */; };
@@ -58,6 +60,8 @@
 		53985E6AC805333657E6CCD0 /* libPods-TvGuide.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TvGuide.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8407754E1AA27A0100B82874 /* CategorizedSchedulesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategorizedSchedulesTableViewController.h; sourceTree = "<group>"; };
 		8407754F1AA27A0100B82874 /* CategorizedSchedulesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategorizedSchedulesTableViewController.m; sourceTree = "<group>"; };
+		841784D01AAC8CF000B0A56C /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		846EB0B11AAC803900C8FC5B /* checkmark-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark-small.png"; sourceTree = "<group>"; };
 		8477CA4C1AA4F61E00BB93D2 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		8477CA4D1AA4F61E00BB93D2 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		84A3B0741A9486DD00203D96 /* UIColor+VeplayCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VeplayCommon.h"; sourceTree = "<group>"; };
@@ -142,7 +146,9 @@
 		84A3B07A1A9498F200203D96 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				841784D01AAC8CF000B0A56C /* circle.png */,
 				84A3B07B1A94992D00203D96 /* series.png */,
+				846EB0B11AAC803900C8FC5B /* checkmark-small.png */,
 				84A3B07C1A94992D00203D96 /* tv.png */,
 				84A3B07D1A94992D00203D96 /* movies.png */,
 				84A3B07E1A94992D00203D96 /* sports.png */,
@@ -405,8 +411,10 @@
 				84CC94E91A58258200296CFE /* LaunchScreen.xib in Resources */,
 				84A3B0801A94992D00203D96 /* tv.png in Resources */,
 				84A3B07F1A94992D00203D96 /* series.png in Resources */,
+				846EB0B21AAC803900C8FC5B /* checkmark-small.png in Resources */,
 				84A3B0821A94992D00203D96 /* sports.png in Resources */,
 				84CC94E61A58258200296CFE /* Images.xcassets in Resources */,
+				841784D11AAC8CF000B0A56C /* circle.png in Resources */,
 				84A3B0811A94992D00203D96 /* movies.png in Resources */,
 				84A9C8EE1A65C579005DBB16 /* ListOfChannels.plist in Resources */,
 			);

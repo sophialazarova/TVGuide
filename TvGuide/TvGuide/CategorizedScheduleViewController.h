@@ -13,7 +13,8 @@
 
 @property(assign,nonatomic) CategorizedScheduleType scheduleType;
 @property(strong,nonatomic) NSString* header;
+@property(strong, nonatomic) NSDate *searchDate;
 
--(instancetype) initWithScheduleType:(CategorizedScheduleType) type;
+-(instancetype) initWithScheduleType:(CategorizedScheduleType) type searchDate:(NSDate*) searchDate;
 
 @end

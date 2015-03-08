@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CategorizedScheduleType.h"
 
 @interface CategorizedSchedulesTableViewController : UITableViewController
 
 @property(strong,nonatomic) NSArray *data;
 @property(strong,nonatomic) NSString *header;
+@property (strong,nonatomic) UIActivityIndicatorView *activityIndicator;
 
+@property(strong,nonatomic) NSDate *searchDate;
+@property(assign,nonatomic) CategorizedScheduleType type;
+
+-(instancetype) initWithType:(CategorizedScheduleType) type searchDate:(NSDate*) date;
 @end

@@ -12,24 +12,56 @@
 #import "ChannelScheduleItemTableViewCell.h"
 #import "UIColor+VeplayCommon.h"
 #import "TvShowEntryModel.h"
+#import "RemoteDataManager.h"
+#import "Masonry.h"
+#import "CategorizedScheduleType.h"
+#import "Utility.h"
+
 
 @interface CategorizedSchedulesTableViewController ()
 
 @end
 
 @implementation CategorizedSchedulesTableViewController{
- 
+    RemoteDataManager *remoteManager;
+}
+
+-(instancetype)initWithType:(CategorizedScheduleType)type searchDate:(NSDate *)date{
+    self = [super init];
+    if(self){
+        self.searchDate = date;
+        self.type = type;
+    }
+    
+    return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = self.header;
     [self.tableView registerClass:[ChannelScheduleItemTableViewCell class] forCellReuseIdentifier:@"categorizedCell"];
     
     self.tableView.estimatedRowHeight = 90.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     self.tableView.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
+    
+    remoteManager = [[RemoteDataManager alloc] init];
+    
+    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:self.activityIndicator];
+
+    [self.activityIndicator mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(self.tableView.mas_height);
+        make.width.mas_equalTo(self.tableView.mas_width);
+        make.centerX.mas_equalTo(self.tableView.mas_centerX);
+        make.centerY.mas_equalTo(self.tableView.mas_centerY);
+    }];
+    
+    self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#000000" alpha:0.2];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self searchForScheduleForDate:self.searchDate scheduleType:self.type];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,6 +114,29 @@
     [cell layoutIfNeeded];
     
     return cell;
+}
+
+- (void)searchForScheduleForDate:(NSDate*) searchDate scheduleType:(CategorizedScheduleType) type{
+    
+    // NSString *date = [self transformDate:[categorizedView.datePicker date]];
+    NSString *date = [Utility transformDate:searchDate];
+    [self.activityIndicator startAnimating];
+    self.tableView.userInteractionEnabled = NO;
+   // [Utility changeBackgroundUserInteractionTo:NO backgroundViews:[NSArray arrayWithObjects:s, categorizedView.getScheduleButton, nil]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSArray * result = [remoteManager getCategorizedSchedule:type date:date];
+        dispatch_async(dispatch_get_main_queue(),^{
+            // CategorizedSchedulesTableViewController *next = [[CategorizedSchedulesTableViewController alloc] init];
+            self.data = result;
+            //[[self navigationController] pushViewController:next animated:YES];
+            // [categorizedView.activityIndicator stopAnimating];
+            // [Utility changeBackgroundUserInteractionTo:YES backgroundViews:[NSArray arrayWithObjects:categorizedView.datePicker, categorizedView.getScheduleButton, nil]];
+            [self.activityIndicator stopAnimating];
+            [self.tableView reloadData];
+            self.tableView.userInteractionEnabled = YES;
+
+        });
+    });
 }
 
 

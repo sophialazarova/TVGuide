@@ -12,6 +12,7 @@
 #import "Channel.h"
 #import "DCIntrospect.h"
 #import "MenuViewController.h"
+#import "UIColor+VeplayCommon.h"
 
 @interface AppDelegate ()
 
@@ -36,6 +37,9 @@
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
     self.window.rootViewController = navbar;
     [self.window addSubview:navbar.view];
+    
+    [[UITabBar appearance] setBackgroundColor:[UIColor colorWithHexValue:@"#fb9b46" alpha:1.0]];
+    [[UITabBar appearance] setTintColor:[UIColor colorWithHexValue:@"#fb9b46" alpha:1.0]];
     [self.window makeKeyAndVisible];
     
 #if TARGET_IPHONE_SIMULATOR
