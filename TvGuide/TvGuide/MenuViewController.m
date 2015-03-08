@@ -10,7 +10,6 @@
 #import "MenuView.h"
 #import "TVScheduleController.h"
 #import "ChannelScheduleTableViewController.h"
-#import "CategorizedScheduleViewController.h"
 #import "CategorizedScheduleType.h"
 #import "CategorizedSchedulesTableViewController.h"
 #import "Utility.h"
