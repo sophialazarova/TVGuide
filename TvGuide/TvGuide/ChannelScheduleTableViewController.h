@@ -13,4 +13,11 @@
 @property(strong,nonatomic) NSArray *schedule;
 @property(strong, nonatomic) NSString *header;
 
+@property (strong,nonatomic) UIActivityIndicatorView *activityIndicator;
+
+@property(strong,nonatomic) NSDate *date;
+@property(strong,nonatomic) NSString *channelName;
+
+-(instancetype) initWithChannelName:(NSString*) channelName SearchDate:(NSDate*) date;
+
 @end

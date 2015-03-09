@@ -111,12 +111,13 @@
     NSDate *result = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];
     return result;
 }
+
 -(void) attachTabBarItemWithName:(NSString*) name ToController:(UIViewController*) contr{
     UITabBarItem* tabBar = [[UITabBarItem alloc] initWithTitle:name image:[UIImage imageNamed:@"circle.png"] tag:0];
     tabBar.selectedImage = [UIImage imageNamed:@"checkmark-small.png"];
     contr.tabBarItem = tabBar;
-
 }
+
 
 
 

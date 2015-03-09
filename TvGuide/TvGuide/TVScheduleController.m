@@ -35,7 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"TV Schedule";
+    self.navigationItem.title = @"ТВ Програма";
     remoteManager = [[RemoteDataManager alloc] init];
     coredataManager = [CoreDataManager getManager];
     view.channelPicker.delegate = self;
@@ -85,37 +85,67 @@
 }
 
 - (void)searchForSchedule{
+    UITabBarController *cont = [self createTabController];
+    [self.navigationController pushViewController:cont animated:YES];
+    
     NSInteger selectedIndex = [view.channelPicker selectedRowInComponent:0];
     NSString* channelName = [channelsList objectAtIndex:selectedIndex];
-    NSFetchRequest *requestForCode = [[NSFetchRequest alloc] initWithEntityName:@"Channel"];
-    NSPredicate *filter = [NSPredicate predicateWithFormat:@"name == %@", channelName];
-    [requestForCode setPredicate:filter];
-    NSError *error = nil;
-    NSArray* searchedChannelEntry = [coredataManager.context executeFetchRequest:requestForCode error:&error];
-    Channel *current = [searchedChannelEntry objectAtIndex:0];
-    searchedChannelCode = current.code;
-
-    NSString *date = [self transformDate:[view.datePicker date]];
-    [view.activityIndicator startAnimating];
-    [Utility changeBackgroundUserInteractionTo:NO backgroundViews:[NSArray arrayWithObjects:view.channelPicker,view.datePicker, view.getScheduleButton, nil]];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-     NSArray * result = [remoteManager getScheduleForChannel:searchedChannelCode WithDate:date];
-     dispatch_async(dispatch_get_main_queue(), ^{
-     ChannelScheduleTableViewController *next = [[ChannelScheduleTableViewController alloc] init];
-     next.schedule = result;
-     next.header = [NSString stringWithFormat:@"%@",current.name];
-     [[self navigationController] pushViewController:next animated:YES];
-     [view.activityIndicator stopAnimating];
-     [Utility changeBackgroundUserInteractionTo:YES backgroundViews:[NSArray arrayWithObjects:view.channelPicker,view.datePicker, view.getScheduleButton, nil]];
-     });
+    cont.navigationItem.title = channelName;
     
-});
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UITabBarController*) createTabController{
+    UITabBarController *tabBar = [[UITabBarController alloc] init];
+ 
+    NSArray *controllersArray = [self initializeTabBarControllers];
+    tabBar.viewControllers = controllersArray;
+    
+    return tabBar;
+}
+
+
+-(NSArray*) initializeTabBarControllers{
+    NSDate *current = [NSDate date];
+    NSDate *tomorrowDate = [self addDays:1 ToDate:current];
+    NSDate *thirdDate = [self addDays:2 ToDate:current];
+    NSDate *fourthDate = [self addDays:3 ToDate:current];
+    NSDate *fifthDate = [self addDays:4 ToDate:current];
+    
+    NSInteger selectedIndex = [view.channelPicker selectedRowInComponent:0];
+    NSString* channelName = [channelsList objectAtIndex:selectedIndex];
+    
+    ChannelScheduleTableViewController *today = [[ChannelScheduleTableViewController alloc] initWithChannelName:channelName SearchDate:current];
+    ChannelScheduleTableViewController *tomorrow = [[ChannelScheduleTableViewController alloc] initWithChannelName:channelName SearchDate:tomorrowDate];
+    ChannelScheduleTableViewController *thirdDay = [[ChannelScheduleTableViewController alloc] initWithChannelName:channelName SearchDate:thirdDate];
+    ChannelScheduleTableViewController *fourthDay = [[ChannelScheduleTableViewController alloc] initWithChannelName:channelName SearchDate:fourthDate];
+    ChannelScheduleTableViewController *fifthDay = [[ChannelScheduleTableViewController alloc] initWithChannelName:channelName SearchDate:fifthDate];
+    
+    [self attachTabBarItemWithName:@"Днес" ToController:today];
+    [self attachTabBarItemWithName:@"Утре" ToController:tomorrow];
+    [self attachTabBarItemWithName:[Utility transformDate:thirdDate] ToController:thirdDay];
+    [self attachTabBarItemWithName:[Utility transformDate:fourthDate] ToController:fourthDay];
+    [self attachTabBarItemWithName:[Utility transformDate:fifthDate] ToController:fifthDay];
+    
+    NSArray *controllersArray = [NSArray arrayWithObjects:today,tomorrow,thirdDay,fourthDay,fifthDay, nil];
+    return controllersArray;
+}
+
+-(NSDate*) addDays:(NSInteger) days ToDate:(NSDate*) date{
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setDay:days];
+    NSDate *result = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];
+    return result;
+}
+
+-(void) attachTabBarItemWithName:(NSString*) name ToController:(UIViewController*) contr{
+    UITabBarItem* tabBar = [[UITabBarItem alloc] initWithTitle:name image:[UIImage imageNamed:@"circle.png"] tag:0];
+    tabBar.selectedImage = [UIImage imageNamed:@"checkmark-small.png"];
+    contr.tabBarItem = tabBar;
 }
 
 @end

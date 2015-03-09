@@ -30,10 +30,7 @@
     
     self.getScheduleButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self addSubview:self.getScheduleButton];
-    
-    self.datePicker = [[UIDatePicker alloc] init];
-    [self addSubview:self.datePicker];
-    
+
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self addSubview:self.activityIndicator];
 }
@@ -46,9 +43,7 @@
     [self.getScheduleButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica" size:20]];
     [self.getScheduleButton setContentEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     [self.getScheduleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.datePicker.datePickerMode = UIDatePickerModeDate;
     self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#000000" alpha:0.2];
-    [Utility limitDatePicker:self.datePicker];
 }
 
 -(void) setupConstraints{
@@ -60,12 +55,7 @@
         make.centerX.mas_equalTo(self.mas_centerX);
         make.bottom.mas_equalTo(self.mas_bottom).with.offset(-20);
     }];
-    
-    [self.datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.channelPicker.mas_bottom).with.offset(40);
-        make.height.mas_equalTo(50);
-    }];
-    
+
     [self.activityIndicator mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(self.mas_height);
         make.width.mas_equalTo(self.mas_width);

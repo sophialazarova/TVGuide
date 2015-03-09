@@ -57,7 +57,7 @@
         make.centerY.mas_equalTo(self.tableView.mas_centerY);
     }];
     
-    self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#000000" alpha:0.2];
+    self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#fb9b46" alpha:1.0];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -117,20 +117,13 @@
 }
 
 - (void)searchForScheduleForDate:(NSDate*) searchDate scheduleType:(CategorizedScheduleType) type{
-    
-    // NSString *date = [self transformDate:[categorizedView.datePicker date]];
     NSString *date = [Utility transformDate:searchDate];
     [self.activityIndicator startAnimating];
     self.tableView.userInteractionEnabled = NO;
-   // [Utility changeBackgroundUserInteractionTo:NO backgroundViews:[NSArray arrayWithObjects:s, categorizedView.getScheduleButton, nil]];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray * result = [remoteManager getCategorizedSchedule:type date:date];
         dispatch_async(dispatch_get_main_queue(),^{
-            // CategorizedSchedulesTableViewController *next = [[CategorizedSchedulesTableViewController alloc] init];
             self.data = result;
-            //[[self navigationController] pushViewController:next animated:YES];
-            // [categorizedView.activityIndicator stopAnimating];
-            // [Utility changeBackgroundUserInteractionTo:YES backgroundViews:[NSArray arrayWithObjects:categorizedView.datePicker, categorizedView.getScheduleButton, nil]];
             [self.activityIndicator stopAnimating];
             [self.tableView reloadData];
             self.tableView.userInteractionEnabled = YES;
