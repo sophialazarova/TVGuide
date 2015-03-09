@@ -13,4 +13,6 @@
 
 +(NSString*) transformDate:(NSDate*) date;
 
++(NSDate*) addDays:(NSInteger) days ToDate:(NSDate*) date;
+
 @end

@@ -17,4 +17,11 @@
     return dateTime;
 }
 
++(NSDate*) addDays:(NSInteger) days ToDate:(NSDate*) date{
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setDay:days];
+    NSDate *result = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];
+    return result;
+}
+
 @end

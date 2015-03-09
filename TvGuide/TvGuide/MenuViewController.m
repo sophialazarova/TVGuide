@@ -80,10 +80,10 @@
 
 -(NSArray*) initializeTabBarControllersWithType:(CategorizedScheduleType) type{
     NSDate *current = [NSDate date];
-    NSDate *tomorrowDate = [self addDays:1 ToDate:current];
-    NSDate *thirdDate = [self addDays:2 ToDate:current];
-    NSDate *fourthDate = [self addDays:3 ToDate:current];
-    NSDate *fifthDate = [self addDays:4 ToDate:current];
+    NSDate *tomorrowDate = [Utility addDays:1 ToDate:current];
+    NSDate *thirdDate = [Utility addDays:2 ToDate:current];
+    NSDate *fourthDate = [Utility addDays:3 ToDate:current];
+    NSDate *fifthDate = [Utility addDays:4 ToDate:current];
     
     CategorizedSchedulesTableViewController *today = [[CategorizedSchedulesTableViewController alloc] initWithType:type searchDate:current];
     CategorizedSchedulesTableViewController *tomorrow = [[CategorizedSchedulesTableViewController alloc] initWithType:type searchDate:tomorrowDate];
@@ -99,13 +99,6 @@
     
     NSArray *controllersArray = [NSArray arrayWithObjects:today,tomorrow,thirdDay,fourthDay,fifthDay, nil];
     return controllersArray;
-}
-
--(NSDate*) addDays:(NSInteger) days ToDate:(NSDate*) date{
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    [components setDay:days];
-    NSDate *result = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];
-    return result;
 }
 
 -(void) attachTabBarItemWithName:(NSString*) name ToController:(UIViewController*) contr{

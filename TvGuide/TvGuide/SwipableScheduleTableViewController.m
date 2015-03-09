@@ -40,7 +40,6 @@
             [self.tabBarController setSelectedIndex:self.tabBarController.selectedIndex+1];
         }
     }
-    
 }
 
 @end
