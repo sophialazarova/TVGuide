@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CategorizedScheduleType.h"
+#import "SwipableScheduleTableViewController.h"
 
-@interface CategorizedSchedulesTableViewController : UITableViewController
+@interface CategorizedSchedulesTableViewController : SwipableScheduleTableViewController
 
 @property(strong,nonatomic) NSArray *data;
 @property(strong,nonatomic) NSString *header;

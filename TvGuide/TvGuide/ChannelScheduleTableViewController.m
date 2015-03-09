@@ -83,7 +83,6 @@
     return [self.schedule count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   ChannelScheduleItemTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"channelScheduleItem" forIndexPath:indexPath];
     if(cell == nil){

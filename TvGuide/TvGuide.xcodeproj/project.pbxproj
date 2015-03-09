@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		840775501AA27A0100B82874 /* CategorizedSchedulesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407754F1AA27A0100B82874 /* CategorizedSchedulesTableViewController.m */; };
 		841784D11AAC8CF000B0A56C /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 841784D01AAC8CF000B0A56C /* circle.png */; };
+		844A96101AAE34D000D22D73 /* SwipableScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A960F1AAE34D000D22D73 /* SwipableScheduleTableViewController.m */; };
 		846EB0B21AAC803900C8FC5B /* checkmark-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 846EB0B11AAC803900C8FC5B /* checkmark-small.png */; };
 		8477CA4E1AA4F61E00BB93D2 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477CA4D1AA4F61E00BB93D2 /* Utility.m */; };
 		84A3B0761A9486DD00203D96 /* UIColor+VeplayCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3B0751A9486DD00203D96 /* UIColor+VeplayCommon.m */; };
@@ -57,6 +58,8 @@
 		8407754E1AA27A0100B82874 /* CategorizedSchedulesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategorizedSchedulesTableViewController.h; sourceTree = "<group>"; };
 		8407754F1AA27A0100B82874 /* CategorizedSchedulesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategorizedSchedulesTableViewController.m; sourceTree = "<group>"; };
 		841784D01AAC8CF000B0A56C /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		844A960E1AAE34D000D22D73 /* SwipableScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipableScheduleTableViewController.h; sourceTree = "<group>"; };
+		844A960F1AAE34D000D22D73 /* SwipableScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipableScheduleTableViewController.m; sourceTree = "<group>"; };
 		846EB0B11AAC803900C8FC5B /* checkmark-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark-small.png"; sourceTree = "<group>"; };
 		8477CA4C1AA4F61E00BB93D2 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		8477CA4D1AA4F61E00BB93D2 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				84A3B0781A9494B800203D96 /* MenuViewController.m */,
 				8407754E1AA27A0100B82874 /* CategorizedSchedulesTableViewController.h */,
 				8407754F1AA27A0100B82874 /* CategorizedSchedulesTableViewController.m */,
+				844A960E1AAE34D000D22D73 /* SwipableScheduleTableViewController.h */,
+				844A960F1AAE34D000D22D73 /* SwipableScheduleTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 			files = (
 				84CC95071A58DE7400296CFE /* ChannelScheduleTableViewController.m in Sources */,
 				84A3B0881A97300600203D96 /* MenuView.m in Sources */,
+				844A96101AAE34D000D22D73 /* SwipableScheduleTableViewController.m in Sources */,
 				84CC94E11A58258200296CFE /* TVScheduleController.m in Sources */,
 				84A9C8E51A65C1D9005DBB16 /* Channels.xcdatamodeld in Sources */,
 				84A9C8F11A65C757005DBB16 /* Channel.m in Sources */,

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SwipableScheduleTableViewController.h"
 
-@interface ChannelScheduleTableViewController : UITableViewController
+@interface ChannelScheduleTableViewController : SwipableScheduleTableViewController
 
 @property(strong,nonatomic) NSArray *schedule;
 @property(strong, nonatomic) NSString *header;

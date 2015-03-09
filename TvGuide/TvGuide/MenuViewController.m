@@ -73,12 +73,8 @@
 
 -(UITabBarController*) createTabControllerForScheduleType:(CategorizedScheduleType) type{
     UITabBarController *tabBar = [[UITabBarController alloc] init];
-    
-    
-    
     NSArray *controllersArray = [self initializeTabBarControllersWithType:type];
     tabBar.viewControllers = controllersArray;
-    
     return tabBar;
 }
 
