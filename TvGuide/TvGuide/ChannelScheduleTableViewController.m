@@ -122,13 +122,10 @@
         NSArray * result = [remoteManager getScheduleForChannel:searchedChannelCode WithDate:date];
         dispatch_async(dispatch_get_main_queue(), ^{
              self.schedule = result;
-            //next.header = [NSString stringWithFormat:@"%@",current.name];
             [self.tableView reloadData];
             [self.activityIndicator stopAnimating];
         });
         
     });
 }
-
-
 @end

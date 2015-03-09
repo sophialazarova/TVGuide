@@ -11,10 +11,6 @@
 
 @interface Utility : NSObject
 
-+(void) changeBackgroundUserInteractionTo:(BOOL) isInteractionEnabled backgroundViews:(NSArray*) views;
-
-+(void) limitDatePicker:(UIDatePicker*) datePicker;
-
 +(NSString*) transformDate:(NSDate*) date;
 
 @end

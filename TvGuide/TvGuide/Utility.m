@@ -10,31 +10,11 @@
 
 @implementation Utility
 
-+(void) changeBackgroundUserInteractionTo:(BOOL) isInteractionEnabled backgroundViews:(NSArray*) views{
-    for (int i = 0; i < views.count; i++) {
-        UIView *current = [views objectAtIndex:i];
-        current.userInteractionEnabled = isInteractionEnabled;
-    }
-}
-
-+(void) limitDatePicker:(UIDatePicker*) datePicker{
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDate *currentDate = [NSDate date];
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:-1];
-    NSDate *minDate = [gregorian dateByAddingComponents:comps toDate:currentDate  options:0];
-    [comps setDay:5];
-    NSDate *maxDate = [gregorian dateByAddingComponents:comps toDate:currentDate  options:0];
-    datePicker.minimumDate = minDate;
-    datePicker.maximumDate = maxDate;
-}
-
 +(NSString*) transformDate:(NSDate*) date{
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *dateTime = [NSString stringWithFormat:@"%@",[outputFormatter stringFromDate:date]];
     return dateTime;
 }
-
 
 @end
