@@ -98,7 +98,6 @@
     
     //////FIX ME (THE if BELOW)////
     
-    
     if(indexPath.row >= rows){
         TvShowEntryModel *currentShow = [entries objectAtIndex:indexPath.row - (indexPath.row-rows) - 1];
         cell.time.text = currentShow.time;
