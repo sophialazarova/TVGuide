@@ -52,21 +52,6 @@
     return result;
 }
 
-/*-(NSMutableArray*)getSeriesScheduleForDate:(NSString *)date{
-    NSString *url = @"http://tvguide-2.apphb.com/api/tvguide/GetTVSeriesSchedule";
-    return [self getCategorizedScheduleForDate:date url:url];
-}
-
--(NSMutableArray*)getMoviesScheduleForDate:(NSString *)date{
-    NSString *url = @"http://tvguide-2.apphb.com/api/tvguide/GetMoviesSchedule";
-    return [self getCategorizedScheduleForDate:date url:url];
-}
-
--(NSMutableArray*)getSportsScheduleForDate:(NSString *)date{
-    NSString *url = @"http://tvguide-2.apphb.com/api/tvguide/GetSportsSchedule";
-    return [self getCategorizedScheduleForDate:date url:url];
-}*/
-
 -(NSMutableArray*) getCategorizedScheduleForDate:(NSString*) date url:(NSString*) initialUrl{
     NSURL *url = [[NSURL alloc] initWithString:
                   [NSString stringWithFormat:
@@ -98,13 +83,15 @@
     NSError *error = nil;
     NSMutableArray *scheduleItems = [[NSMutableArray alloc] init];
     NSArray *responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-
-    for (int i = 0; i<responseData.count; i++) {
-        NSDictionary *item = [responseData objectAtIndex:i];
-        NSString *name = [item objectForKey:@"Name"];
-        NSString *time = [item objectForKey:@"Time"];
-        ChannelScheduleEntryModel *currentEntry = [[ChannelScheduleEntryModel alloc] initWithTitle:name andTime:time];
-        [scheduleItems addObject:currentEntry];
+    if(responseData.count != 1){
+        for (int i = 0; i<responseData.count; i++) {
+            
+            NSDictionary *item = [responseData objectAtIndex:i];
+            NSString *name = [item objectForKey:@"Name"];
+            NSString *time = [item objectForKey:@"Time"];
+            ChannelScheduleEntryModel *currentEntry = [[ChannelScheduleEntryModel alloc] initWithTitle:name andTime:time];
+            [scheduleItems addObject:currentEntry];
+        }
     }
     
     return scheduleItems;
