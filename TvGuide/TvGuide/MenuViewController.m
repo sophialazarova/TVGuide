@@ -13,6 +13,8 @@
 #import "CategorizedScheduleType.h"
 #import "CategorizedSchedulesTableViewController.h"
 #import "Utility.h"
+#import "TabBarCreationHelper.h"
+#import "MainScheduleType.h"
 
 @interface MenuViewController ()
 
@@ -20,10 +22,12 @@
 
 @implementation MenuViewController{
     MenuView *view;
+    TabBarCreationHelper *tabBarHelper;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    tabBarHelper = [[TabBarCreationHelper alloc] init];
     self.navigationItem.title = @"Меню";
     [self setupButtonsActions];
 }
@@ -54,57 +58,35 @@
     [self.navigationController pushViewController:tvController animated:YES];
 }
 -(void) pushMoviesController{
-    UITabBarController *cont = [self createTabControllerForScheduleType:CategorizedScheduleTypeMovies];
-    [self.navigationController pushViewController:cont animated:YES];
-    cont.navigationItem.title = @"Филми";
+    NSArray *controllers = [self createTabBarCategorizedControllersWithType:CategorizedScheduleTypeMovies];
+    UITabBarController *tabbar = [tabBarHelper createTabControllerWithControllers:controllers];
+    [self.navigationController pushViewController:tabbar animated:YES];
+    tabbar.navigationItem.title = @"Филми";
 }
 
 -(void) pushSportsController{
-    UITabBarController *cont = [self createTabControllerForScheduleType:CategorizedScheduleTypeSports];
-    [self.navigationController pushViewController:cont animated:YES];
-    cont.navigationItem.title = @"Спорт";
+    NSArray *controllers = [self createTabBarCategorizedControllersWithType:CategorizedScheduleTypeSports];
+    UITabBarController *tabbar = [tabBarHelper createTabControllerWithControllers:controllers];
+    [self.navigationController pushViewController:tabbar animated:YES];
+    tabbar.navigationItem.title = @"Спорт";
 }
 
 -(void) pushTVSeriesController{
-    UITabBarController *cont = [self createTabControllerForScheduleType:CategorizedScheduleTypeTVSeries];
-    [self.navigationController pushViewController:cont animated:YES];
-    cont.navigationItem.title = @"Сериали";
+    NSArray *controllers = [self createTabBarCategorizedControllersWithType:CategorizedScheduleTypeTVSeries];
+    UITabBarController *tabbar = [tabBarHelper createTabControllerWithControllers:controllers];
+    [self.navigationController pushViewController:tabbar animated:YES];
+    tabbar.navigationItem.title = @"Сериали";
 }
 
--(UITabBarController*) createTabControllerForScheduleType:(CategorizedScheduleType) type{
-    UITabBarController *tabBar = [[UITabBarController alloc] init];
-    NSArray *controllersArray = [self initializeTabBarControllersWithType:type];
-    tabBar.viewControllers = controllersArray;
-    return tabBar;
-}
-
--(NSArray*) initializeTabBarControllersWithType:(CategorizedScheduleType) type{
-    NSDate *current = [NSDate date];
-    NSDate *tomorrowDate = [Utility addDays:1 ToDate:current];
-    NSDate *thirdDate = [Utility addDays:2 ToDate:current];
-    NSDate *fourthDate = [Utility addDays:3 ToDate:current];
-    NSDate *fifthDate = [Utility addDays:4 ToDate:current];
+-(NSArray*) createTabBarCategorizedControllersWithType:(CategorizedScheduleType) type{
+    NSDate *today = [NSDate date];
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:5];
+    for (int i = 0; i<5; i++) {
+        CategorizedSchedulesTableViewController *contr = [[CategorizedSchedulesTableViewController alloc] initWithType:type searchDate:[Utility addDays:i ToDate:today]];
+        [result addObject:contr];
+    }
     
-    CategorizedSchedulesTableViewController *today = [[CategorizedSchedulesTableViewController alloc] initWithType:type searchDate:current];
-    CategorizedSchedulesTableViewController *tomorrow = [[CategorizedSchedulesTableViewController alloc] initWithType:type searchDate:tomorrowDate];
-    CategorizedSchedulesTableViewController *thirdDay = [[CategorizedSchedulesTableViewController alloc] initWithType:type searchDate:thirdDate];
-    CategorizedSchedulesTableViewController *fourthDay = [[CategorizedSchedulesTableViewController alloc] initWithType:type searchDate:fourthDate];
-    CategorizedSchedulesTableViewController *fifthDay = [[CategorizedSchedulesTableViewController alloc] initWithType:type searchDate:fifthDate];
-    
-    [self attachTabBarItemWithName:@"Днес" ToController:today];
-    [self attachTabBarItemWithName:@"Утре" ToController:tomorrow];
-    [self attachTabBarItemWithName:[Utility transformDate:thirdDate] ToController:thirdDay];
-    [self attachTabBarItemWithName:[Utility transformDate:fourthDate] ToController:fourthDay];
-    [self attachTabBarItemWithName:[Utility transformDate:fifthDate] ToController:fifthDay];
-    
-    NSArray *controllersArray = [NSArray arrayWithObjects:today,tomorrow,thirdDay,fourthDay,fifthDay, nil];
-    return controllersArray;
-}
-
--(void) attachTabBarItemWithName:(NSString*) name ToController:(UIViewController*) contr{
-    UITabBarItem* tabBar = [[UITabBarItem alloc] initWithTitle:name image:[UIImage imageNamed:@"circle.png"] tag:0];
-    tabBar.selectedImage = [UIImage imageNamed:@"checkmark-small.png"];
-    contr.tabBarItem = tabBar;
+    return result;
 }
 
 @end

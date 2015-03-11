@@ -15,6 +15,7 @@
 #import "Channel.h"
 #import "TVScheduleView.h"
 #import "Utility.h"
+#import "TabBarCreationHelper.h"
 
 @interface TVScheduleController ()
 
@@ -85,60 +86,38 @@
 }
 
 - (void)searchForSchedule{
-    UITabBarController *cont = [self createTabController];
+    UITabBarController *cont = [self initializeTabController];
     [self.navigationController pushViewController:cont animated:YES];
+    cont.navigationItem.title = [self getNameOfChosenChannel];
+}
+
+-(UITabBarController*) initializeTabController{
+    TabBarCreationHelper *helper = [[TabBarCreationHelper alloc] init];
+    NSArray *controllers = [self createTabBarControllers];
+    UITabBarController *tabbar = [helper createTabControllerWithControllers:controllers];
+    return tabbar;
+}
+
+-(NSArray*) createTabBarControllers{
+    NSDate *today = [NSDate date];
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:5];
+    for (int i = 0; i<5; i++) {
+        ChannelScheduleTableViewController *contr = [[ChannelScheduleTableViewController alloc] initWithChannelName:[self getNameOfChosenChannel] SearchDate:[Utility addDays:i ToDate:today]];
+        [result addObject:contr];
+    }
     
+    return result;
+}
+
+-(NSString*) getNameOfChosenChannel{
     NSInteger selectedIndex = [view.channelPicker selectedRowInComponent:0];
     NSString* channelName = [channelsList objectAtIndex:selectedIndex];
-    cont.navigationItem.title = channelName;
-    
+    return channelName;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(UITabBarController*) createTabController{
-    UITabBarController *tabBar = [[UITabBarController alloc] init];
- 
-    NSArray *controllersArray = [self initializeTabBarControllers];
-    tabBar.viewControllers = controllersArray;
-    
-    return tabBar;
-}
-
-
--(NSArray*) initializeTabBarControllers{
-    NSDate *current = [NSDate date];
-    NSDate *tomorrowDate = [Utility addDays:1 ToDate:current];
-    NSDate *thirdDate = [Utility addDays:2 ToDate:current];
-    NSDate *fourthDate = [Utility addDays:3 ToDate:current];
-    NSDate *fifthDate = [Utility addDays:4 ToDate:current];
-    
-    NSInteger selectedIndex = [view.channelPicker selectedRowInComponent:0];
-    NSString* channelName = [channelsList objectAtIndex:selectedIndex];
-    
-    ChannelScheduleTableViewController *today = [[ChannelScheduleTableViewController alloc] initWithChannelName:channelName SearchDate:current];
-    ChannelScheduleTableViewController *tomorrow = [[ChannelScheduleTableViewController alloc] initWithChannelName:channelName SearchDate:tomorrowDate];
-    ChannelScheduleTableViewController *thirdDay = [[ChannelScheduleTableViewController alloc] initWithChannelName:channelName SearchDate:thirdDate];
-    ChannelScheduleTableViewController *fourthDay = [[ChannelScheduleTableViewController alloc] initWithChannelName:channelName SearchDate:fourthDate];
-    ChannelScheduleTableViewController *fifthDay = [[ChannelScheduleTableViewController alloc] initWithChannelName:channelName SearchDate:fifthDate];
-    
-    [self attachTabBarItemWithName:@"Днес" ToController:today];
-    [self attachTabBarItemWithName:@"Утре" ToController:tomorrow];
-    [self attachTabBarItemWithName:[Utility transformDate:thirdDate] ToController:thirdDay];
-    [self attachTabBarItemWithName:[Utility transformDate:fourthDate] ToController:fourthDay];
-    [self attachTabBarItemWithName:[Utility transformDate:fifthDate] ToController:fifthDay];
-    
-    NSArray *controllersArray = [NSArray arrayWithObjects:today,tomorrow,thirdDay,fourthDay,fifthDay, nil];
-    return controllersArray;
-}
-
--(void) attachTabBarItemWithName:(NSString*) name ToController:(UIViewController*) contr{
-    UITabBarItem* tabBar = [[UITabBarItem alloc] initWithTitle:name image:[UIImage imageNamed:@"circle.png"] tag:0];
-    tabBar.selectedImage = [UIImage imageNamed:@"checkmark-small.png"];
-    contr.tabBarItem = tabBar;
 }
 
 @end
