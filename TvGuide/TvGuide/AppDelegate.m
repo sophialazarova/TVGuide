@@ -10,7 +10,6 @@
 #import "CoreDataManager.h"
 #import "LoadingChannelHelper.h"
 #import "Channel.h"
-#import "DCIntrospect.h"
 #import "MenuViewController.h"
 #import "UIColor+VeplayCommon.h"
 
@@ -42,10 +41,6 @@
     [[UITabBar appearance] setBackgroundColor:[UIColor colorWithHexValue:@"#fb9b46" alpha:1.0]];
     [[UITabBar appearance] setTintColor:[UIColor colorWithHexValue:@"#fb9b46" alpha:1.0]];
     [self.window makeKeyAndVisible];
-    
-#if TARGET_IPHONE_SIMULATOR
-    [[DCIntrospect sharedIntrospector] start];
-#endif
 
     return YES;
 }
