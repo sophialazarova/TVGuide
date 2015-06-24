@@ -38,7 +38,7 @@
 -(void) setupConstraints{
     [self.time mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(20);
-        make.width.mas_greaterThanOrEqualTo(50);
+        make.width.mas_equalTo(50);
         make.centerY.mas_equalTo(self.mas_centerY);
     }];
     
