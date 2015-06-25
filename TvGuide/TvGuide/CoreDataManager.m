@@ -30,8 +30,7 @@
         self.model = [NSManagedObjectModel mergedModelFromBundles:nil];
         self.coordinator = [[NSPersistentStoreCoordinator alloc]
                             initWithManagedObjectModel:self.model];
-        [self.context setPersistentStoreCoordinator:self.coordinator];
-        
+        [self.context setPersistentStoreCoordinator:self.coordinator]; 
     }
     
     return self;
