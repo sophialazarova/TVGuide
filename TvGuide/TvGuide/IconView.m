@@ -19,7 +19,6 @@
         [self setTitle:title icon:icon];
         [self setTitleFont];
         [self addConstraintsToSubviews];
-        
     }
     
     return self;

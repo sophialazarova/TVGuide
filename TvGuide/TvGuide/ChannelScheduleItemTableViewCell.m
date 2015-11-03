@@ -22,7 +22,6 @@
         self.title.lineBreakMode = NSLineBreakByWordWrapping;
         self.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
     }
-    
     return self;
 }
 
