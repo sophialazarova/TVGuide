@@ -7,28 +7,32 @@
 //
 
 #import "SchedulesDataSource.h"
+#import "UIColor+VeplayCommon.h"
+#import "ChannelScheduleItemTableViewCell.h"
 
 @implementation SchedulesDataSource
 
--(instancetype)init
+-(void)viewDidLoad
 {
-    self = [super init];
-    if (self) {
-        
-    }
-    
-    return self;
+    [super viewDidLoad];
+    [self.tableView registerClass:[ChannelScheduleItemTableViewCell class] forCellReuseIdentifier:@"cell"];
+    self.data = [NSArray new];
+    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
+    _isLoaded = NO;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.data.count;
+   
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = self.data[indexPath.row];
+    ChannelScheduleItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.title.text = [self.data[indexPath.row] title];
+    cell.time.text = [self.data[indexPath.row] time];
+    _isLoaded = YES;
     return cell;
 }
 @end

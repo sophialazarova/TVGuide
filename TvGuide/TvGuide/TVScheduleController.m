@@ -17,7 +17,7 @@
 #import "Utility.h"
 #import "TabBarCreationHelper.h"
 #import "SchedulesViewController.h"
-
+#import "UIColor+VeplayCommon.h"
 @interface TVScheduleController ()
 
 @end
@@ -38,6 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"ТВ Програма";
+    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
     remoteManager = [[RemoteDataManager alloc] init];
     coredataManager = [CoreDataManager getManager];
 
@@ -72,6 +73,7 @@
 {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.textLabel.text = channelsList[indexPath.row];
+    cell.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
     return cell;
 }
 
@@ -82,14 +84,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self searchForSchedule];
-}
-
-- (void)searchForSchedule{
-   // UITabBarController *cont = [self initializeTabController];
     SchedulesViewController *ctr = [[SchedulesViewController alloc]  init];
+    ctr.channelName = channelsList[indexPath.row];
     [self.navigationController pushViewController:ctr animated:YES];
-   // cont.navigationItem.title = [self getNameOfChosenChannel];
 }
 
 -(UITabBarController*) initializeTabController{

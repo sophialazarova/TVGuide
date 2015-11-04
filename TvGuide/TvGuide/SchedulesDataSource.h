@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface SchedulesDataSource : NSObject <UITableViewDataSource>
+@interface SchedulesDataSource : UITableViewController
 
 @property(strong, nonatomic) NSArray *data;
 
+@property(assign, nonatomic) BOOL isLoaded;
 
 @end
