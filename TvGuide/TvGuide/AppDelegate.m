@@ -33,6 +33,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     MenuViewController *root = [[MenuViewController alloc] init];
     UINavigationController *navbar = [[UINavigationController alloc] initWithRootViewController:root];
+    navbar.interactivePopGestureRecognizer.enabled = NO;
     navbar.navigationBar.translucent = NO;
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
     self.window.rootViewController = navbar;

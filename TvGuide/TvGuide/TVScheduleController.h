@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TVScheduleController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+@interface TVScheduleController : UITableViewController
 
 
 @end

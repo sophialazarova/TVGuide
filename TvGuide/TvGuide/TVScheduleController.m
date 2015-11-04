@@ -16,6 +16,7 @@
 #import "TVScheduleView.h"
 #import "Utility.h"
 #import "TabBarCreationHelper.h"
+#import "SchedulesViewController.h"
 
 @interface TVScheduleController ()
 
@@ -39,16 +40,10 @@
     self.navigationItem.title = @"ТВ Програма";
     remoteManager = [[RemoteDataManager alloc] init];
     coredataManager = [CoreDataManager getManager];
-    view.channelPicker.delegate = self;
-    view.channelPicker.showsSelectionIndicator = YES;
-    [view addAction:@selector(searchForSchedule) caller:self];
-    view.channelPicker.delegate = self;
-    view.channelPicker.dataSource = self;
-}
 
--(void)loadView{
-    view = [[TVScheduleView alloc] init];
-    self.view = view;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 }
 
 -(NSString*) transformDate:(NSDate*) date{
@@ -71,24 +66,30 @@
     return channels;
 }
 
-#pragma mark - PickerView methods
+#pragma mark - TableView methods
 
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return [channelsList count];
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = channelsList[indexPath.row];
+    return cell;
 }
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return [channelsList objectAtIndex:row];
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return channelsList.count;
 }
 
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self searchForSchedule];
 }
 
 - (void)searchForSchedule{
-    UITabBarController *cont = [self initializeTabController];
-    [self.navigationController pushViewController:cont animated:YES];
-    cont.navigationItem.title = [self getNameOfChosenChannel];
+   // UITabBarController *cont = [self initializeTabController];
+    SchedulesViewController *ctr = [[SchedulesViewController alloc]  init];
+    [self.navigationController pushViewController:ctr animated:YES];
+   // cont.navigationItem.title = [self getNameOfChosenChannel];
 }
 
 -(UITabBarController*) initializeTabController{
@@ -113,11 +114,6 @@
     NSInteger selectedIndex = [view.channelPicker selectedRowInComponent:0];
     NSString* channelName = [channelsList objectAtIndex:selectedIndex];
     return channelName;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

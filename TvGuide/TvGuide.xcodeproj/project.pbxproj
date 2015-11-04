@@ -41,6 +41,8 @@
 		84CC95071A58DE7400296CFE /* ChannelScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC95061A58DE7400296CFE /* ChannelScheduleTableViewController.m */; };
 		84CC95101A59455700296CFE /* ChannelScheduleItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CC950F1A59455700296CFE /* ChannelScheduleItemTableViewCell.m */; };
 		BD89821EC8315F057F68C707 /* libPods-TvGuide.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53985E6AC805333657E6CCD0 /* libPods-TvGuide.a */; };
+		F6B69E581BE902B800BA7BD0 /* SchedulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B69E571BE902B800BA7BD0 /* SchedulesViewController.m */; settings = {ASSET_TAGS = (); }; };
+		F6B69E5B1BE9082B00BA7BD0 /* SchedulesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B69E5A1BE9082B00BA7BD0 /* SchedulesDataSource.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,10 @@
 		84CC950E1A59455700296CFE /* ChannelScheduleItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelScheduleItemTableViewCell.h; sourceTree = "<group>"; };
 		84CC950F1A59455700296CFE /* ChannelScheduleItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelScheduleItemTableViewCell.m; sourceTree = "<group>"; };
 		F46494EC76683E2E2F962D94 /* Pods-TvGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TvGuide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TvGuide/Pods-TvGuide.debug.xcconfig"; sourceTree = "<group>"; };
+		F6B69E561BE902B800BA7BD0 /* SchedulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchedulesViewController.h; sourceTree = "<group>"; };
+		F6B69E571BE902B800BA7BD0 /* SchedulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchedulesViewController.m; sourceTree = "<group>"; };
+		F6B69E591BE9082B00BA7BD0 /* SchedulesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchedulesDataSource.h; sourceTree = "<group>"; };
+		F6B69E5A1BE9082B00BA7BD0 /* SchedulesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchedulesDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +303,10 @@
 				8407754F1AA27A0100B82874 /* CategorizedSchedulesTableViewController.m */,
 				844A960E1AAE34D000D22D73 /* SwipableScheduleTableViewController.h */,
 				844A960F1AAE34D000D22D73 /* SwipableScheduleTableViewController.m */,
+				F6B69E561BE902B800BA7BD0 /* SchedulesViewController.h */,
+				F6B69E571BE902B800BA7BD0 /* SchedulesViewController.m */,
+				F6B69E591BE9082B00BA7BD0 /* SchedulesDataSource.h */,
+				F6B69E5A1BE9082B00BA7BD0 /* SchedulesDataSource.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -462,12 +472,14 @@
 				84CC95071A58DE7400296CFE /* ChannelScheduleTableViewController.m in Sources */,
 				84A3B0881A97300600203D96 /* MenuView.m in Sources */,
 				844A96101AAE34D000D22D73 /* SwipableScheduleTableViewController.m in Sources */,
+				F6B69E5B1BE9082B00BA7BD0 /* SchedulesDataSource.m in Sources */,
 				84CC94E11A58258200296CFE /* TVScheduleController.m in Sources */,
 				84A9C8E51A65C1D9005DBB16 /* Channels.xcdatamodeld in Sources */,
 				84A9C8F11A65C757005DBB16 /* Channel.m in Sources */,
 				84A9C8E21A65B398005DBB16 /* CoreDataManager.m in Sources */,
 				844A96131AAE5C1600D22D73 /* TabBarCreationHelper.m in Sources */,
 				84CC94DE1A58258200296CFE /* AppDelegate.m in Sources */,
+				F6B69E581BE902B800BA7BD0 /* SchedulesViewController.m in Sources */,
 				84A9932B1AA0DCAA00E6690B /* TvShowEntryModel.m in Sources */,
 				84CC94DB1A58258200296CFE /* main.m in Sources */,
 				840775501AA27A0100B82874 /* CategorizedSchedulesTableViewController.m in Sources */,
