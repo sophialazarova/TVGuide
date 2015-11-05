@@ -35,12 +35,10 @@
     UINavigationController *navbar = [[UINavigationController alloc] initWithRootViewController:root];
     navbar.interactivePopGestureRecognizer.enabled = NO;
     navbar.navigationBar.translucent = NO;
-    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
     self.window.rootViewController = navbar;
     [self.window addSubview:navbar.view];
-    
-    [[UITabBar appearance] setBackgroundColor:[UIColor colorWithHexValue:@"#fb9b46" alpha:1.0]];
-    [[UITabBar appearance] setTintColor:[UIColor colorWithHexValue:@"#fb9b46" alpha:1.0]];
+    navbar.navigationBar.barTintColor = [UIColor colorWithRed:0.804f green:0.482f blue:0.302f alpha:1.00f];
+    navbar.navigationBar.tintColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
 
     return YES;

@@ -48,7 +48,7 @@
     self.tableView.estimatedRowHeight = 90.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
+    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
     
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.view addSubview:self.activityIndicator];
@@ -60,7 +60,7 @@
         make.centerY.mas_equalTo(self.tableView.mas_centerY);
     }];
     
-    self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#fb9b46" alpha:1.0];
+    self.activityIndicator.backgroundColor = [UIColor colorWithHexValue:@"#FCAD5D" alpha:1.0];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -69,11 +69,6 @@
 
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.schedule count];

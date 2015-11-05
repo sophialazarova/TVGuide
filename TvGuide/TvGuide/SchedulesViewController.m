@@ -13,6 +13,7 @@
 #import "Channel.h"
 #import "Utility.h"
 #import "UIColor+VeplayCommon.h"
+#import "TransitionIndicatorView.h"
 
 @implementation SchedulesViewController
 {
@@ -23,6 +24,7 @@
     NSDate *_startdate;
     CGPoint lastScrollPosition;
     NSArray *colors;
+    TransitionIndicatorView *_transitionView;
 }
 
 -(instancetype)initWithChannelName:(NSString*) channelName
@@ -30,6 +32,7 @@
     self = [super init];
     if (self) {
         self.channelName = channelName;
+        self.queryType = CategorizedScheduleTypeNone;
     }
     
     return self;
@@ -42,7 +45,7 @@
     coredataManager = [CoreDataManager getManager];
     self.navigationController.navigationBar.translucent = YES;
     self.scrollView  = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    self.scrollView.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
+    self.scrollView.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
     self.scrollView.scrollEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*5, self.view.bounds.size.height);
     self.scrollView.showsHorizontalScrollIndicator = YES;
@@ -55,29 +58,9 @@
     _startdate = [NSDate new];
     [self inittializeSchedulesAndDataSources];
     [self loadSchedulForIndex:0 ForDate:[NSDate new]];
-    [self addToolbar];
-}
-
--(void)addToolbar
-{
-
-    UIBarButtonItem *todayBtn = [self createToolbarButtonWithName:@"Днес"];
-    UIBarButtonItem *tommorowBtn = [self createToolbarButtonWithName:@"Утре"];
-    NSMutableArray *buttons = [[NSMutableArray alloc] initWithObjects:todayBtn,tommorowBtn, nil];
-    
-    for (int i = 0; i < 5; i++) {
-        NSDate *date = [Utility addDays:i ToDate:[NSDate new]];
-        UIBarButtonItem *button = [self createToolbarButtonWithName:[self transformDate:date]];
-        [buttons addObject:button];
-    }
-
-    NSArray *toolbarItems = buttons;
-    UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame:
-                          CGRectMake(0, self.view.bounds.size.height-50, self.view.bounds.size.width, 50)];
-    toolbar.backgroundColor = [UIColor yellowColor];
-   [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:10.0]} forState:UIControlStateNormal];
-    [self.view addSubview:toolbar];
-    [toolbar setItems:toolbarItems];
+    _transitionView = [[TransitionIndicatorView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-50, self.view.bounds.size.width, 50)];
+    [self.view addSubview:_transitionView];
+  //  [self addToolbar];
 }
 
 -(void) inittializeSchedulesAndDataSources
@@ -104,16 +87,21 @@
 }
 
 - (void)loadSchedulForIndex:(NSInteger) index ForDate:(NSDate*) searchDate{
-    NSString* searchedChannelCode = [self getChannelCode:self.channelName];
     NSString *date = [Utility transformDate:searchDate];
     SchedulesDataSource *table = _schedules[index];
     if (table.isLoaded) {
         return;
     }
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-       NSArray *result = [remoteManager getScheduleForChannel:searchedChannelCode WithDate:date];
-        int a = 5;
+        NSArray *result;
+        if (self.queryType == CategorizedScheduleTypeNone) {
+            NSString* searchedChannelCode = [self getChannelCode:self.channelName];
+            result = [remoteManager getScheduleForChannel:searchedChannelCode WithDate:date];
+        }
+        else {
+            result = [remoteManager getCategorizedSchedule:self.queryType date:date];
+        }
+
         dispatch_async(dispatch_get_main_queue(),^{
             SchedulesDataSource *currentTable = _schedules[index];
             currentTable.data = result;
@@ -130,19 +118,32 @@
         CGPoint scrollPoint = scrollView.contentOffset;
         if (scrollPoint.x < self.view.bounds.size.width) {
             [self loadSchedulForIndex:0 ForDate:today];
+            [_transitionView setSelectionAtIndex:0];
         }
         else if (scrollPoint.x >= self.view.bounds.size.width && scrollPoint.x < self.view.bounds.size.width*2) {
             [self loadSchedulForIndex:1 ForDate:[Utility addDays:1 ToDate:today]];
+            [_transitionView setSelectionAtIndex:1];
         }
         else if (scrollPoint.x >= self.view.bounds.size.width*2 && scrollPoint.x < self.view.bounds.size.width*3) {
             [self loadSchedulForIndex:2 ForDate:[Utility addDays:2 ToDate:today]];
+            [_transitionView setSelectionAtIndex:2];
         }
         else if (scrollPoint.x >= self.view.bounds.size.width*3 && scrollPoint.x < self.view.bounds.size.width*4) {
             [self loadSchedulForIndex:3 ForDate:[Utility addDays:3 ToDate:today]];
+            [_transitionView setSelectionAtIndex:3];
         }
         else {
             [self loadSchedulForIndex:4 ForDate:[Utility addDays:4 ToDate:today]];
+            [_transitionView setSelectionAtIndex:4];
         }
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    for (int i = 0; i < _schedules.count; i++) {
+      UITableView *current =  [_schedules[i] tableView];
+        current.scrollEnabled = NO;
+    }
 }
 
 -(NSString*) transformDate:(NSDate*) date{

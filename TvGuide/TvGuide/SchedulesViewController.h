@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CategorizedScheduleType.h"
 @interface SchedulesViewController : UIViewController<UIScrollViewDelegate>
 
 @property(strong, nonatomic) UIScrollView *scrollView;
@@ -15,5 +15,9 @@
 @property(strong, nonatomic) UIToolbar *toolBar;
 
 @property(strong, nonatomic) NSString *channelName;
+
+@property(assign, nonatomic) CategorizedScheduleType queryType;
+
+-(instancetype)initWithChannelName:(NSString*) channelName;
 
 @end

@@ -20,7 +20,7 @@
         [self customizeCell];
         self.title.numberOfLines = 0;
         self.title.lineBreakMode = NSLineBreakByWordWrapping;
-        self.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
+        self.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
     }
     return self;
 }

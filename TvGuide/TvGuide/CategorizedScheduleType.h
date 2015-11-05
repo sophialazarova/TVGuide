@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSInteger, CategorizedScheduleType){
     CategorizedScheduleTypeSports,
     CategorizedScheduleTypeMovies,
-    CategorizedScheduleTypeTVSeries
+    CategorizedScheduleTypeTVSeries,
+    CategorizedScheduleTypeNone
 };
 

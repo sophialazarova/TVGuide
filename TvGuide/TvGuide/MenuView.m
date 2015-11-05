@@ -19,7 +19,7 @@
         areIconsVisisble = NO;
         [self initializeComponents];
         [self setupClosedStateIconsConstrants];
-        [self setBackgroundColor:[UIColor colorWithHexValue:@"fb9b46" alpha:1.0]];
+        [self setBackgroundColor:[UIColor colorWithHexValue:@"FCAD5D" alpha:1.0]];
     }
         return self;
 }

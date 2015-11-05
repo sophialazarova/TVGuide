@@ -73,7 +73,7 @@
 {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.textLabel.text = channelsList[indexPath.row];
-    cell.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
+    cell.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
     return cell;
 }
 
@@ -84,27 +84,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SchedulesViewController *ctr = [[SchedulesViewController alloc]  init];
-    ctr.channelName = channelsList[indexPath.row];
+    SchedulesViewController *ctr = [[SchedulesViewController alloc]  initWithChannelName:channelsList[indexPath.row]];
     [self.navigationController pushViewController:ctr animated:YES];
-}
-
--(UITabBarController*) initializeTabController{
-    TabBarCreationHelper *helper = [[TabBarCreationHelper alloc] init];
-    NSArray *controllers = [self createTabBarControllers];
-    UITabBarController *tabbar = [helper createTabControllerWithControllers:controllers];
-    return tabbar;
-}
-
--(NSArray*) createTabBarControllers{
-    NSDate *today = [NSDate date];
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:5];
-    for (int i = 0; i<5; i++) {
-        ChannelScheduleTableViewController *contr = [[ChannelScheduleTableViewController alloc] initWithChannelName:[self getNameOfChosenChannel] SearchDate:[Utility addDays:i ToDate:today]];
-        [result addObject:contr];
-    }
-    
-    return result;
 }
 
 -(NSString*) getNameOfChosenChannel{

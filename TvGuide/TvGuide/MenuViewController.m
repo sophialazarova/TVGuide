@@ -15,6 +15,7 @@
 #import "Utility.h"
 #import "TabBarCreationHelper.h"
 #import "MainScheduleType.h"
+#import "SchedulesViewController.h"
 
 @interface MenuViewController ()
 
@@ -58,10 +59,14 @@
     [self.navigationController pushViewController:tvController animated:YES];
 }
 -(void) pushMoviesController{
-    NSArray *controllers = [self createTabBarCategorizedControllersWithType:CategorizedScheduleTypeMovies];
-    UITabBarController *tabbar = [tabBarHelper createTabControllerWithControllers:controllers];
-    [self.navigationController pushViewController:tabbar animated:YES];
-    tabbar.navigationItem.title = @"Филми";
+//    NSArray *controllers = [self createTabBarCategorizedControllersWithType:CategorizedScheduleTypeMovies];
+//    UITabBarController *tabbar = [tabBarHelper createTabControllerWithControllers:controllers];
+//    [self.navigationController pushViewController:tabbar animated:YES];
+//    tabbar.navigationItem.title = @"Филми";
+    SchedulesViewController *ctr = [[SchedulesViewController alloc]  init];
+    ctr.queryType = CategorizedScheduleTypeMovies;
+    ctr.channelName = @"Филми";
+    [self.navigationController pushViewController:ctr animated:YES];
 }
 
 -(void) pushSportsController{

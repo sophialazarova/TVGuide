@@ -17,7 +17,7 @@
     [super viewDidLoad];
     [self.tableView registerClass:[ChannelScheduleItemTableViewCell class] forCellReuseIdentifier:@"cell"];
     self.data = [NSArray new];
-    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
+    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
     _isLoaded = NO;
 }
 
