@@ -8,7 +8,7 @@
 
 #import "RemoteDataManager.h"
 #import "ChannelScheduleEntryModel.h"
-#import "ChannelSpecializedEntryModel.h"
+#import "CategorizedEntryModel.h"
 #import "TVShowEntryModel.h"
 #import "CategorizedScheduleType.h"
 
@@ -107,7 +107,7 @@
         NSString *name = [item objectForKey:@"NameOfTV"];
         NSArray *series = [item objectForKey:@"Series"];
         NSArray *seriesAsObjects = [self serializeTVShowCollection:series];
-        ChannelSpecializedEntryModel *currentItem = [[ChannelSpecializedEntryModel alloc] initWithChannelName:name entries:seriesAsObjects];
+        CategorizedEntryModel *currentItem = [[CategorizedEntryModel alloc] initWithChannelName:name entries:seriesAsObjects];
         [seriesItems addObject:currentItem];
     }
     

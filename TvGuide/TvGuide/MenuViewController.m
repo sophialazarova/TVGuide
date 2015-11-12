@@ -8,14 +8,11 @@
 
 #import "MenuViewController.h"
 #import "MenuView.h"
-#import "TVScheduleController.h"
-#import "ChannelScheduleTableViewController.h"
+#import "ChannelsTableViewController.h"
 #import "CategorizedScheduleType.h"
-#import "CategorizedSchedulesTableViewController.h"
 #import "Utility.h"
-#import "TabBarCreationHelper.h"
-#import "MainScheduleType.h"
 #import "SchedulesViewController.h"
+#import "ChannelsTableViewController.h"
 
 @interface MenuViewController ()
 
@@ -23,23 +20,30 @@
 
 @implementation MenuViewController{
     MenuView *view;
-    TabBarCreationHelper *tabBarHelper;
+    BOOL _isInitialLoad;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    tabBarHelper = [[TabBarCreationHelper alloc] init];
     self.navigationItem.title = @"Меню";
     [self setupButtonsActions];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    self.navigationController.navigationBar.translucent = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-         [view showIcons];
+    if (_isInitialLoad){
+      [view showIcons];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if (!_isInitialLoad) {
+        [view showIcons];
+    }
+    _isInitialLoad = YES;
 }
 
 -(void) setupButtonsActions{
@@ -55,43 +59,30 @@
 }
 
 -(void) pushTvScheduleController{
-    TVScheduleController *tvController = [[TVScheduleController alloc] init];
+    ChannelsTableViewController *tvController = [[ChannelsTableViewController alloc] init];
     [self.navigationController pushViewController:tvController animated:YES];
 }
+
 -(void) pushMoviesController{
-//    NSArray *controllers = [self createTabBarCategorizedControllersWithType:CategorizedScheduleTypeMovies];
-//    UITabBarController *tabbar = [tabBarHelper createTabControllerWithControllers:controllers];
-//    [self.navigationController pushViewController:tabbar animated:YES];
-//    tabbar.navigationItem.title = @"Филми";
+    [self pushScheduleControllerWithName:@"Филми" type:CategorizedScheduleTypeMovies];
+}
+
+-(void) pushSportsController {
+
+    [self pushScheduleControllerWithName:@"Спорт" type:CategorizedScheduleTypeSports];
+}
+
+-(void) pushTVSeriesController {
+
+    [self pushScheduleControllerWithName:@"Сериали" type:CategorizedScheduleTypeTVSeries];
+}
+
+-(void) pushScheduleControllerWithName:(NSString*)name type:(CategorizedScheduleType)type {
     SchedulesViewController *ctr = [[SchedulesViewController alloc]  init];
-    ctr.queryType = CategorizedScheduleTypeMovies;
-    ctr.channelName = @"Филми";
+    ctr.isCategorized = YES;
+    ctr.queryType = type;
+    ctr.channelName = name;
     [self.navigationController pushViewController:ctr animated:YES];
-}
-
--(void) pushSportsController{
-    NSArray *controllers = [self createTabBarCategorizedControllersWithType:CategorizedScheduleTypeSports];
-    UITabBarController *tabbar = [tabBarHelper createTabControllerWithControllers:controllers];
-    [self.navigationController pushViewController:tabbar animated:YES];
-    tabbar.navigationItem.title = @"Спорт";
-}
-
--(void) pushTVSeriesController{
-    NSArray *controllers = [self createTabBarCategorizedControllersWithType:CategorizedScheduleTypeTVSeries];
-    UITabBarController *tabbar = [tabBarHelper createTabControllerWithControllers:controllers];
-    [self.navigationController pushViewController:tabbar animated:YES];
-    tabbar.navigationItem.title = @"Сериали";
-}
-
--(NSArray*) createTabBarCategorizedControllersWithType:(CategorizedScheduleType) type{
-    NSDate *today = [NSDate date];
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:5];
-    for (int i = 0; i<5; i++) {
-        CategorizedSchedulesTableViewController *contr = [[CategorizedSchedulesTableViewController alloc] initWithType:type searchDate:[Utility addDays:i ToDate:today]];
-        [result addObject:contr];
-    }
-    
-    return result;
 }
 
 @end

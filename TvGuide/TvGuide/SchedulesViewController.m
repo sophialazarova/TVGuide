@@ -12,8 +12,9 @@
 #import "RemoteDataManager.h"
 #import "Channel.h"
 #import "Utility.h"
-#import "UIColor+VeplayCommon.h"
+#import "UIColor+HexRepresentation.h"
 #import "TransitionIndicatorView.h"
+#import "CategorizedDataSource.h"
 
 @implementation SchedulesViewController
 {
@@ -34,7 +35,6 @@
         self.channelName = channelName;
         self.queryType = CategorizedScheduleTypeNone;
     }
-    
     return self;
 }
 
@@ -60,13 +60,18 @@
     [self loadSchedulForIndex:0 ForDate:[NSDate new]];
     _transitionView = [[TransitionIndicatorView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-50, self.view.bounds.size.width, 50)];
     [self.view addSubview:_transitionView];
-  //  [self addToolbar];
 }
 
 -(void) inittializeSchedulesAndDataSources
 {
     for (int i = 0; i < 5; i++) {
-        SchedulesDataSource *ctr = [SchedulesDataSource new];
+        UITableViewController *ctr;
+        if (_isCategorized){
+            ctr = [CategorizedDataSource new];
+        }
+        else {
+            ctr = [SchedulesDataSource new];
+        }
         ctr.view.backgroundColor = colors[i];
         ctr.view.frame = CGRectMake(i*self.view.bounds.size.width, 0, self.view.bounds.size.width, self.scrollView.bounds.size.height);
         [_schedules addObject:ctr];
@@ -151,14 +156,6 @@
     [outputFormatter setDateFormat:@"yyyy-MM-dd"];
     NSString *dateTime = [NSString stringWithFormat:@"%@",[outputFormatter stringFromDate:date]];
     return dateTime;
-}
-
--(UIBarButtonItem*) createToolbarButtonWithName:(NSString*) name{
-    UIBarButtonItem *button = [[UIBarButtonItem alloc]
-                               initWithTitle:name style:UIBarButtonItemStylePlain
-                               target:self action:@selector(toolBarItem1:)];
-
-    return button;
 }
 
 @end

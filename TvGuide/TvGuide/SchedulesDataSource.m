@@ -7,7 +7,7 @@
 //
 
 #import "SchedulesDataSource.h"
-#import "UIColor+VeplayCommon.h"
+#import "UIColor+HexRepresentation.h"
 #import "ChannelScheduleItemTableViewCell.h"
 
 @implementation SchedulesDataSource
@@ -32,6 +32,7 @@
     ChannelScheduleItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.title.text = [self.data[indexPath.row] title];
     cell.time.text = [self.data[indexPath.row] time];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     _isLoaded = YES;
     return cell;
 }

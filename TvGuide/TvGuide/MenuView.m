@@ -8,7 +8,7 @@
 
 #import "MenuView.h"
 #import <Masonry.h>
-#import "UIColor+VeplayCommon.h"
+#import "UIColor+HexRepresentation.h"
 
 @implementation MenuView{
     BOOL areIconsVisisble;
@@ -19,7 +19,7 @@
         areIconsVisisble = NO;
         [self initializeComponents];
         [self setupClosedStateIconsConstrants];
-        [self setBackgroundColor:[UIColor colorWithHexValue:@"FCAD5D" alpha:1.0]];
+        [self setBackgroundColor:[UIColor colorWithRed:0.992f green:0.976f blue:0.886f alpha:1.00f]];
     }
         return self;
 }
@@ -70,24 +70,24 @@
 
 -(void) setupOpenStateIconsConstrants{
     [self.seriesIcon mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self.mas_centerY).with.offset(-80);
-        make.centerX.mas_equalTo(self.mas_centerX).with.offset(-76.5);
+        make.centerY.mas_equalTo(self.mas_centerY).with.offset(-self.bounds.size.height/4);
+        make.centerX.mas_equalTo(self.mas_centerX).with.offset(-self.bounds.size.width/4);
     }];
     
     [self.moviesIcon mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.seriesIcon.mas_bottom).with.offset(57.4);
-        make.centerX.mas_equalTo(self.mas_centerX).with.offset(-76.5);
+        make.centerY.mas_equalTo(self.mas_centerY).with.offset(self.bounds.size.height/4);
+        make.centerX.mas_equalTo(self.mas_centerX).with.offset(-self.bounds.size.width/4);
         
     }];
     
     [self.TVIcon mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self.mas_centerY).with.offset(-80);
-        make.centerX.mas_equalTo(self.mas_centerX).with.offset(76.5);
+        make.centerY.mas_equalTo(self.mas_centerY).with.offset(-self.bounds.size.height/4);
+        make.centerX.mas_equalTo(self.mas_centerX).with.offset(self.bounds.size.width/4);
     }];
     
     [self.sportsIcon mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.seriesIcon.mas_bottom).with.offset(57.4);
-       make.centerX.mas_equalTo(self.mas_centerX).with.offset(76.5);
+        make.centerY.mas_equalTo(self.mas_centerY).with.offset(self.bounds.size.height/4);
+       make.centerX.mas_equalTo(self.mas_centerX).with.offset(self.bounds.size.width/4);
     }];
 }
 
@@ -138,6 +138,43 @@
         [self.moviesIcon layoutIfNeeded];
         [self.sportsIcon layoutIfNeeded];
     }];
+}
+
+-(void)drawRect:(CGRect)rect
+{
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(self.bounds.size.width/2,0.0)];
+    [path addLineToPoint:CGPointMake(self.bounds.size.width/2, self.bounds.size.height)];
+    
+    UIBezierPath *path2 = [UIBezierPath bezierPath];
+    [path2 moveToPoint:CGPointMake(0.0,self.bounds.size.height/2)];
+    [path2 addLineToPoint:CGPointMake(self.bounds.size.width, self.bounds.size.height/2)];
+    
+    CAShapeLayer *pathLayer = [CAShapeLayer layer];
+    pathLayer.frame = self.bounds;
+    pathLayer.path = path.CGPath;
+    pathLayer.strokeColor = [[UIColor colorWithHexValue:@"CD7B4D" alpha:0.5] CGColor];
+    pathLayer.fillColor = nil;
+    pathLayer.lineWidth = 15.0f;
+    pathLayer.lineJoin = kCALineJoinBevel;
+    
+    CAShapeLayer *pathLayer2 = [CAShapeLayer layer];
+    pathLayer2.frame = self.bounds;
+    pathLayer2.path = path2.CGPath;
+    pathLayer2.strokeColor = [[UIColor  colorWithHexValue:@"CD7B4D" alpha:0.5] CGColor];
+    pathLayer2.fillColor = nil;
+    pathLayer2.lineWidth = 15.0f;
+    pathLayer2.lineJoin = kCALineJoinBevel;
+    
+    [self.layer addSublayer:pathLayer2];
+    [self.layer addSublayer:pathLayer];
+    
+    CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    pathAnimation.duration = 1.0;
+    pathAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
+    pathAnimation.toValue = [NSNumber numberWithFloat:1.0f];
+    [pathLayer addAnimation:pathAnimation forKey:@"strokeEnd"];
+    [pathLayer2 addAnimation:pathAnimation forKey:@"strokeEnd"];
 }
 
 @end

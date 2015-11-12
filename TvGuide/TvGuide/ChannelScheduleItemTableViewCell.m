@@ -8,7 +8,7 @@
 
 #import "ChannelScheduleItemTableViewCell.h"
 #import "Masonry.h"
-#import "UIColor+VeplayCommon.h"
+#import "UIColor+HexRepresentation.h"
 
 @implementation ChannelScheduleItemTableViewCell
 

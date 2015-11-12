@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TVScheduleController : UITableViewController
+@interface ChannelsTableViewController : UITableViewController
 
 
 @end

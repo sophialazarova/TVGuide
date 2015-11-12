@@ -83,7 +83,6 @@
     ChannelScheduleEntryModel *entry = [self.schedule objectAtIndex:indexPath.row];
     cell.title.text = entry.title;
     cell.time.text = entry.time;
-    
     [cell setNeedsDisplay];
     [cell layoutIfNeeded];
     

@@ -6,29 +6,26 @@
 //  Copyright (c) 2015 sph. All rights reserved.
 //
 
-#import "TVScheduleController.h"
+#import "ChannelsTableViewController.h"
 #import "RemoteDataManager.h"
 #import "ChannelScheduleTableViewController.h"
 #import "LoadingChannelHelper.h"
 #import <CoreData/CoreData.h>
 #import "CoreDataManager.h"
 #import "Channel.h"
-#import "TVScheduleView.h"
 #import "Utility.h"
-#import "TabBarCreationHelper.h"
 #import "SchedulesViewController.h"
-#import "UIColor+VeplayCommon.h"
-@interface TVScheduleController ()
+#import "UIColor+HexRepresentation.h"
+@interface ChannelsTableViewController ()
 
 @end
 
-@implementation TVScheduleController{
+@implementation ChannelsTableViewController{
     RemoteDataManager *remoteManager;
     CoreDataManager *coredataManager;
     NSArray *channelsList;
     NSString *searchedChannelCode;
     NSString *now;
-    TVScheduleView *view;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -38,10 +35,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"ТВ Програма";
-    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"fb9b46" alpha:1.0];
+    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
     remoteManager = [[RemoteDataManager alloc] init];
     coredataManager = [CoreDataManager getManager];
-
+ 
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -74,6 +71,7 @@
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.textLabel.text = channelsList[indexPath.row];
     cell.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -86,12 +84,6 @@
 {
     SchedulesViewController *ctr = [[SchedulesViewController alloc]  initWithChannelName:channelsList[indexPath.row]];
     [self.navigationController pushViewController:ctr animated:YES];
-}
-
--(NSString*) getNameOfChosenChannel{
-    NSInteger selectedIndex = [view.channelPicker selectedRowInComponent:0];
-    NSString* channelName = [channelsList objectAtIndex:selectedIndex];
-    return channelName;
 }
 
 @end

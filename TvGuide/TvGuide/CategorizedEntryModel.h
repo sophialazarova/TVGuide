@@ -1,5 +1,5 @@
 //
-//  ChannelSpecializedEntryModel.h
+//  CategorizedEntryModel.h
 //  TvGuide
 //
 //  Created by Admin on 2/27/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ChannelSpecializedEntryModel : NSObject
+@interface CategorizedEntryModel : NSObject
 
 @property(strong,nonatomic) NSString *channelName;
 @property(strong, nonatomic) NSArray *channelEntries;

@@ -12,11 +12,11 @@
 
 @property(strong, nonatomic) UIScrollView *scrollView;
 
-@property(strong, nonatomic) UIToolbar *toolBar;
-
 @property(strong, nonatomic) NSString *channelName;
 
 @property(assign, nonatomic) CategorizedScheduleType queryType;
+
+@property(assign, nonatomic) BOOL isCategorized;
 
 -(instancetype)initWithChannelName:(NSString*) channelName;
 

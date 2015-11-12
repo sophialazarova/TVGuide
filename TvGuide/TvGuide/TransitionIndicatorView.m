@@ -7,7 +7,7 @@
 //
 
 #import "TransitionIndicatorView.h"
-#import "UIColor+VeplayCommon.h"
+#import "UIColor+HexRepresentation.h"
 
 @implementation TransitionIndicatorView
 {

@@ -8,7 +8,7 @@
 
 #import "IconView.h"
 #import <Masonry.h>
-#import "UIColor+VeplayCommon.h"
+#import "UIColor+HexRepresentation.h"
 
 @implementation IconView
 
@@ -34,9 +34,7 @@
 
 -(void) setTitle:(NSString*) title icon:(UIImage*) icon{
     self.iconImageView.image = icon;
-    
     self.title.text = title;
-
 }
 
 -(void) addConstraintsToSubviews{
@@ -62,21 +60,12 @@
 
 -(void) setTitleFont{
     self.title.textColor = [UIColor blackColor];
-    [self.title setFont:[UIFont fontWithName:@"Helvetica" size:12.88]];
+    [self.title setFont:[UIFont boldSystemFontOfSize:17]];
 }
 
 -(void)addAction:(SEL)selector caller:(id)caller{
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:caller action:selector];
     [self addGestureRecognizer:tapRecognizer];
-   // [self zoomOut:self];
 }
 
-/*-(void) zoomOut:(UIView*) element{
-    element.alpha = 1.0f;
-    [UIView beginAnimations:@"zoomOut" context:NULL];
-    [UIView setAnimationDuration:0.2];
-    element.alpha = 0.0f;
-    element.alpha = 1.0f;
-    [UIView commitAnimations];
-}*/
 @end

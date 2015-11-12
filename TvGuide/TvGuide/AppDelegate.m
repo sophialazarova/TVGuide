@@ -11,7 +11,7 @@
 #import "LoadingChannelHelper.h"
 #import "Channel.h"
 #import "MenuViewController.h"
-#import "UIColor+VeplayCommon.h"
+#import "UIColor+HexRepresentation.h"
 
 @interface AppDelegate ()
 
@@ -37,7 +37,7 @@
     navbar.navigationBar.translucent = NO;
     self.window.rootViewController = navbar;
     [self.window addSubview:navbar.view];
-    navbar.navigationBar.barTintColor = [UIColor colorWithRed:0.804f green:0.482f blue:0.302f alpha:1.00f];
+    navbar.navigationBar.barTintColor = [UIColor colorWithRed:0.992f green:0.976f blue:0.886f alpha:1.00f];
     navbar.navigationBar.tintColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
 
