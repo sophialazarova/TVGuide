@@ -39,6 +39,7 @@
     [self.window addSubview:navbar.view];
     navbar.navigationBar.barTintColor = [UIColor colorWithRed:0.992f green:0.976f blue:0.886f alpha:1.00f];
     navbar.navigationBar.tintColor = [UIColor blackColor];
+    navbar.navigationBar.translucent = YES;
     [self.window makeKeyAndVisible];
 
     return YES;

@@ -35,20 +35,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"ТВ Програма";
-    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
+    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"FDF9E2" alpha:1.0];
     remoteManager = [[RemoteDataManager alloc] init];
     coredataManager = [CoreDataManager getManager];
  
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-}
-
--(NSString*) transformDate:(NSDate*) date{
-    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *dateTime = [NSString stringWithFormat:@"%@",[outputFormatter stringFromDate:date]];
-    return dateTime;
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    self.navigationController.navigationBar.translucent = YES;
 }
 
 -(NSArray*) getChannelsList{
@@ -70,7 +67,7 @@
 {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.textLabel.text = channelsList[indexPath.row];
-    cell.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
+    cell.backgroundColor = [UIColor colorWithHexValue:@"FDF9E2" alpha:1.0];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -83,6 +80,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SchedulesViewController *ctr = [[SchedulesViewController alloc]  initWithChannelName:channelsList[indexPath.row]];
+    ctr.navigationItem.title = channelsList[indexPath.row];
     [self.navigationController pushViewController:ctr animated:YES];
 }
 

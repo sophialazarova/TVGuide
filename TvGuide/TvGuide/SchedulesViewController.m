@@ -45,7 +45,7 @@
     coredataManager = [CoreDataManager getManager];
     self.navigationController.navigationBar.translucent = YES;
     self.scrollView  = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    self.scrollView.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
+    self.scrollView.backgroundColor = [UIColor colorWithHexValue:@"FDF9E2" alpha:1.0];
     self.scrollView.scrollEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*5, self.view.bounds.size.height);
     self.scrollView.showsHorizontalScrollIndicator = YES;
@@ -149,13 +149,6 @@
       UITableView *current =  [_schedules[i] tableView];
         current.scrollEnabled = NO;
     }
-}
-
--(NSString*) transformDate:(NSDate*) date{
-    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *dateTime = [NSString stringWithFormat:@"%@",[outputFormatter stringFromDate:date]];
-    return dateTime;
 }
 
 @end

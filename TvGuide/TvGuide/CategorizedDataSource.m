@@ -18,8 +18,9 @@
 {
     [super viewDidLoad];
     [self.tableView registerClass:[ChannelScheduleItemTableViewCell class] forCellReuseIdentifier:@"categorizedCell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"header"];
     self.data = [NSArray new];
-    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
+    self.tableView.backgroundColor = [UIColor colorWithHexValue:@"FDF9E2" alpha:1.0];
     _isLoaded = NO;
 }
 
@@ -64,6 +65,14 @@
     CategorizedEntryModel *current = [self.data objectAtIndex:section];
     NSString *sectionTitle = current.channelName;
     return sectionTitle;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"header"];
+    cell.backgroundColor = [UIColor colorWithHexValue:@"000000" alpha:0.2];
+    cell.textLabel.text = [self.data[section] channelName];
+    return cell;
 }
 
 @end

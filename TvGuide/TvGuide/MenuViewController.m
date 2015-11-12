@@ -82,6 +82,7 @@
     ctr.isCategorized = YES;
     ctr.queryType = type;
     ctr.channelName = name;
+    ctr.navigationItem.title = name;
     [self.navigationController pushViewController:ctr animated:YES];
 }
 

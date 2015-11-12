@@ -20,7 +20,7 @@
         [self customizeCell];
         self.title.numberOfLines = 0;
         self.title.lineBreakMode = NSLineBreakByWordWrapping;
-        self.backgroundColor = [UIColor colorWithHexValue:@"FCAD5D" alpha:1.0];
+        self.backgroundColor = [UIColor colorWithHexValue:@"FDF9E2" alpha:1.0];
     }
     return self;
 }
@@ -50,7 +50,7 @@
 }
 
 -(void) customizeCell{
-    self.time.textColor = [UIColor whiteColor];
+    self.time.textColor = [UIColor colorWithHexValue:@"FA9A46" alpha:1.0];
     self.time.font = [UIFont fontWithName:@"Helvetica-Bold" size:17];
     self.title.font = [UIFont fontWithName:@"Helvetica" size:15];
 }

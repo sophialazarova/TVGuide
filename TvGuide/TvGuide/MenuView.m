@@ -1,6 +1,6 @@
 //
 //  AnimationView.m
-//  LocationAnimation
+//  TvGuide
 //
 //  Created by Sophia Lazarova on 2/6/15.
 //  Copyright (c) 2015 Sophia Lazarova. All rights reserved.
@@ -142,39 +142,32 @@
 
 -(void)drawRect:(CGRect)rect
 {
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:CGPointMake(self.bounds.size.width/2,0.0)];
-    [path addLineToPoint:CGPointMake(self.bounds.size.width/2, self.bounds.size.height)];
-    
-    UIBezierPath *path2 = [UIBezierPath bezierPath];
-    [path2 moveToPoint:CGPointMake(0.0,self.bounds.size.height/2)];
-    [path2 addLineToPoint:CGPointMake(self.bounds.size.width, self.bounds.size.height/2)];
-    
-    CAShapeLayer *pathLayer = [CAShapeLayer layer];
-    pathLayer.frame = self.bounds;
-    pathLayer.path = path.CGPath;
-    pathLayer.strokeColor = [[UIColor colorWithHexValue:@"CD7B4D" alpha:0.5] CGColor];
-    pathLayer.fillColor = nil;
-    pathLayer.lineWidth = 15.0f;
-    pathLayer.lineJoin = kCALineJoinBevel;
-    
-    CAShapeLayer *pathLayer2 = [CAShapeLayer layer];
-    pathLayer2.frame = self.bounds;
-    pathLayer2.path = path2.CGPath;
-    pathLayer2.strokeColor = [[UIColor  colorWithHexValue:@"CD7B4D" alpha:0.5] CGColor];
-    pathLayer2.fillColor = nil;
-    pathLayer2.lineWidth = 15.0f;
-    pathLayer2.lineJoin = kCALineJoinBevel;
-    
-    [self.layer addSublayer:pathLayer2];
-    [self.layer addSublayer:pathLayer];
+    CAShapeLayer *verticalLineLayer = [self createLineFrom:CGPointMake(self.bounds.size.width/2,0.0) to:CGPointMake(self.bounds.size.width/2, self.bounds.size.height)];
+    CAShapeLayer *horizontalLineLayer = [self createLineFrom:CGPointMake(0.0,self.bounds.size.height/2) to:CGPointMake(self.bounds.size.width, self.bounds.size.height/2)];
     
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     pathAnimation.duration = 1.0;
     pathAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
     pathAnimation.toValue = [NSNumber numberWithFloat:1.0f];
-    [pathLayer addAnimation:pathAnimation forKey:@"strokeEnd"];
-    [pathLayer2 addAnimation:pathAnimation forKey:@"strokeEnd"];
+    [verticalLineLayer addAnimation:pathAnimation forKey:@"strokeEnd"];
+    [horizontalLineLayer addAnimation:pathAnimation forKey:@"strokeEnd"];
+}
+
+-(CAShapeLayer*) createLineFrom:(CGPoint) from to:(CGPoint)to
+{
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:from];
+    [path addLineToPoint:to];
+    CAShapeLayer *pathLayer = [CAShapeLayer layer];
+    pathLayer.frame = self.bounds;
+    pathLayer.path = path.CGPath;
+    pathLayer.strokeColor = [[UIColor colorWithHexValue:@"000000" alpha:0.2] CGColor];
+    pathLayer.fillColor = nil;
+    pathLayer.lineWidth = 15.0f;
+    pathLayer.lineJoin = kCALineJoinBevel;
+    
+    [self.layer addSublayer:pathLayer];
+    return pathLayer;
 }
 
 @end
