@@ -24,7 +24,7 @@
         
         _horizontalInsets =frame.size.width/3;
         _pointWidth = (_horizontalInsets/5)/2;
-        _defaultPointColor = [UIColor colorWithHexValue:@"FDFAE6" alpha:1.0];
+        _defaultPointColor = [UIColor colorWithHexValue:@"FA9A46" alpha:1.0];
         self.backgroundColor = [UIColor colorWithHexValue:@"000000" alpha:0.4];
         UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     
@@ -45,7 +45,7 @@
         CALayer *point = [CALayer new];
         point.backgroundColor = _defaultPointColor.CGColor;
         if (i == 0){
-            point.backgroundColor = [UIColor colorWithHexValue:@"FA9A46" alpha:1.0].CGColor;
+            point.backgroundColor = [UIColor colorWithHexValue:@"FDFAE6" alpha:1.0].CGColor;
         }
         point.frame = CGRectMake(_horizontalInsets + i*_pointWidth*2 , self.bounds.size.height/2-_pointWidth/2, _pointWidth,  _pointWidth);
         point.cornerRadius = _pointWidth/2;
@@ -68,7 +68,7 @@
     {
         [self resetPointsBackgroundColor];
         CALayer *selectedPoint = _points[index];
-        selectedPoint.backgroundColor = [UIColor colorWithHexValue:@"FA9A46" alpha:1.0].CGColor;
+        selectedPoint.backgroundColor = [UIColor colorWithHexValue:@"FDFAE6" alpha:1.0].CGColor;
     }
 }
 

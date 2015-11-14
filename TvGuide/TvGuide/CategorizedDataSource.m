@@ -70,7 +70,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"header"];
-    cell.backgroundColor = [UIColor colorWithHexValue:@"000000" alpha:0.2];
+    cell.backgroundColor = [UIColor colorWithHexValue:@"000000" alpha:0.4];
     cell.textLabel.text = [self.data[section] channelName];
     return cell;
 }
