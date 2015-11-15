@@ -10,9 +10,10 @@
 
 @interface ChannelScheduleEntryModel : NSObject
 
-@property(strong,nonatomic) NSString *title;
-@property(strong,nonatomic) NSString *time;
-
 -(id) initWithTitle:(NSString*) title andTime:(NSString*) time;
+
+@property(strong,nonatomic) NSString *title;
+
+@property(strong,nonatomic) NSString *time;
 
 @end

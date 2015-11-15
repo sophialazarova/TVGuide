@@ -10,39 +10,45 @@
 #import "Channel.h"
 #import "CoreDataManager.h"
 
-@implementation LoadingChannelHelper{
-    CoreDataManager *coredataManager;
+@implementation LoadingChannelHelper
+{
+    CoreDataManager *_coredataManager;
 }
 
--(instancetype)init{
+-(instancetype)init
+{
     self = [super init];
     if(self){
-        coredataManager = [CoreDataManager getManager];
+        _coredataManager = [CoreDataManager getManager];
     }
     
     return self;
 }
 
--(void)loadChannels{
+-(void)loadChannels
+{
     NSArray* channels = [self loadChannelsFromFile];
     [self saveChannelsToDatabase:channels];
 }
 
--(NSArray*) loadChannelsFromFile{
+-(NSArray*) loadChannelsFromFile
+{
     NSString *channelsListPath = [[NSBundle mainBundle] pathForResource:@"ListOfChannels" ofType:@"plist"];
     NSArray * channelsList = [NSArray arrayWithContentsOfFile:channelsListPath];
     return channelsList;
 }
 
--(void) saveChannelsToDatabase:(NSArray*) channels{
+-(void) saveChannelsToDatabase:(NSArray*) channels
+{
     for (int i = 0; i< [channels count]; i++) {
         NSDictionary *dict = [channels objectAtIndex:i];
-        Channel *currentChannel = [NSEntityDescription insertNewObjectForEntityForName:@"Channel" inManagedObjectContext:coredataManager.context];
+        Channel *currentChannel = [NSEntityDescription insertNewObjectForEntityForName:@"Channel" inManagedObjectContext:_coredataManager.context];
         currentChannel.name = [dict valueForKey:@"name"];
        currentChannel.code = [dict valueForKey:@"code"];
-        [coredataManager.context insertObject:currentChannel];
+        [_coredataManager.context insertObject:currentChannel];
     }
     
-    [coredataManager saveContext];
+    [_coredataManager saveContext];
 }
+
 @end

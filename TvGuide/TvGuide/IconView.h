@@ -11,6 +11,7 @@
 @interface IconView : UIView
 
 @property(strong,nonatomic) UILabel *title;
+
 @property(strong,nonatomic) UIImageView *iconImageView;
 
 -(instancetype) initWithTitle: (NSString*) title icon:(UIImage*) icon;

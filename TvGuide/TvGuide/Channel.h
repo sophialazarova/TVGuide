@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-
 @interface Channel : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * code;
+@property (nonatomic, retain) NSString *name;
+
+@property (nonatomic, retain) NSString *code;
 
 @end

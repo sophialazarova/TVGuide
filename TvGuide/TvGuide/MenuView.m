@@ -10,13 +10,12 @@
 #import <Masonry.h>
 #import "UIColor+HexRepresentation.h"
 
-@implementation MenuView{
-    BOOL areIconsVisisble;
-}
--(instancetype)init{
+@implementation MenuView
+
+-(instancetype)init
+{
     self = [super init];
-    if(self){
-        areIconsVisisble = NO;
+    if (self) {
         [self initializeComponents];
         [self setupClosedStateIconsConstrants];
         [self setBackgroundColor:[UIColor colorWithRed:0.992f green:0.976f blue:0.886f alpha:1.00f]];
@@ -24,7 +23,8 @@
         return self;
 }
 
--(void) initializeComponents{
+-(void) initializeComponents
+{
     UIImage *seriesImg = [UIImage imageNamed:@"series.png"];
     self.seriesIcon = [[IconView alloc] initWithTitle:@"Сериали" icon:seriesImg];
     [self addSubview:self.seriesIcon];
@@ -42,7 +42,8 @@
     [self addSubview:self.sportsIcon];
 }
 
--(void) setupClosedStateIconsConstrants{
+-(void) setupClosedStateIconsConstrants
+{
     [self.seriesIcon mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.mas_centerX);
         make.centerY.mas_equalTo(self.mas_centerY);
@@ -68,7 +69,8 @@
     self.sportsIcon.alpha = 0.0;
 }
 
--(void) setupOpenStateIconsConstrants{
+-(void) setupOpenStateIconsConstrants
+{
     [self.seriesIcon mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.mas_centerY).with.offset(-self.bounds.size.height/4);
         make.centerX.mas_equalTo(self.mas_centerX).with.offset(-self.bounds.size.width/4);
@@ -91,27 +93,28 @@
     }];
 }
 
--(void) showIcons{
+-(void) showIcons
+{
     [self setupOpenStateIconsConstrants];
     [self zoomIn:self.seriesIcon];
     [self zoomIn:self.sportsIcon];
     [self zoomIn:self.TVIcon];
     [self zoomIn:self.moviesIcon];
-    areIconsVisisble = !areIconsVisisble;
     [self animateConstrants];
 }
 
--(void) hideIcons{
+-(void) hideIcons
+{
     [self setupClosedStateIconsConstrants];
     [self zoomOut:self.seriesIcon];
     [self zoomOut:self.sportsIcon];
     [self zoomOut:self.TVIcon];
     [self zoomOut:self.moviesIcon];
-    areIconsVisisble = !areIconsVisisble;
     [self animateConstrants];
 }
 
--(void) zoomIn:(UIView*) element{
+-(void) zoomIn:(UIView*) element
+{
     element.alpha = 0.0f;
     element.transform = CGAffineTransformMakeScale(0.1,0.1);
     [UIView beginAnimations:@"zoomIn" context:NULL];
@@ -121,7 +124,8 @@
     [UIView commitAnimations];
 }
 
--(void) zoomOut:(UIView*) element{
+-(void) zoomOut:(UIView*) element
+{
     element.alpha = 1.0f;
     element.transform = CGAffineTransformMakeScale(1,1);
     [UIView beginAnimations:@"zoomOut" context:NULL];
@@ -131,7 +135,8 @@
     [UIView commitAnimations];
 }
 
--(void) animateConstrants{
+-(void) animateConstrants
+{
     [UIView animateWithDuration:0.8 animations:^{
         [self.seriesIcon layoutIfNeeded];
         [self.TVIcon layoutIfNeeded];
@@ -153,7 +158,7 @@
     [horizontalLineLayer addAnimation:pathAnimation forKey:@"strokeEnd"];
 }
 
--(CAShapeLayer*) createLineFrom:(CGPoint) from to:(CGPoint)to
+-(CAShapeLayer*)createLineFrom:(CGPoint)from to:(CGPoint)to
 {
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:from];

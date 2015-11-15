@@ -10,7 +10,8 @@
 
 @implementation ChannelScheduleEntryModel
 
--(id)initWithTitle:(NSString *)title andTime:(NSString *)time{
+-(id)initWithTitle:(NSString *)title andTime:(NSString *)time
+{
     self = [super init];
     if(self){
         self.title = title;

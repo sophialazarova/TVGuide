@@ -10,9 +10,10 @@
 
 @interface CategorizedEntryModel : NSObject
 
-@property(strong,nonatomic) NSString *channelName;
-@property(strong, nonatomic) NSArray *channelEntries;
-
 -(instancetype) initWithChannelName:(NSString*) name entries:(NSArray*) entries;
+
+@property(strong,nonatomic) NSString *channelName;
+
+@property(strong, nonatomic) NSArray *channelEntries;
 
 @end

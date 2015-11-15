@@ -10,7 +10,6 @@
 
 @implementation UIColor (HexRepresentation)
 
-
 +(UIColor *)colorWithHexValue:(NSString *)hexValue alpha:(CGFloat)alpha
 {
     UIColor *defaultResult = [UIColor blackColor];

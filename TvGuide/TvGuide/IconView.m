@@ -12,7 +12,8 @@
 
 @implementation IconView
 
--(instancetype)initWithTitle:(NSString *)title icon:(UIImage *)icon{
+-(instancetype)initWithTitle:(NSString *)title icon:(UIImage *)icon
+{
     self = [super init];
     if(self){
         [self intializeSubviews];
@@ -24,7 +25,8 @@
     return self;
 }
 
--(void) intializeSubviews{
+-(void) intializeSubviews
+{
     self.iconImageView = [[UIImageView alloc] init];
     [self addSubview:self.iconImageView];
     
@@ -32,12 +34,14 @@
     [self addSubview:self.title];
 }
 
--(void) setTitle:(NSString*) title icon:(UIImage*) icon{
+-(void) setTitle:(NSString*) title icon:(UIImage*) icon
+{
     self.iconImageView.image = icon;
     self.title.text = title;
 }
 
--(void) addConstraintsToSubviews{
+-(void) addConstraintsToSubviews
+{
     
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self.mas_centerX);
@@ -49,7 +53,8 @@
     }];
 }
 
--(CGSize)intrinsicContentSize{
+-(CGSize)intrinsicContentSize
+{
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:12.88]};
     CGSize textSize =  [self.title.text sizeWithAttributes:attributes];
     CGFloat width = MAX(self.iconImageView.image.size.width, textSize.width);
@@ -58,12 +63,14 @@
     return CGSizeMake(width, height+verticalSpace);
 }
 
--(void) setTitleFont{
+-(void) setTitleFont
+{
     self.title.textColor = [UIColor blackColor];
     [self.title setFont:[UIFont boldSystemFontOfSize:17]];
 }
 
--(void)addAction:(SEL)selector caller:(id)caller{
+-(void)addAction:(SEL)selector caller:(id)caller
+{
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:caller action:selector];
     [self addGestureRecognizer:tapRecognizer];
 }

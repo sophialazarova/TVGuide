@@ -12,7 +12,8 @@
 
 @implementation ChannelScheduleItemTableViewCell
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self){
         [self initializeSubviews];
@@ -26,7 +27,8 @@
 }
 
 
--(void) initializeSubviews{
+-(void) initializeSubviews
+{
     self.title = [[UILabel alloc] init];
     [self addSubview:self.title];
     
@@ -34,7 +36,8 @@
     [self addSubview:self.time];
 }
 
--(void) setupConstraints{
+-(void) setupConstraints
+{
     [self.time mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(20);
         make.width.mas_equalTo(50);
@@ -49,7 +52,8 @@
     }];
 }
 
--(void) customizeCell{
+-(void) customizeCell
+{
     self.time.textColor = [UIColor colorWithHexValue:@"FA9A46" alpha:1.0];
     self.time.font = [UIFont fontWithName:@"Helvetica-Bold" size:17];
     self.title.font = [UIFont fontWithName:@"Helvetica" size:15];

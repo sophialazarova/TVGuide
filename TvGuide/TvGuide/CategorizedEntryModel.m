@@ -10,7 +10,8 @@
 
 @implementation CategorizedEntryModel
 
--(instancetype)initWithChannelName:(NSString *)name entries:(NSArray *)entries{
+-(instancetype)initWithChannelName:(NSString *)name entries:(NSArray *)entries
+{
     self = [super init];
     if (self){
         self.channelName = name;
@@ -19,4 +20,5 @@
     
     return self;
 }
+
 @end

@@ -10,10 +10,12 @@
 
 @interface TvShowEntryModel : NSObject
 
-@property(strong, nonatomic) NSString *title;
-@property(strong,nonatomic) NSString *time;
-@property(strong,nonatomic) NSString *day;
-
 -(instancetype) initWithTitle:(NSString*) title time:(NSString*) time day:(NSString*) day;
+
+@property(strong, nonatomic) NSString *title;
+
+@property(strong,nonatomic) NSString *time;
+
+@property(strong,nonatomic) NSString *day;
 
 @end

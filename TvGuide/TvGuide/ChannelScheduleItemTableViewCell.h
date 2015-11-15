@@ -11,6 +11,7 @@
 @interface ChannelScheduleItemTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) UILabel *time;
+
 @property (strong, nonatomic) UILabel *title;
 
 @end

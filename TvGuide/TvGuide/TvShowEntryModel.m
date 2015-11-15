@@ -10,7 +10,8 @@
 
 @implementation TvShowEntryModel
 
--(instancetype)initWithTitle:(NSString *)title time:(NSString *)time day:(NSString *)day{
+-(instancetype)initWithTitle:(NSString *)title time:(NSString *)time day:(NSString *)day
+{
     self = [super init];
     if(self){
         self.title = title;

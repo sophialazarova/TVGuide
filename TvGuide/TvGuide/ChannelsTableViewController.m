@@ -20,24 +20,25 @@
 
 @end
 
-@implementation ChannelsTableViewController{
-    RemoteDataManager *remoteManager;
-    CoreDataManager *coredataManager;
-    NSArray *channelsList;
-    NSString *searchedChannelCode;
-    NSString *now;
+@implementation ChannelsTableViewController
+{
+    RemoteDataManager *_remoteManager;
+    CoreDataManager *_coredataManager;
+    NSArray *_channelsList;
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    channelsList = [self getChannelsList];
+-(void)viewWillAppear:(BOOL)animated
+{
+    _channelsList = [self getChannelsList];
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.navigationItem.title = @"ТВ Програма";
     self.tableView.backgroundColor = [UIColor colorWithHexValue:@"FDF9E2" alpha:1.0];
-    remoteManager = [[RemoteDataManager alloc] init];
-    coredataManager = [CoreDataManager getManager];
+    _remoteManager = [[RemoteDataManager alloc] init];
+    _coredataManager = [CoreDataManager getManager];
  
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -48,10 +49,11 @@
     self.navigationController.navigationBar.translucent = YES;
 }
 
--(NSArray*) getChannelsList{
+-(NSArray*) getChannelsList
+{
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Channel"];
     [request setPropertiesToFetch: [NSArray arrayWithObjects:@"name", nil]];
-    NSArray *fetchedObjects = [coredataManager.context executeFetchRequest:request error:nil];
+    NSArray *fetchedObjects = [_coredataManager.context executeFetchRequest:request error:nil];
     NSMutableArray *channels = [[NSMutableArray alloc] initWithCapacity:[fetchedObjects count]];
     for (int i = 0; i<[fetchedObjects count]; i++) {
         [channels addObject:[[fetchedObjects objectAtIndex:i] name]];
@@ -61,12 +63,12 @@
     return channels;
 }
 
-#pragma mark - TableView methods
+#pragma mark - TableViewDataSource & TableViewDelegate
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = channelsList[indexPath.row];
+    cell.textLabel.text = _channelsList[indexPath.row];
     cell.backgroundColor = [UIColor colorWithHexValue:@"FDF9E2" alpha:1.0];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -74,13 +76,13 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return channelsList.count;
+    return _channelsList.count;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SchedulesViewController *ctr = [[SchedulesViewController alloc]  initWithChannelName:channelsList[indexPath.row]];
-    ctr.navigationItem.title = channelsList[indexPath.row];
+    SchedulesViewController *ctr = [[SchedulesViewController alloc]  initWithChannelName:_channelsList[indexPath.row]];
+    ctr.navigationItem.title = _channelsList[indexPath.row];
     [self.navigationController pushViewController:ctr animated:YES];
 }
 

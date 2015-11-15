@@ -24,6 +24,8 @@
     _isLoaded = NO;
 }
 
+#pragma mark - UITableViewDataSource
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ChannelScheduleItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"categorizedCell" forIndexPath:indexPath];
@@ -59,6 +61,8 @@
 {
     return self.data.count;
 }
+
+#pragma mark - UITableViewDelegate
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {

@@ -11,4 +11,5 @@
 @interface LoadingChannelHelper : NSObject
 
 -(void) loadChannels;
+
 @end

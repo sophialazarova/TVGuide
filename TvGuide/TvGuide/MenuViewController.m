@@ -18,12 +18,14 @@
 
 @end
 
-@implementation MenuViewController{
-    MenuView *view;
+@implementation MenuViewController
+{
+    MenuView *_mainView;
     BOOL _isInitialLoad;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.navigationItem.title = @"Меню";
     [self setupButtonsActions];
@@ -32,52 +34,60 @@
     self.navigationController.navigationBar.translucent = YES;
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     if (_isInitialLoad){
-      [view showIcons];
+      [_mainView showIcons];
     }
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     if (!_isInitialLoad) {
-        [view showIcons];
+        [_mainView showIcons];
     }
     _isInitialLoad = YES;
 }
 
--(void) setupButtonsActions{
-    [view.TVIcon addAction:@selector(pushTvScheduleController) caller:self];
-    [view.moviesIcon addAction:@selector(pushMoviesController) caller:self];
-    [view.seriesIcon addAction:@selector(pushTVSeriesController) caller:self];
-    [view.sportsIcon addAction:@selector(pushSportsController) caller:self];
+-(void)loadView
+{
+    _mainView = [[MenuView alloc] init];
+    self.view = _mainView;
 }
 
--(void)loadView{
-     view = [[MenuView alloc] init];
-    self.view = view;
+-(void) setupButtonsActions
+{
+    [_mainView.TVIcon addAction:@selector(pushTvScheduleController) caller:self];
+    [_mainView.moviesIcon addAction:@selector(pushMoviesController) caller:self];
+    [_mainView.seriesIcon addAction:@selector(pushTVSeriesController) caller:self];
+    [_mainView.sportsIcon addAction:@selector(pushSportsController) caller:self];
 }
 
--(void) pushTvScheduleController{
+-(void) pushTvScheduleController
+{
     ChannelsTableViewController *tvController = [[ChannelsTableViewController alloc] init];
     [self.navigationController pushViewController:tvController animated:YES];
 }
 
--(void) pushMoviesController{
+-(void) pushMoviesController
+{
     [self pushScheduleControllerWithName:@"Филми" type:CategorizedScheduleTypeMovies];
 }
 
--(void) pushSportsController {
+-(void) pushSportsController
+{
 
     [self pushScheduleControllerWithName:@"Спорт" type:CategorizedScheduleTypeSports];
 }
 
--(void) pushTVSeriesController {
+-(void) pushTVSeriesController
+{
 
     [self pushScheduleControllerWithName:@"Сериали" type:CategorizedScheduleTypeTVSeries];
 }
 
--(void) pushScheduleControllerWithName:(NSString*)name type:(CategorizedScheduleType)type {
+-(void) pushScheduleControllerWithName:(NSString*)name type:(CategorizedScheduleType)type
+{
     SchedulesViewController *ctr = [[SchedulesViewController alloc]  init];
     ctr.isCategorized = YES;
     ctr.queryType = type;

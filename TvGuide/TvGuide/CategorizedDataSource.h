@@ -6,7 +6,6 @@
 //  Copyright © 2015 sph. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface CategorizedDataSource : UITableViewController

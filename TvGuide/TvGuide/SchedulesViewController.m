@@ -20,11 +20,8 @@
 {
     NSMutableArray *_schedules;
     NSMutableArray *_dataSources;
-    RemoteDataManager *remoteManager;
-    CoreDataManager *coredataManager;
-    NSDate *_startdate;
-    CGPoint lastScrollPosition;
-    NSArray *colors;
+    RemoteDataManager *_remoteManager;
+    CoreDataManager *_coredataManager;
     TransitionIndicatorView *_transitionView;
     UIActivityIndicatorView *_progressView;
     NSInteger _lastShownTabIndex;
@@ -45,8 +42,8 @@
     [super viewDidLoad];
     
     _lastShownTabIndex = 0;
-    remoteManager = [[RemoteDataManager alloc] init];
-    coredataManager = [CoreDataManager getManager];
+    _remoteManager = [[RemoteDataManager alloc] init];
+    _coredataManager = [CoreDataManager getManager];
     self.navigationController.navigationBar.translucent = YES;
     self.scrollView  = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height, self.view.bounds.size.width, self.view.bounds.size.height - (self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height + 50))];
     self.scrollView.backgroundColor = [UIColor colorWithHexValue:@"FDF9E2" alpha:1.0];
@@ -68,7 +65,6 @@
     
     _schedules = [NSMutableArray new];
     _dataSources = [NSMutableArray new];
-    _startdate = [NSDate new];
     [self inittializeSchedulesAndDataSources];
     [self loadSchedulForIndex:0 ForDate:[NSDate new]];
     _transitionView = [[TransitionIndicatorView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-50, self.view.bounds.size.width, 50)];
@@ -85,7 +81,6 @@
         else {
             ctr = [SchedulesDataSource new];
         }
-        ctr.view.backgroundColor = colors[i];
         ctr.view.frame = CGRectMake(i*self.view.bounds.size.width, 0, self.view.bounds.size.width, self.scrollView.bounds.size.height);
         [_schedules addObject:ctr];
         [self addChildViewController:ctr];
@@ -98,7 +93,7 @@
     NSPredicate *filter = [NSPredicate predicateWithFormat:@"name == %@", channelName];
     [requestForCode setPredicate:filter];
     NSError *error = nil;
-    NSArray* searchedChannelEntry = [coredataManager.context executeFetchRequest:requestForCode error:&error];
+    NSArray* searchedChannelEntry = [_coredataManager.context executeFetchRequest:requestForCode error:&error];
     Channel *current = [searchedChannelEntry objectAtIndex:0];
     NSString *result = current.code;
     return result;
@@ -115,10 +110,10 @@
         NSArray *result;
         if (self.queryType == CategorizedScheduleTypeNone) {
             NSString* searchedChannelCode = [self getChannelCode:self.channelName];
-            result = [remoteManager getScheduleForChannel:searchedChannelCode WithDate:date];
+            result = [_remoteManager getScheduleForChannel:searchedChannelCode WithDate:date];
         }
         else {
-            result = [remoteManager getCategorizedSchedule:self.queryType date:date];
+            result = [_remoteManager getCategorizedSchedule:self.queryType date:date];
         }
 
         dispatch_async(dispatch_get_main_queue(),^{

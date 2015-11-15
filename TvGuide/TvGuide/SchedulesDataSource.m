@@ -21,6 +21,8 @@
     _isLoaded = NO;
 }
 
+#pragma mark - UITableViewDataSource
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.data.count;

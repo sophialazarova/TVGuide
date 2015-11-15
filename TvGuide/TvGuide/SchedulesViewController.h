@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CategorizedScheduleType.h"
+
 @interface SchedulesViewController : UIViewController<UIScrollViewDelegate>
 
 @property(strong, nonatomic) UIScrollView *scrollView;

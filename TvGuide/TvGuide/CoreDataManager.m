@@ -8,11 +8,13 @@
 
 #import "CoreDataManager.h"
 
-@implementation CoreDataManager{
-    NSString* database;
+@implementation CoreDataManager
+{
+    NSString* _database;
 }
 
-+(instancetype)getManager{
++(instancetype)getManager
+{
     static CoreDataManager *manager;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
@@ -22,10 +24,11 @@
     return manager;
 }
 
--(instancetype)init{
+-(instancetype)init
+{
     self = [super init];
     if(self){
-        database = @"Channel.sqlite";
+        _database = @"Channel.sqlite";
         self.context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         self.model = [NSManagedObjectModel mergedModelFromBundles:nil];
         self.coordinator = [[NSPersistentStoreCoordinator alloc]
@@ -36,11 +39,13 @@
     return self;
 }
 
--(void)setupCoreData{
+-(void)setupCoreData
+{
     [self loadStore];
 }
 
--(void)saveContext{
+-(void)saveContext
+{
     if([self.context hasChanges]){
         NSError* error = nil;
         if([self.context save:&error]){
@@ -53,7 +58,8 @@
     }
 }
 
--(void) loadStore{
+-(void) loadStore
+{
     if(self.store){
         return;
     }
@@ -69,8 +75,9 @@
     }
 }
 
--(NSURL*) getStoreURL{
-    return [[self getApplicationStoresDirectory] URLByAppendingPathComponent:database];
+-(NSURL*) getStoreURL
+{
+    return [[self getApplicationStoresDirectory] URLByAppendingPathComponent:_database];
 }
 
 - (NSURL *)getApplicationStoresDirectory

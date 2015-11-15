@@ -14,25 +14,27 @@
 
 @implementation RemoteDataManager
 
--(NSMutableArray*)getScheduleForChannel:(NSString*)channel WithDate:(NSString *)date{
+-(NSMutableArray*)getScheduleForChannel:(NSString*)channel WithDate:(NSString *)date
+{
     NSURL *url = [[NSURL alloc] initWithString:
                   [NSString stringWithFormat:
                    @"http://tvguide-2.apphb.com/api/tvguide/GetScheduleForChannel?channel=%@&date=%@",
                    channel,date]];
-    NSMutableArray *scheduleItems = [[NSMutableArray alloc] init];
+    NSMutableArray *scheduleItems;
     NSError *error = nil;
     NSData *data = [self getDataRequestForUrl:url error:error];
     if(data.length>0 && error == nil){
         scheduleItems = [self serializeChannelScheduleData:data];
     }
     else{
-        //handle server returning error!
+        return scheduleItems;
     }
 
     return scheduleItems;
 }
 
--(NSMutableArray*) getCategorizedSchedule:(CategorizedScheduleType) scheduleType date:(NSString*) date{
+-(NSMutableArray*) getCategorizedSchedule:(CategorizedScheduleType) scheduleType date:(NSString*) date
+{
     NSMutableArray *result = [[NSMutableArray alloc] init];
     if(scheduleType == CategorizedScheduleTypeMovies){
         NSString *url = @"http://tvguide-2.apphb.com/api/tvguide/GetMoviesSchedule";
@@ -52,19 +54,20 @@
     return result;
 }
 
--(NSMutableArray*) getCategorizedScheduleForDate:(NSString*) date url:(NSString*) initialUrl{
+-(NSMutableArray*) getCategorizedScheduleForDate:(NSString*) date url:(NSString*) initialUrl
+{
     NSURL *url = [[NSURL alloc] initWithString:
                   [NSString stringWithFormat:
                    @"%@?date=%@",initialUrl,date]];
     
-    NSMutableArray *series = [[NSMutableArray alloc] init];
+    NSMutableArray *series;
     NSError *error = nil;
     NSData *data = [self getDataRequestForUrl:url error:error];
     if(data.length>0 && error == nil){
         series = [self serializeSpecializedSchedule:data];
     }
     else{
-        //handle server returning error!
+        return series;
     }
     
     return series;
@@ -72,14 +75,16 @@
 
 
 
--(NSData*) getDataRequestForUrl:(NSURL*) url error:(NSError*) error{
+-(NSData*) getDataRequestForUrl:(NSURL*) url error:(NSError*) error
+{
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURLResponse *response = nil;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     return data;
 }
 
--(NSMutableArray*) serializeChannelScheduleData:(NSData*) data{
+-(NSMutableArray*) serializeChannelScheduleData:(NSData*) data
+{
     NSError *error = nil;
     NSMutableArray *scheduleItems = [[NSMutableArray alloc] init];
     NSArray *responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -97,7 +102,8 @@
     return scheduleItems;
 }
 
--(NSMutableArray*) serializeSpecializedSchedule:(NSData*) data{
+-(NSMutableArray*) serializeSpecializedSchedule:(NSData*) data
+{
     NSError *error = nil;
     NSMutableArray *seriesItems = [[NSMutableArray alloc] init];
     NSArray *responseData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -114,7 +120,8 @@
     return seriesItems;
 }
 
--(NSArray*) serializeTVShowCollection:(NSArray*) entries{
+-(NSArray*) serializeTVShowCollection:(NSArray*) entries
+{
     NSMutableArray *result = [[NSMutableArray alloc] init];
     for (int i = 0; i < entries.count; i++) {
         NSDictionary *item = [entries objectAtIndex:i];
